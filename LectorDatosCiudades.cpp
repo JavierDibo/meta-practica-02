@@ -1,4 +1,3 @@
-#include <chrono>
 #include <iomanip>
 #include "LectorDatosCiudades.h"
 #include "omp.h"
@@ -8,7 +7,7 @@
 void mostrar_tiempo_transcurrido(const std::string &nombre_archivo, const Reloj &reloj_lector_datos) {
 
     if (ECHO) {
-        // std::cout << std::fixed << std::setprecision(2);
+        std::cout << std::fixed << std::setprecision(2);
         std::cout << "Tiempo en procesar el archivo " << nombre_archivo << ": "
                   << reloj_lector_datos.obtener_tiempo_transcurrido() << " milisegundos." << std::endl;
     }
@@ -30,7 +29,7 @@ LectorDatosCiudades::LectorDatosCiudades(const std::string &ruta) {
     }
 
     // Abrir archivo
-    this->ruta = ruta.substr(0, ruta.find('.'));
+    this->ruta_archivo_datos = ruta.substr(0, ruta.find('.'));
     std::ifstream archivo_datos(ruta);
     if (!archivo_datos.is_open()) {
         throw std::runtime_error("File not found");
@@ -64,20 +63,40 @@ LectorDatosCiudades::LectorDatosCiudades(const std::string &ruta) {
     distancias.resize(tam, std::vector<double>(tam));
 
     // Calcular las distancias entre las ciudades
-#pragma omp parallel for default(none) shared(tam, INFINITO_POSITIVO) if (PARALELIZACION)
     for (int i = 0; i < tam; ++i) {
+#pragma omp parallel for default(none) shared(tam, i, INFINITO_POSITIVO) if (PARALELIZACION)
         for (int j = i; j < tam; ++j) {
             if (i == j) {
                 distancias[i][j] = INFINITO_POSITIVO;
             } else {
-                distancias[i][j] = distancias[j][i] = std::sqrt(std::pow(ciudades[i][0] - ciudades[j][0], 2) +
-                                                                std::pow(ciudades[i][1] - ciudades[j][1], 2));
+                double dx = ciudades[i][0] - ciudades[j][0];
+                double dy = ciudades[i][1] - ciudades[j][1];
+                double distancia = std::hypot(dx, dy);
+                distancias[i][j] = distancias[j][i] = distancia;
             }
         }
     }
 
     reloj_lector_datos.finalizar();
     mostrar_tiempo_transcurrido(nombre_archivo, reloj_lector_datos);
+}
+
+bool
+LectorDatosCiudades::sonIguales(const std::vector<std::vector<double>> &A, const std::vector<std::vector<double>> &B,
+                                double tolerancia) {
+    if (A.size() != B.size()) return false;
+
+    for (size_t i = 0; i < A.size(); ++i) {
+        if (A[i].size() != B[i].size()) return false;
+
+        for (size_t j = 0; j < A[i].size(); ++j) {
+            if (std::fabs(A[i][j] - B[i][j]) > tolerancia) {
+                return false;
+            }
+        }
+    }
+
+    return true;
 }
 
 LectorDatosCiudades::LectorDatosCiudades() = default;

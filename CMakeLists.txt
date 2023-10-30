@@ -13,9 +13,11 @@ add_executable(meta_practica_02 main.cpp
         Reloj.h
         LectorParametros.cpp
         LectorParametros.h
+        Logger.cpp
+        Logger.h
 )
 
 find_package(OpenMP)
-if(OPENMP_FOUND)
+if (OPENMP_FOUND)
     target_link_libraries(meta_practica_02 PUBLIC OpenMP::OpenMP_CXX)
-endif()
+endif ()

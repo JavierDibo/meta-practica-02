@@ -7,7 +7,7 @@
 
 class LectorDatosCiudades {
 private:
-    std::string ruta;
+    std::string ruta_archivo_datos;
     std::vector<std::vector<double>> ciudades;
     std::vector<std::vector<double>> distancias;
 
@@ -17,15 +17,17 @@ public:
 
     explicit LectorDatosCiudades(const std::string &ruta);
 
-    std::string getRuta() const {
-        return ruta;
+    static bool sonIguales(const std::vector<std::vector<double>>& A, const std::vector<std::vector<double>>& B, double tolerancia = 1e-9);
+
+    [[maybe_unused]] [[nodiscard]] std::string getRutaArchivoDatos() const {
+        return ruta_archivo_datos;
     }
 
-    std::vector<std::vector<double>> getCiudades() const {
+    [[maybe_unused]] [[nodiscard]] std::vector<std::vector<double>> getCiudades() const {
         return ciudades;
     }
 
-    std::vector<std::vector<double>> getDistancias() const {
+    [[maybe_unused]] [[nodiscard]] std::vector<std::vector<double>> getDistancias() const {
         return distancias;
     }
 };

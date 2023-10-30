@@ -21,5 +21,6 @@ extern const int INFINITO_NEGATIVO;
 
 extern std::vector<int> SEMILLAS;
 extern std::vector<std::string> ARCHIVOS_DATOS;
+extern std::string ARCHIVO_DATOS;
 
 #endif //META_PRACTICA_02_GLOBALS_H

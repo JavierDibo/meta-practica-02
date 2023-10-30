@@ -15,12 +15,9 @@ using std::vector;
 
 int main() {
 
-    LectorParametros lp(R"(.\parametros.txt)");
+    LectorParametros lector_parametros(R"(.\parametros.txt)");
 
-    string larga = "d15112.tsp";
-    string corta = "ch130.tsp";
-
-    LectorDatosCiudades lc(R"(C:\Users\jfdg0\Desktop\Metaheuristicas\Practica 2\Datos\)" + corta);
+    LectorDatosCiudades lector_ciudades(ARCHIVO_DATOS);
 
     return 0;
 }

@@ -65,6 +65,7 @@ void LectorParametros::leer_parametros() {
         string archivo;
         while (getline(ss, archivo, ',')) {
             ARCHIVOS_DATOS.push_back("datos/" + archivo);
+            ARCHIVO_DATOS = "datos/" + archivo;
         }
     }
 
