@@ -3,22 +3,22 @@
 #include "LectorDatosCiudades.h"
 #include "omp.h"
 #include "globals.h"
+#include "Reloj.h"
 
-void mostrar_tiempo_transcurrido(const std::string &nombre_archivo,
-                                 const std::chrono::duration<double, std::milli> &tiempo_transcurrido) {
-    auto tiempo_final = std::chrono::duration_cast<std::chrono::duration<double, std::milli>>(
-            tiempo_transcurrido).count();
+void mostrar_tiempo_transcurrido(const std::string &nombre_archivo, const Reloj &reloj_lector_datos) {
 
     if (ECHO) {
-        std::cout << std::fixed << std::setprecision(2);
-        std::cout << "Tiempo en procesar el archivo " << nombre_archivo << ": " << tiempo_final << " milisegundos."
-                  << std::endl;
+        // std::cout << std::fixed << std::setprecision(2);
+        std::cout << "Tiempo en procesar el archivo " << nombre_archivo << ": "
+                  << reloj_lector_datos.obtener_tiempo_transcurrido() << " milisegundos." << std::endl;
     }
 }
 
 LectorDatosCiudades::LectorDatosCiudades(const std::string &ruta) {
 
-    auto tiempo_inicio = std::chrono::high_resolution_clock::now();
+    Reloj reloj_lector_datos;
+
+    reloj_lector_datos.iniciar();
 
     // Extraer nombre del archivo
     std::string nombre_archivo;
@@ -64,11 +64,11 @@ LectorDatosCiudades::LectorDatosCiudades(const std::string &ruta) {
     distancias.resize(tam, std::vector<double>(tam));
 
     // Calcular las distancias entre las ciudades
-#pragma omp parallel for default(none) shared(tam)
+#pragma omp parallel for default(none) shared(tam, INFINITO_POSITIVO) if (PARALELIZACION)
     for (int i = 0; i < tam; ++i) {
         for (int j = i; j < tam; ++j) {
             if (i == j) {
-                distancias[i][j] = std::numeric_limits<double>::infinity();
+                distancias[i][j] = INFINITO_POSITIVO;
             } else {
                 distancias[i][j] = distancias[j][i] = std::sqrt(std::pow(ciudades[i][0] - ciudades[j][0], 2) +
                                                                 std::pow(ciudades[i][1] - ciudades[j][1], 2));
@@ -76,8 +76,8 @@ LectorDatosCiudades::LectorDatosCiudades(const std::string &ruta) {
         }
     }
 
-    auto tiempo_fin = std::chrono::high_resolution_clock::now();
-    mostrar_tiempo_transcurrido(nombre_archivo, tiempo_fin - tiempo_inicio);
+    reloj_lector_datos.finalizar();
+    mostrar_tiempo_transcurrido(nombre_archivo, reloj_lector_datos);
 }
 
 LectorDatosCiudades::LectorDatosCiudades() = default;

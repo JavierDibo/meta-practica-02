@@ -12,7 +12,7 @@ echo=true
 statistics=true
 
 # Activa la paralelizacion (3~7x rendimiento)
-pragma=true
+paralelizacion=true
 
 # Crear archivos log
 log=false

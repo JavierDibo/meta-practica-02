@@ -9,6 +9,10 @@ add_executable(meta_practica_02 main.cpp
         LectorDatosCiudades.h
         globals.h
         globals.cpp
+        Reloj.cpp
+        Reloj.h
+        LectorParametros.cpp
+        LectorParametros.h
 )
 
 find_package(OpenMP)

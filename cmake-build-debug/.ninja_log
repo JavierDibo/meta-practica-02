@@ -1,7 +1,16 @@
 # ninja log v5
-1568	1770	7198444470873017	meta_practica_02.exe	1c855cb75038c551
+1511	1774	7203638560635807	meta_practica_02.exe	18f0e5e28ac5aeb3
 6	1276	7198438330396420	CMakeFiles/meta_practica_02.dir/LectorDatos.cpp.obj	4af3034d79b06f9e
-40	1719	7203620053703275	CMakeFiles/meta_practica_02.dir/main.cpp.obj	7a4fd041443733f5
-1	310	7203623018403473	build.ninja	c2a3df134344629d
-20	1361	7198456760556370	CMakeFiles/meta_practica_02.dir/LectorDatosCiudades.cpp.obj	3312740aadd9720a
+26	785	7203637927788183	CMakeFiles/meta_practica_02.dir/Reloj.cpp.obj	3062b2fa0f13f375
+6	1189	7203637931849158	CMakeFiles/meta_practica_02.dir/main.cpp.obj	7a4fd041443733f5
+1	310	7203639418505303	build.ninja	c2a3df134344629d
+6	1511	7203638558066756	CMakeFiles/meta_practica_02.dir/LectorDatosCiudades.cpp.obj	3312740aadd9720a
+20	786	7203637927828059	CMakeFiles/meta_practica_02.dir/globals.cpp.obj	bec2c35ec3ca6950
 29	1261	7198456759546120	CMakeFiles/meta_practica_02.dir/LectorParametros.cpp.obj	a2925880af52518e
+8	1225	7203644559196586	CMakeFiles/meta_practica_02.dir/main.cpp.obj	7a4fd041443733f5
+18	1538	7203644562316642	CMakeFiles/meta_practica_02.dir/LectorParametros.cpp.obj	a2925880af52518e
+1538	1818	7203644565047121	meta_practica_02.exe	c44d58efca9fd61
+7	1296	7203645049594914	CMakeFiles/meta_practica_02.dir/LectorParametros.cpp.obj	a2925880af52518e
+1297	1606	7203645052661093	meta_practica_02.exe	c44d58efca9fd61
+7	1323	7203645648024838	CMakeFiles/meta_practica_02.dir/main.cpp.obj	7a4fd041443733f5
+1324	1578	7203645650515799	meta_practica_02.exe	c44d58efca9fd61
