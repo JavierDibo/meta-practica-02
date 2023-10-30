@@ -37,7 +37,7 @@
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 20,
+				"line" : 29,
 				"parent" : 0
 			},
 			{
@@ -53,7 +53,7 @@
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 22,
+				"line" : 31,
 				"parent" : 0
 			}
 		]
@@ -87,7 +87,11 @@
 				4,
 				5,
 				7,
-				9
+				9,
+				11,
+				13,
+				15,
+				17
 			]
 		}
 	],
@@ -139,7 +143,11 @@
 				4,
 				5,
 				7,
-				9
+				9,
+				11,
+				13,
+				15,
+				17
 			]
 		},
 		{
@@ -150,7 +158,11 @@
 				3,
 				6,
 				8,
-				10
+				10,
+				12,
+				14,
+				16,
+				18
 			]
 		}
 	],
@@ -165,12 +177,12 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "LectorDatosCiudades.cpp",
+			"path" : "LectorCiudades.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "LectorDatosCiudades.h",
+			"path" : "LectorCiudades.h",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -215,6 +227,50 @@
 		{
 			"backtrace" : 1,
 			"path" : "Logger.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Individuo.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Individuo.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Poblacion.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Poblacion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "AlgoritmoGenetico.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "AlgoritmoGenetico.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "GeneradorAleatorio.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "GeneradorAleatorio.h",
 			"sourceGroupIndex" : 1
 		}
 	],

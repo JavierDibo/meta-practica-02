@@ -1,5 +1,5 @@
 #include <iomanip>
-#include "LectorDatosCiudades.h"
+#include "LectorCiudades.h"
 #include "omp.h"
 #include "globals.h"
 #include "Reloj.h"
@@ -13,7 +13,7 @@ void mostrar_tiempo_transcurrido(const std::string &nombre_archivo, const Reloj 
     }
 }
 
-LectorDatosCiudades::LectorDatosCiudades(const std::string &ruta) {
+LectorCiudades::LectorCiudades(const std::string &ruta) {
 
     Reloj reloj_lector_datos;
 
@@ -44,8 +44,8 @@ LectorDatosCiudades::LectorDatosCiudades(const std::string &ruta) {
     }
 
     // Leer el tamaño y las ciudades
-    int tam = std::stoi(linea.substr(linea.find(':') + 1));
-    ciudades.resize(tam, std::vector<double>(2));
+    num_ciudades = std::stoi(linea.substr(linea.find(':') + 1));
+    ciudades.resize(num_ciudades, std::vector<double>(2));
     while (getline(archivo_datos, linea)) {
         if (linea.find("EOF") != std::string::npos) {
             break;
@@ -60,12 +60,12 @@ LectorDatosCiudades::LectorDatosCiudades(const std::string &ruta) {
         iss >> ciudades[index][0] >> ciudades[index][1];
     }
 
-    distancias.resize(tam, std::vector<double>(tam));
+    distancias.resize(num_ciudades, std::vector<double>(num_ciudades));
 
     // Calcular las distancias entre las ciudades
-    for (int i = 0; i < tam; ++i) {
-#pragma omp parallel for default(none) shared(tam, i, INFINITO_POSITIVO) if (PARALELIZACION)
-        for (int j = i; j < tam; ++j) {
+    for (int i = 0; i < num_ciudades; ++i) {
+#pragma omp parallel for default(none) shared(num_ciudades, i, INFINITO_POSITIVO) if (PARALELIZACION)
+        for (int j = i; j < num_ciudades; ++j) {
             if (i == j) {
                 distancias[i][j] = INFINITO_POSITIVO;
             } else {
@@ -82,8 +82,8 @@ LectorDatosCiudades::LectorDatosCiudades(const std::string &ruta) {
 }
 
 bool
-LectorDatosCiudades::sonIguales(const std::vector<std::vector<double>> &A, const std::vector<std::vector<double>> &B,
-                                double tolerancia) {
+LectorCiudades::son_iguales(const std::vector<std::vector<double>> &A, const std::vector<std::vector<double>> &B,
+                            double tolerancia) {
     if (A.size() != B.size()) return false;
 
     for (size_t i = 0; i < A.size(); ++i) {
@@ -99,4 +99,16 @@ LectorDatosCiudades::sonIguales(const std::vector<std::vector<double>> &A, const
     return true;
 }
 
-LectorDatosCiudades::LectorDatosCiudades() = default;
+double LectorCiudades::calcular_distancia(int ciudad_a, int ciudad_b) const {
+    if (ciudad_a < 0 || ciudad_a >= ciudades.size() || ciudad_b < 0 || ciudad_b >= ciudades.size()) {
+        throw std::out_of_range("LectorCiudades::calcular_distancia::Ciudad fuera de rango");
+    }
+
+    return distancias[ciudad_a][ciudad_b];
+}
+
+int LectorCiudades::get_num_ciudades() const {
+    return num_ciudades;
+}
+
+LectorCiudades::LectorCiudades() = default;

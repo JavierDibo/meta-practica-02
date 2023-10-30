@@ -17,9 +17,9 @@ paralelizacion=true
 log=false
 
 # Nombre de los archivos de datos
-#datos=ch130.tsp
+datos=ch130.tsp
 #datos=pr144.tsp
-datos=d15112.tsp
+#datos=d15112.tsp
 
 max_iteraciones=1000
 
