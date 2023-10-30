@@ -1,0 +1,25 @@
+# Uso: semilla=1 -- semilla=3293,423,4166 -- semilla= -- etc
+semilla=77646884,47764688,84776468,88477646,68847764
+
+# Algoritmos implementados: greedy || 1 || pm || 2 || tabu || 3 || grasp || 4
+# Uso: algoritmo=1 -- algoritmo=tabu -- etc
+algoritmo=4
+
+# Imprimir datos por consola
+echo=true
+
+# Mostrar datos estadisticos por consola
+statistics=true
+
+# Activa la paralelizacion (3~7x rendimiento)
+pragma=true
+
+# Crear archivos log
+log=false
+
+# Nombre de los archivos de datos
+datos=ford01.dat,ford02.dat,ford03.dat,ford04.dat
+
+max_iteraciones=1000
+
+

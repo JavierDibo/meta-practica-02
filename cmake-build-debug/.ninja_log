@@ -1,0 +1,7 @@
+# ninja log v5
+1568	1770	7198444470873017	meta_practica_02.exe	1c855cb75038c551
+6	1276	7198438330396420	CMakeFiles/meta_practica_02.dir/LectorDatos.cpp.obj	4af3034d79b06f9e
+40	1719	7203620053703275	CMakeFiles/meta_practica_02.dir/main.cpp.obj	7a4fd041443733f5
+1	310	7203623018403473	build.ninja	c2a3df134344629d
+20	1361	7198456760556370	CMakeFiles/meta_practica_02.dir/LectorDatosCiudades.cpp.obj	3312740aadd9720a
+29	1261	7198456759546120	CMakeFiles/meta_practica_02.dir/LectorParametros.cpp.obj	a2925880af52518e
