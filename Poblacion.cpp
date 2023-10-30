@@ -34,7 +34,7 @@ void Poblacion::evolucion_generacional() {
             Individuo padre1 = seleccionar();
             Individuo padre2 = seleccionar();
             Individuo hijo = cruzar(padre1, padre2);
-            mutar(hijo);
+            hijo.mutar();
             nueva_poblacion.push_back(hijo);
         }
 
@@ -140,26 +140,6 @@ Individuo Poblacion::seleccionar() {
         return individuos[indice1];
     } else {
         return individuos[indice2];
-    }
-}
-
-void Poblacion::mutar(Individuo &individuo) const {
-
-    // Aplicar mutación con una probabilidad del 10%
-
-    double dado_mutar = random.get_double(0.0, 1.0);
-
-    if (dado_mutar < 0.1) {
-        int posicion1 = random.get_int(0, num_invididuos - 1);
-        int posicion2 = random.get_int(0, num_invididuos - 1);
-
-        // Asegurarse de que las dos posiciones son diferentes
-        while (posicion1 == posicion2) {
-            posicion2 = random.get_int(0, num_invididuos - 1);
-        }
-
-        // Realizar el intercambio 2-opt
-        individuo.intercambiar(posicion1, posicion2);
     }
 }
 
