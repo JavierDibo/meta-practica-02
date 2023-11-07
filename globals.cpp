@@ -5,14 +5,19 @@ bool LOG;
 bool PARALELIZACION;
 bool STATS;
 
-int MAX_ITERACIONES;
+int MAX_NUM_EVALUACIONES;
 int ALGORITMO;
+int NUMERO_ELITES;
+int NUMERO_INDIVIDUOS;
+int KBEST;
+int KWORST;
+double PROBABILIDAD_CRUCE;
+double PROBABILIDAD_MUTACION;
+
+
 
 std::vector<int> SEMILLAS;
 std::vector<std::string> ARCHIVOS_DATOS;
-
-const int INFINITO_POSITIVO = std::numeric_limits<int>::max();
-const int INFINITO_NEGATIVO = std::numeric_limits<int>::min();
 
 std::string ARCHIVO_DATOS;
 

@@ -41,7 +41,7 @@ public:
 
     Individuo &operator=(const Individuo &otro);
 
-    void calcular_coste_camino();
+    void evaluar();
 
     void set_ciudad(int index, int ciudad);
 

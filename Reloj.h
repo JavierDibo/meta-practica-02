@@ -16,7 +16,7 @@ public:
 
     void finalizar();
 
-    double obtener_tiempo_transcurrido() const;
+    double obtener_tiempo_transcurrido(int time_frame);
 
     Reloj();
 

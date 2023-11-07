@@ -4,12 +4,11 @@
 #include "globals.h"
 #include "Reloj.h"
 
-void mostrar_tiempo_transcurrido(const std::string &nombre_archivo, const Reloj &reloj_lector_datos) {
+void mostrar_tiempo_transcurrido(const std::string &nombre_archivo, Reloj &reloj_lector_datos) {
 
     if (ECHO) {
-        std::cout << std::fixed << std::setprecision(2);
         std::cout << "Tiempo en procesar el archivo " << nombre_archivo << ": "
-                  << reloj_lector_datos.obtener_tiempo_transcurrido() << " milisegundos." << std::endl;
+                  << reloj_lector_datos.obtener_tiempo_transcurrido(MILISEGUNDOS) << " milisegundos." << std::endl;
     }
 }
 

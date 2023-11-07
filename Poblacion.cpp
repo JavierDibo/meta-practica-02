@@ -2,156 +2,168 @@
 #include "Poblacion.h"
 
 void Poblacion::crear_poblacion() {
-
+    // 80% de los individuos aleatorios
     for (int i = 0; i < num_invididuos; ++i) {
         std::vector<int> ruta_inicial = vector_aleatorio(num_ciudades);
         Individuo ind(ruta_inicial, lector_datos);
         individuos.push_back(ind);
     }
 
-    // Aquí podrías implementar la lógica para crear_poblacion los individuos,
-    // generando un 80% de forma aleatoria y el 20% restante mediante un
-    // método greedy aleatorizado.
+    /// TODO añadir greedy aleatorizado para el 20% restante
 }
 
 bool Poblacion::condicion_parada() const {
-    return (num_evuaciones > 1000);
+    /// TODO añadir condicion de parada de 60 segundos
+    return (num_evuaciones > MAX_NUM_EVALUACIONES);
 }
 
-void Poblacion::evolucion_generacional() {
+void Poblacion::evolucionar() {
     while (!condicion_parada()) {
         std::vector<Individuo> nueva_poblacion;
         nueva_poblacion.reserve(num_invididuos);
 
-        // Aplicar elitismo: conservar los mejores individuos
-        if (num_elites > 0) {
+        /// Aplicar elitismo: conservar los "num_elites" mejores individuos
+        if (NUMERO_ELITES > 0) {
             std::sort(individuos.begin(), individuos.end());
-            nueva_poblacion.insert(nueva_poblacion.end(), individuos.begin(), individuos.begin() + num_elites);
+            nueva_poblacion.insert(nueva_poblacion.end(), individuos.begin(), individuos.begin() + NUMERO_ELITES);
         }
 
-        // Generar el resto de la nueva población
+        /// Generar el resto de la nueva población
         while (nueva_poblacion.size() < num_invididuos) {
-            Individuo padre1 = seleccionar();
-            Individuo padre2 = seleccionar();
-            Individuo hijo = cruzar(padre1, padre2);
+            Individuo padre_a = seleccionar();
+            Individuo padre_b = seleccionar();
+            Individuo hijo = cruzar(padre_a, padre_b);
             hijo.mutar();
             nueva_poblacion.push_back(hijo);
         }
 
-        // Reemplazar la población antigua con la nueva
+        /// Reemplazar la población antigua con la nueva
         individuos = nueva_poblacion;
 
         // Evaluar la nueva población
+#pragma omp parallel for default(none) if (PARALELIZACION)
         for (Individuo &individuo: individuos) {
-            individuo.calcular_coste_camino();
+            individuo.evaluar();
+            num_evuaciones++;
         }
-
-        num_evuaciones++;
+        generacion++;
     }
 }
 
 Individuo Poblacion::cruzar(const Individuo &padre1, const Individuo &padre2) {
     double probabilidad_cruzar = random.get_double(0.0, 1.0);
 
-    if (probabilidad_cruzar < 0.7) { // 70% de probabilidad_cruzar de cruce
+    if (probabilidad_cruzar < PROBABILIDAD_CRUCE) { // 70% de probabilidad_cruzar de cruce
         if (random.get_double(0.0, 1.0) < 0.5) { // Elige uno de los dos operadores de cruce
             return cruceOX2(padre1, padre2);
         } else {
             return crucePMX(padre1, padre2);
         }
     } else {
-        // Si no hay cruce, devuelve uno de los padres
-        return (random.get_double(0.0, 1.0) < 0.5) ? padre1 : padre2;
+        // return (random.get_double(0.0, 1.0) < 0.5) ? padre1 : padre2;
+        /// Si no hay cruce, devuelve uno de los padres
+        if (padre1 < padre2) {
+            return padre1;
+        } else {
+            return padre2;
+        }
     }
 }
 
-Individuo Poblacion::cruceOX2(const Individuo &padre1, const Individuo &padre2) {
-    int puntoCruce1 = random.get_int(0, num_invididuos - 1);
-    int puntoCruce2 = random.get_int(0, num_invididuos - 1);
+Individuo Poblacion::cruceOX2(const Individuo &padre_a, const Individuo &padre_b) {
+    int punto_cruce_a = random.get_int(0, num_invididuos - 1);
+    int punto_cruce_b = random.get_int(0, num_invididuos - 1);
 
-    // Asegurarse de que puntoCruce1 < puntoCruce2
-    if (puntoCruce1 > puntoCruce2) {
-        std::swap(puntoCruce1, puntoCruce2);
+    // Asegurarse de que punto_cruce_a < punto_cruce_b
+    if (punto_cruce_a > punto_cruce_b) {
+        std::swap(punto_cruce_a, punto_cruce_b);
     }
 
     std::vector<int> hijo(num_invididuos);
-    std::unordered_set<int> ciudadesEnHijo;
+    std::unordered_set<int> mapeo;
 
     // Copiar la sección del primer padre a la descendencia
-    for (int i = puntoCruce1; i <= puntoCruce2; ++i) {
-        hijo[i] = padre1.get_ciudad(i);
-        ciudadesEnHijo.insert(hijo[i]);
+    for (int i = punto_cruce_a; i <= punto_cruce_b; ++i) {
+        hijo[i] = padre_a.get_ciudad(i);
+        mapeo.insert(hijo[i]);
     }
 
     // Completar la descendencia con las ciudades del segundo padre
     for (int i = 0, j = 0; i < num_invididuos; ++i) {
-        if (i >= puntoCruce1 && i <= puntoCruce2) continue;
-        while (ciudadesEnHijo.count(padre2.get_ciudad(j))) {
+        if (i >= punto_cruce_a && i <= punto_cruce_b) continue;
+        while (mapeo.count(padre_b.get_ciudad(j))) {
             ++j;
         }
-        hijo[i] = padre2.get_ciudad(j++);
+        hijo[i] = padre_b.get_ciudad(j++);
     }
 
-    return Individuo(hijo, lector_datos);
+    return {hijo, lector_datos};
 }
 
-Individuo Poblacion::crucePMX(const Individuo &padre1, const Individuo &padre2) {
+Individuo Poblacion::crucePMX(const Individuo &padre_a, const Individuo &padre_b) {
 
-    int puntoCruce1 = random.get_int(0, num_invididuos - 1);
-    int puntoCruce2 = random.get_int(0, num_invididuos - 1);
+    int punto_cruce_a = random.get_int(0, num_invididuos - 1);
+    int punto_cruce_b = random.get_int(0, num_invididuos - 1);
 
-    // Asegurarse de que puntoCruce1 < puntoCruce2
-    if (puntoCruce1 > puntoCruce2) {
-        std::swap(puntoCruce1, puntoCruce2);
+    // Asegurarse de que punto_cruce_a < punto_cruce_b
+    if (punto_cruce_a > punto_cruce_b) {
+        std::swap(punto_cruce_a, punto_cruce_b);
     }
 
     std::vector<int> hijo(num_invididuos);
     std::unordered_map<int, int> mapeo;
 
     // Intercambiar los segmentos entre los puntos de cruce
-    for (int i = puntoCruce1; i <= puntoCruce2; ++i) {
-        hijo[i] = padre1.get_ciudad(i);
-        mapeo[padre1.get_ciudad(i)] = padre2.get_ciudad(i);
+    for (int i = punto_cruce_a; i <= punto_cruce_b; ++i) {
+        hijo[i] = padre_a.get_ciudad(i);
+        mapeo[padre_a.get_ciudad(i)] = padre_b.get_ciudad(i);
     }
 
     // Completar la descendencia resolviendo los conflictos de duplicados
     for (int i = 0; i < num_invididuos; ++i) {
-        if (i >= puntoCruce1 && i <= puntoCruce2) continue;
-        int ciudad = padre2.get_ciudad(i);
+        if (i >= punto_cruce_a && i <= punto_cruce_b) continue;
+        int ciudad = padre_b.get_ciudad(i);
         while (mapeo.count(ciudad)) {
             ciudad = mapeo[ciudad];
         }
         hijo[i] = ciudad;
     }
 
-    return Individuo(hijo, lector_datos);
+    return {hijo, lector_datos};
 }
 
 Individuo Poblacion::seleccionar() {
-
-    int indice1 = random.get_int(0, num_invididuos - 1);
-    int indice2 = random.get_int(0, num_invididuos - 1);
-
-    while (indice1 == indice2) {
-        indice2 = random.get_int(0, num_invididuos - 1); // Asegurarse de que son diferentes
+    std::vector<int> indices;
+    for (int i = 0; i < KBEST; ++i) {
+        int indice;
+        do {
+            indice = random.get_int(0, num_invididuos - 1);
+        } while (std::find(indices.begin(), indices.end(), indice) !=
+                 indices.end()); // Asegurarse de que no esté repetido
+        indices.push_back(indice);
     }
 
-    if (individuos[indice1] < individuos[indice2]) {
-        return individuos[indice1];
-    } else {
-        return individuos[indice2];
+    int mejorIndice = indices[0];
+    for (int i = 1; i < KBEST; ++i) {
+        if (individuos[mejorIndice] < individuos[indices[i]]) {
+            mejorIndice = indices[i];
+        }
     }
+
+    return individuos[mejorIndice];
 }
 
 Poblacion::~Poblacion() = default;
 
-Poblacion::Poblacion(int num_individuos, LectorCiudades &lector_datos) : num_invididuos(num_individuos),
-                                                                         lector_datos(lector_datos) {
+Poblacion::Poblacion(LectorCiudades &lector_datos) : lector_datos(lector_datos) {
     // Individuos
-    individuos.reserve(num_individuos);
+    individuos.reserve(NUMERO_INDIVIDUOS);
     num_ciudades = lector_datos.get_num_ciudades();
+    num_invididuos = NUMERO_INDIVIDUOS;
     crear_poblacion();
-
-    num_elites = 1;
     num_evuaciones = 0;
+}
+
+const std::vector<Individuo> &Poblacion::get_individuos() const {
+    return individuos;
 }

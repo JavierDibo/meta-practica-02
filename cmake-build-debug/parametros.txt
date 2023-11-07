@@ -1,5 +1,6 @@
 # Uso: semilla=1 -- semilla=3293,423,4166 -- semilla= -- etc
-semilla=77646884,47764688,84776468,88477646,68847764
+semilla=1
+#77646884,47764688,84776468,88477646,68847764
 
 # Algoritmos implementados:
 algoritmo=0
@@ -17,10 +18,21 @@ paralelizacion=true
 log=false
 
 # Nombre de los archivos de datos
-datos=ch130.tsp
-#datos=pr144.tsp
+#datos=ch130.tsp
+datos=pr144.tsp
 #datos=d15112.tsp
 
-max_iteraciones=1000
+max_num_evaluacion=20000
+numero_elites=2
+numero_individuos=50
+numero_kbest=2
+numero_kworst=3
+probablidad_cruce=0.7
+probabilidad_mutacion=0.1
+
+# Optimos
+# CH130 --> 6,110
+# PR144 --> 58,537
+# D15112 --> 1,573,084
 
 

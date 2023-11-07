@@ -15,15 +15,15 @@ private:
 
 public:
 
-    [[maybe_unused]] explicit LectorParametros(string nombre_archivo);
+    explicit LectorParametros(string nombre_archivo);
 
     virtual ~LectorParametros();
 
     void leer_parametros();
 
-    [[maybe_unused]] [[nodiscard]] const std::map<string, string> &getMapaParametros() const;
+    const std::map<string, string> &getMapaParametros() const;
 
-    [[maybe_unused]] [[nodiscard]] const string &getNombreArchivoParametros() const;
+    const string &getNombreArchivoParametros() const;
 
 };
 

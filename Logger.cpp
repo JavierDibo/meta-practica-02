@@ -37,7 +37,7 @@ void escribir_log_primero_mejor(std::ofstream &archivo_log, int iteraciones, int
                                 const std::vector<int> &solucion) {
 
     archivo_log << iteraciones << "," << coste << "," << delta
-                << "," << MAX_ITERACIONES << ",";
+                << "," << MAX_NUM_EVALUACIONES << ",";
 
     for (const auto dato: solucion) {
         archivo_log << dato << " ";

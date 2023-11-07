@@ -16,11 +16,21 @@ extern bool LOG;
 extern bool PARALELIZACION;
 extern bool STATS;
 
-extern int MAX_ITERACIONES;
+extern int MAX_NUM_EVALUACIONES;
 extern int ALGORITMO;
+extern int NUMERO_ELITES;
+extern int NUMERO_INDIVIDUOS;
+extern int KBEST;
+extern int KWORST;
 
-extern const int INFINITO_POSITIVO;
-extern const int INFINITO_NEGATIVO;
+extern double PROBABILIDAD_CRUCE;
+extern double PROBABILIDAD_MUTACION;
+
+constexpr int INFINITO_POSITIVO = std::numeric_limits<int>::max();
+constexpr int INFINITO_NEGATIVO = std::numeric_limits<int>::min();
+constexpr int SEGUNDOS = 1;
+constexpr int MILISEGUNDOS = 2;
+constexpr int MICROSEGUNDOS = 3;
 
 extern std::vector<int> SEMILLAS;
 extern std::vector<std::string> ARCHIVOS_DATOS;

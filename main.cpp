@@ -1,12 +1,11 @@
 #include <iostream>
 #include <string>
-#include <map>
 #include "LectorCiudades.h"
 #include "LectorParametros.h"
 #include "globals.h"
 #include "Poblacion.h"
 
-/// Typedefs -----------------------------------------------------------------------------------------------------------
+/// Defs -----------------------------------------------------------------------------------------------------------
 
 using std::string;
 using std::map;
@@ -22,10 +21,13 @@ int main() {
 
     LectorCiudades lector_ciudades(ARCHIVO_DATOS);
 
-    int num_individuos = 20;
-    Poblacion poblacion(num_individuos, lector_ciudades);
+    Poblacion poblacion(lector_ciudades);
 
-    poblacion.evolucion_generacional();
+    poblacion.evolucionar();
+
+    std::vector<Individuo> fin = poblacion.get_individuos();
+
+    std::sort(fin.begin(), fin.end());
 
     return 0;
 }

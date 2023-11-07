@@ -55,8 +55,36 @@ void LectorParametros::leer_parametros() {
         LOG = (mapa_parametros["log"] == "true");
     }
 
-    if (mapa_parametros.find("max_iteraciones") != mapa_parametros.end()) {
-        MAX_ITERACIONES = std::stoi(mapa_parametros["max_iteraciones"]);
+    if (mapa_parametros.find("max_num_evaluacion") != mapa_parametros.end()) {
+        MAX_NUM_EVALUACIONES = std::stoi(mapa_parametros["max_num_evaluacion"]);
+    }
+
+    if (mapa_parametros.find("probablidad_cruce") != mapa_parametros.end()) {
+        PROBABILIDAD_CRUCE = std::stod(mapa_parametros["probablidad_cruce"]);
+    }
+
+    if (mapa_parametros.find("probabilidad_mutacion") != mapa_parametros.end()) {
+        PROBABILIDAD_MUTACION = std::stod(mapa_parametros["probabilidad_mutacion"]);
+    }
+
+    if (mapa_parametros.find("numero_elites") != mapa_parametros.end()) {
+        NUMERO_ELITES = std::stoi(mapa_parametros["numero_elites"]);
+    }
+
+    if (mapa_parametros.find("numero_individuos") != mapa_parametros.end()) {
+        NUMERO_INDIVIDUOS = std::stoi(mapa_parametros["numero_individuos"]);
+    }
+
+    if (mapa_parametros.find("max_num_evaluacion") != mapa_parametros.end()) {
+        MAX_NUM_EVALUACIONES = std::stoi(mapa_parametros["max_num_evaluacion"]);
+    }
+
+    if (mapa_parametros.find("numero_kbest") != mapa_parametros.end()) {
+        KBEST = std::stoi(mapa_parametros["numero_kbest"]);
+    }
+
+    if (mapa_parametros.find("numero_kworst") != mapa_parametros.end()) {
+        KWORST = std::stoi(mapa_parametros["numero_kworst"]);
     }
 
     if (mapa_parametros.find("datos") != mapa_parametros.end()) {

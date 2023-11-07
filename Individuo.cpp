@@ -1,15 +1,16 @@
 #include "Individuo.h"
+#include "Reloj.h"
 
-Individuo::Individuo(std::vector<int> camino, LectorCiudades &lector_datos)  : camino(std::move(camino)),
-                                                                               lector_datos(lector_datos) {
-    calcular_coste_camino();
+Individuo::Individuo(std::vector<int> camino, LectorCiudades &lector_datos) : camino(std::move(camino)),
+                                                                              lector_datos(lector_datos) {
+    evaluar();
 }
 
-void Individuo::mutar()  {
+void Individuo::mutar() {
     // Aplicar mutación con una probabilidad del 10%
     double dado_mutar = random.get_double(0.0, 1.0);
 
-    if (dado_mutar < 0.1) {
+    if (dado_mutar < PROBABILIDAD_MUTACION) {
         int posicion1 = random.get_int(0, static_cast<int>(camino.size()) - 1);
         int posicion2 = random.get_int(0, static_cast<int>(camino.size()) - 1);
 
@@ -26,7 +27,7 @@ void Individuo::mutar()  {
 void Individuo::intercambiar(int posicion1, int posicion2) {
     if (posicion1 >= 0 && posicion1 < camino.size() && posicion2 >= 0 && posicion2 < camino.size()) {
         std::swap(camino[posicion1], camino[posicion2]);
-        calcular_coste_camino();
+        evaluar();
     } else {
         throw std::out_of_range("Individuo::intercambiar::fuera de rango");
     }
@@ -40,13 +41,35 @@ Individuo &Individuo::operator=(const Individuo &otro) {
     return *this;
 }
 
-void Individuo::calcular_coste_camino() {
+/*void Individuo::evaluar() {
+
+    Reloj hola;
+
+    hola.iniciar();
+
+    coste = 0.0;
+#pragma omp parallel for default(none) shared(coste, lector_datos) if (false)
+    for (size_t i = 0; i < camino.size() - 1; ++i) {
+        coste += lector_datos.calcular_distancia(camino[i], camino[i + 1]);
+    }
+    coste += lector_datos.calcular_distancia(camino.back(), camino.front()); // Cerrar el ciclo
+
+    hola.finalizar();
+#pragma omp critical
+    std::cout << hola.obtener_tiempo_transcurrido(MICROSEGUNDOS) << ", ";
+}*/
+
+#include <fstream>
+
+void Individuo::evaluar() {
+
     coste = 0.0;
     for (size_t i = 0; i < camino.size() - 1; ++i) {
         coste += lector_datos.calcular_distancia(camino[i], camino[i + 1]);
     }
     coste += lector_datos.calcular_distancia(camino.back(), camino.front()); // Cerrar el ciclo
 }
+
 
 double Individuo::get_coste() const {
     return coste;
