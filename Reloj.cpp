@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Reloj.h"
 
 Reloj::Reloj() = default;
@@ -15,17 +16,16 @@ void Reloj::finalizar() {
 double Reloj::obtener_tiempo_transcurrido(int time_frame) {
     switch (time_frame) {
         case SEGUNDOS:
-            return std::chrono::duration_cast<std::chrono::duration<double>>(
-                    tiempo_final - tiempo_inicio).count();
+            return (static_cast<double>(std::chrono::duration_cast<std::chrono::milliseconds>(
+                    tiempo_final - tiempo_inicio).count()))/1000;
         case MILISEGUNDOS:
-            return static_cast<double>(std::chrono::duration_cast<std::chrono::milliseconds>(
-                    tiempo_final - tiempo_inicio).count());
+            return (static_cast<double>(std::chrono::duration_cast<std::chrono::microseconds>(
+                    tiempo_final - tiempo_inicio).count()))/1000;
         case MICROSEGUNDOS:
-            return static_cast<double>(std::chrono::duration_cast<std::chrono::microseconds>(
-                    tiempo_final - tiempo_inicio).count());
+            return (static_cast<double>(std::chrono::duration_cast<std::chrono::nanoseconds>(
+                    tiempo_final - tiempo_inicio).count()))/1000;
         default:
-            return static_cast<double>(std::chrono::duration_cast<std::chrono::milliseconds>(
-                    tiempo_final - tiempo_inicio).count());
+            std::cerr << "Reloj::obtener_tiempo_transcurrido::unidad no reconocida";
     }
 }
 

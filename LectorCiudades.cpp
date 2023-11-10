@@ -3,8 +3,10 @@
 void mostrar_tiempo_transcurrido(const std::string &nombre_archivo, Reloj &reloj_lector_datos) {
 
     if (ECHO) {
-        std::cout << "Tiempo en procesar el archivo " << nombre_archivo << ": "
-                  << reloj_lector_datos.obtener_tiempo_transcurrido(MILISEGUNDOS) << " milisegundos." << std::endl;
+        std::cout << "\n----------------------------------------------------------------------" << std::endl;
+        std::cout << "| Tiempo en procesar el archivo " << nombre_archivo << ": "
+                  << reloj_lector_datos.obtener_tiempo_transcurrido(MILISEGUNDOS) << " milisegundos. |" << std::endl;
+        std::cout << "----------------------------------------------------------------------\n" << std::endl;
     }
 }
 
@@ -110,7 +112,7 @@ const std::vector<std::vector<double>> &LectorCiudades::get_ciudades() const {
     return ciudades;
 }
 
-const std::vector<std::vector<double>> &LectorCiudades::getDistancias() const {
+const std::vector<std::vector<double>> &LectorCiudades::get_distancias() const {
     return distancias;
 }
 

@@ -10,26 +10,78 @@
 using std::string;
 using std::map;
 using std::vector;
+using std::cout;
+using std::endl;
 
 /// Funciones ----------------------------------------------------------------------------------------------------------
 
-int main() {
+void imprimir_informacion_semilla(int semilla, Reloj &reloj, std::vector<Individuo> &poblacion) {
 
-    LectorParametros lector_parametros(R"(.\parametros.txt)");
+    if (ECHO) {
+        cout << "\nSemilla: " << semilla << endl;
+        cout << "Tiempo de ejecucion: " << reloj.obtener_tiempo_transcurrido(MILISEGUNDOS)
+             << " milisegundos." << endl;
+        cout << "Coste del mejor individuo: " << poblacion.begin()->get_coste() << endl;
+        cout << "Coste del peor individuo: " << poblacion.at(poblacion.size() - 1).get_coste()
+             << endl;
+        cout << "---------------------------------------------------------------------" << endl;
+    }
+}
 
-    inicializar_generador_aleatorio(SEMILLAS[0]);
+void imprimir_informacion_global(Reloj reloj) {
+
+    if (ECHO) {
+        cout << "\nTiempo de ejecucion total: " << reloj.obtener_tiempo_transcurrido(MILISEGUNDOS)
+             << " milisegundos" << endl;
+        cout << "Numero de generaciones: " << MAX_NUMERO_GENERACIONES << endl;
+        cout << "Numero de elites: " << NUMERO_ELITES << endl;
+        cout << "Numero de individuos: " << NUMERO_INDIVIDUOS << endl;
+        cout << "KBest: " << KBEST << endl;
+        cout << "KWorst: " << KWORST << endl;
+        cout << "Probabilidad de cruce: " << PROBABILIDAD_CRUCE * 100 << "%" << endl;
+        cout << "Probabilidad de mutacion: " << PROBABILIDAD_MUTACION * 100 << "%" << endl;
+        cout << "Porcentaje generado por greedy: " << PROBABILIDAD_GREEDY * 100 << "%" << endl;
+    }
+}
+
+int main(int argc, char *argv[]) {
+
+    if (argc < 2) {
+        std::cerr << "Uso: " << argv[0] << " <ruta archivo parametros>\n";
+        return 1;
+    }
+
+    Reloj reloj_principal;
+
+    reloj_principal.iniciar();
+
+    std::string ruta_parametros = argv[1];
+
+    LectorParametros lector_parametros(ruta_parametros);
 
     LectorCiudades lector_ciudades(ARCHIVO_DATOS);
 
-    Poblacion poblacion(lector_ciudades);
+    for (int semilla: SEMILLAS) {
 
-    poblacion.evolucionar();
+        Reloj reloj_iteracion;
+        reloj_iteracion.iniciar();
 
-    std::vector<Individuo> fin = poblacion.get_individuos();
+        inicializar_generador_aleatorio(semilla);
 
-    std::sort(fin.begin(), fin.end());
+        Poblacion poblacion(lector_ciudades);
+        poblacion.evolucionar();
 
-    std::cout << "Coste del mejor individuo: " << fin.begin()->get_coste();
+        vector<Individuo> poblacion_final = poblacion.get_individuos();
+        std::sort(poblacion_final.begin(), poblacion_final.end());
+
+        reloj_iteracion.finalizar();
+
+        imprimir_informacion_semilla(semilla, reloj_iteracion, poblacion_final);
+    }
+
+    reloj_principal.finalizar();
+
+    imprimir_informacion_global(reloj_principal);
 
     return 0;
 }

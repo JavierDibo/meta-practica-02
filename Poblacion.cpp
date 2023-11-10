@@ -1,127 +1,124 @@
 #include "Poblacion.h"
 
-std::vector<int> Poblacion::get_ciudades_cercanas(int ciudad) {
-    const auto& distancias_totales = lector_datos.getDistancias(); // Use reference to avoid copying
-    const auto& distancias_a_ciudad = distancias_totales[ciudad]; // Use reference to avoid copying
+int encontrar_ciudad_mas_cercana(int ciudad_actual, const std::vector<bool> &visitada,
+                                 const std::vector<std::vector<double>> &distancias) {
+    double distancia_minima = std::numeric_limits<double>::max();
+    int ciudad_mas_cercana = -1;
 
-    std::vector<std::pair<double, int>> distancias_indizadas;
-    distancias_indizadas.reserve(distancias_a_ciudad.size());
-
-    int tam = static_cast<int>(distancias_a_ciudad.size());
+    size_t tam = distancias.size();
     for (int i = 0; i < tam; ++i) {
-        if (i != ciudad) { // Omit the distance to the city itself
-            distancias_indizadas.emplace_back(distancias_a_ciudad[i], i);
+        if (!visitada[i] && distancias[ciudad_actual][i] < distancia_minima) {
+            distancia_minima = distancias[ciudad_actual][i];
+            ciudad_mas_cercana = i;
         }
     }
 
-    // Sort by the first element of the pair (distance), keeping the second element (index) with it
-    std::sort(distancias_indizadas.begin(), distancias_indizadas.end());
-
-    std::vector<int> mejores_ciudades;
-    mejores_ciudades.reserve(distancias_indizadas.size());
-
-    for (const auto& par : distancias_indizadas) {
-        mejores_ciudades.emplace_back(par.second);
-    }
-
-    return mejores_ciudades;
+    return ciudad_mas_cercana;
 }
 
 std::vector<int> Poblacion::camino_greedy() {
-    // Verificar casos extremos
-    if (num_ciudades <= 0) {
-        // Manejar error o devolver un vector vacío
-        return {};
-    }
+    std::vector<std::vector<double>> distancias = lector_datos.get_distancias();
+    std::vector<bool> visitadas(num_ciudades, false);
+    std::vector<int> camino;
+    camino.reserve(num_ciudades + 1);
 
-    std::vector<int> ruta;
-    std::unordered_set<int> visitados;
+    int ciudad_actual = random.get_int(0, num_ciudades - 1);;
+    visitadas[ciudad_actual] = true;
+    camino.push_back(ciudad_actual);
 
-    int indice = random.get_int(0, num_ciudades - 1);
+    for (int i = 1; i < num_ciudades; ++i) {
+        int siguiente_ciudad = -1;
+        double min_distancia = INFINITO_POSITIVO;
+// #pragma omp parallel default(none) shared(distancias, visitadas, ciudad_actual, min_distancia, siguiente_ciudad, num_ciudades) if (PARALELIZACION)
+        {
+            int local_siguiente_ciudad = -1;
+            double local_min_distancia = std::numeric_limits<double>::max();
 
-    for (int i = 0; i < num_ciudades; i++) {
-        if (visitados.find(indice) != visitados.end()) {
-            // Todas las ciudades han sido visitadas
-            break;
-        }
+// #pragma omp for nowait
+            for (int j = 0; j < num_ciudades; ++j) {
+                if (!visitadas[j] && distancias[ciudad_actual][j] < local_min_distancia) {
+                    local_min_distancia = distancias[ciudad_actual][j];
+                    local_siguiente_ciudad = j;
+                }
+            }
 
-        ruta.emplace_back(indice);
-        visitados.insert(indice);
-
-        std::vector<int> ciudades_mas_cercanas = get_ciudades_cercanas(indice);
-
-        // Encontrar la primera ciudad no visitada
-        bool se_encontro_nueva_ciudad = false;
-        for (int ciudad : ciudades_mas_cercanas) {
-            if (visitados.find(ciudad) == visitados.end()) {
-                indice = ciudad;
-                se_encontro_nueva_ciudad = true;
-                break; // salir del bucle después de encontrar la primera ciudad no visitada
+// #pragma omp critical
+            {
+                if (local_min_distancia < min_distancia) {
+                    min_distancia = local_min_distancia;
+                    siguiente_ciudad = local_siguiente_ciudad;
+                }
             }
         }
 
-        // Si no se encuentra una nueva ciudad, salir del bucle
-        if (!se_encontro_nueva_ciudad) {
-            break;
+        if (siguiente_ciudad != -1) {
+            visitadas[siguiente_ciudad] = true;
+            camino.push_back(siguiente_ciudad);
+            ciudad_actual = siguiente_ciudad;
         }
     }
 
-    return ruta;
+    return camino;
 }
 
-#include <mutex>
 
 void Poblacion::crear_poblacion() {
-    individuos.reserve(num_invididuos);
 
-    std::mutex mtx; // Mutex for thread-safe access to 'individuos'
-
-#pragma omp parallel for default(none) shared(random, lector_datos, mtx)
     for (int i = 0; i < num_invididuos; ++i) {
-        std::vector<int> ruta_inicial;
 
-        if (random.get_double(0.0, 1.0) < 0.8) {
+        std::vector<int> ruta_inicial;
+        double valor_aleatorio = random.get_double(0.0, 1.0);
+
+        if (valor_aleatorio > PROBABILIDAD_GREEDY) {
             ruta_inicial = vector_aleatorio(num_ciudades);
         } else {
             ruta_inicial = camino_greedy();
         }
 
-        // Thread-safe insertion into 'individuos'
-        std::lock_guard<std::mutex> guard(mtx);
-        individuos.emplace_back(ruta_inicial, lector_datos);
+        Individuo individuo(ruta_inicial, lector_datos);
+        individuo.evaluar();
+        individuos.emplace_back(individuo);
     }
 }
+
 
 bool Poblacion::condicion_parada() {
 
     reloj.finalizar();
     double tiempo = reloj.obtener_tiempo_transcurrido(SEGUNDOS);
 
-    return (num_evuaciones > MAX_NUM_EVALUACIONES || tiempo > 60.0);
+    return (num_generaciones >= MAX_NUMERO_GENERACIONES || tiempo >= 60.0);
 }
 
 void Poblacion::evolucionar() {
     while (!condicion_parada()) {
+
         std::vector<Individuo> nueva_poblacion;
-        nueva_poblacion.reserve(num_invididuos);
         std::vector<Individuo> elites;
+
+        nueva_poblacion.reserve(num_invididuos);
         elites.reserve(NUMERO_ELITES);
 
         /// Aplicar elitismo: almacenar los "num_elites" mejores individuos
         if (NUMERO_ELITES > 0) {
-            std::sort(individuos.begin(), individuos.end());
+            std::vector<Individuo> aux = individuos;
+            std::sort(aux.begin(), aux.end());
             elites.clear();
-            elites.insert(elites.end(), individuos.begin(), individuos.begin() + NUMERO_ELITES);
+            elites.insert(elites.end(), aux.begin(), aux.begin() + NUMERO_ELITES);
         }
 
         /// Generar la nueva población
         while (nueva_poblacion.size() < num_invididuos) {
-            Individuo padre_a = torneo_kbest();
-            Individuo padre_b = torneo_kbest();
-            Individuo hijo = cruzar(padre_a, padre_b);
+            Individuo padre_a = mejor_entre_random();
+            Individuo padre_b = mejor_entre_random();
+            std::vector<int> camino_hijo = cruzar(padre_a, padre_b);
+            Individuo hijo(camino_hijo, lector_datos);
             hijo.mutar();
+            hijo.evaluar();
             nueva_poblacion.push_back(hijo);
         }
+
+        std::sort(nueva_poblacion.begin(), nueva_poblacion.end());
 
         /// Buscar los elites en la nueva poblacion y reemplazarlos si no estan por uno malo
         for (const Individuo &elite: elites) {
@@ -134,18 +131,11 @@ void Poblacion::evolucionar() {
 
         /// Reemplazar la población antigua con la nueva
         individuos = nueva_poblacion;
-
-        /// Evaluar la nueva población
-#pragma omp parallel for default(none) if (PARALELIZACION)
-        for (Individuo &individuo: individuos) {
-            individuo.evaluar();
-            num_evuaciones++;
-        }
-        generacion++;
+        num_generaciones++;
     }
 }
 
-Individuo Poblacion::cruzar(const Individuo &padre1, const Individuo &padre2) {
+std::vector<int> Poblacion::cruzar(const Individuo &padre1, const Individuo &padre2) {
     double probabilidad_cruzar = random.get_double(0.0, 1.0);
 
     if (probabilidad_cruzar < PROBABILIDAD_CRUCE) { // 70% de probabilidad_cruzar de cruce
@@ -155,18 +145,38 @@ Individuo Poblacion::cruzar(const Individuo &padre1, const Individuo &padre2) {
             return cruceMOC(padre1, padre2);
         }
     } else {
-        return (random.get_double(0.0, 1.0) < 0.5) ? padre1 : padre2;
-        /// Si no hay cruce, devuelve uno de los padres
+        /// Si no hay cruce, devuelve el mejor de los padres
         if (padre1 < padre2) {
-            return padre1;
+            return padre1.get_camino();
         } else {
-            return padre2;
+            return padre2.get_camino();
         }
     }
 }
 
-Individuo Poblacion::cruceOX2(const Individuo &padre_a, const Individuo &padre_b) {
-    std::vector<int> hijo = padre_a.get_camino(); // Copia del camino del padre_a
+[[maybe_unused]] std::vector<int> Poblacion::cruceSimple(const Individuo &padre_a, const Individuo &padre_b) const {
+    std::vector<int> camino_hijo;
+
+    int punto_cruce = random.get_int(1, num_ciudades - 1);
+
+
+    for (int i = 0; i < punto_cruce; i++) {
+        camino_hijo.push_back(padre_a.get_ciudad(i));
+    }
+
+    // Copy remaining cities from padre_b to the camino_hijo
+    for (int i = 0; i < num_ciudades; i++) {
+        int ciudad = padre_b.get_ciudad(i);
+        if (std::find(camino_hijo.begin(), camino_hijo.end(), ciudad) == camino_hijo.end()) {
+            camino_hijo.push_back(ciudad);
+        }
+    }
+
+    return camino_hijo;
+}
+
+std::vector<int> Poblacion::cruceOX2(const Individuo &padre_a, const Individuo &padre_b) const {
+    std::vector<int> camino_hijo = padre_a.get_camino(); // Copia del camino del padre_a
     std::unordered_set<int> ciudadesSeleccionadas;
     std::vector<int> posicionesSeleccionadas;
 
@@ -179,61 +189,68 @@ Individuo Poblacion::cruceOX2(const Individuo &padre_a, const Individuo &padre_b
         }
     }
 
-    // Eliminar las ciudades seleccionadas del hijo basado en las posiciones seleccionadas
+    // Eliminar las ciudades seleccionadas del camino_hijo basado en las posiciones seleccionadas
     for (int pos: posicionesSeleccionadas) {
-        hijo[pos] = -1; // Marcamos la posición como vacía
+        camino_hijo[pos] = -1; // Marcamos la posición como vacía
     }
 
-    // Rellenar las posiciones vacías en el hijo con las ciudades en el mismo orden que aparecen en padre_b
+    // Rellenar las posiciones vacías en el camino_hijo con las ciudades en el mismo orden que aparecen en padre_b
     int indexParaInsertar = 0;
     for (int ciudad: padre_b.get_camino()) {
         if (ciudadesSeleccionadas.find(ciudad) != ciudadesSeleccionadas.end()) {
-            // Encontrar la próxima posición vacía en el hijo
-            while (hijo[indexParaInsertar] != -1) {
+            // Encontrar la próxima posición vacía en el camino_hijo
+            while (indexParaInsertar < camino_hijo.size() && camino_hijo[indexParaInsertar] != -1) {
                 indexParaInsertar++;
             }
-            hijo[indexParaInsertar] = ciudad;
+
+            // Comprobar si hemos salido del rango del vector
+            if (indexParaInsertar >= camino_hijo.size()) {
+                // Manejar el error o romper el bucle
+                break;
+            }
+
+            camino_hijo[indexParaInsertar] = ciudad;
         }
     }
 
-    return {hijo, lector_datos};
+    return camino_hijo;
 }
 
-Individuo Poblacion::cruceMOC(const Individuo &padre_a, const Individuo &padre_b) {
-
+std::vector<int> Poblacion::cruceMOC(const Individuo &padre_a, const Individuo &padre_b) const {
     int punto_cruce = random.get_int(0, num_ciudades - 1);
     std::vector<int> camino_hijo(num_ciudades, -1);
+    std::unordered_set<int> ciudades_incluidas;
 
-    // Copiar las ciudades del padre_a hasta el punto de cruce
     for (int i = 0; i < punto_cruce; ++i) {
-        camino_hijo[i] = padre_a.get_ciudad(i);
+        int ciudad = padre_a.get_ciudad(i);
+        camino_hijo[i] = ciudad;
+        ciudades_incluidas.insert(ciudad);
     }
 
-    // Copiar las ciudades del padre_b si no estan ya
     for (int i = punto_cruce; i < num_ciudades; ++i) {
         int ciudad = padre_b.get_ciudad(i);
-        if (std::find(camino_hijo.begin(), camino_hijo.begin() + punto_cruce, ciudad) ==
-            camino_hijo.begin() + punto_cruce) {
+        if (ciudades_incluidas.insert(ciudad).second) {
             camino_hijo[i] = ciudad;
         }
     }
 
-    // Completar con el resto de ciudades que faltan
-    for (int i = punto_cruce; i < num_ciudades; ++i) {
-        if (camino_hijo[i] == -1) { // Si falta
-            for (int ciudad: padre_b.get_camino()) {
-                if (std::find(camino_hijo.begin(), camino_hijo.end(), ciudad) == camino_hijo.end()) {
-                    camino_hijo[i] = ciudad;
-                    break;
-                }
-            }
+    std::vector<int> ciudades_restantes;
+    for (int ciudad: padre_b.get_camino()) {
+        if (ciudades_incluidas.insert(ciudad).second) {
+            ciudades_restantes.push_back(ciudad);
         }
     }
 
-    return {camino_hijo, lector_datos};
+    for (int i = punto_cruce, j = 0; i < num_ciudades && j < ciudades_restantes.size(); ++i) {
+        if (camino_hijo[i] == -1) {
+            camino_hijo[i] = ciudades_restantes[j++];
+        }
+    }
+
+    return camino_hijo;
 }
 
-Individuo Poblacion::crucePMX(const Individuo &padre_a, const Individuo &padre_b) {
+[[maybe_unused]] std::vector<int> Poblacion::crucePMX(const Individuo &padre_a, const Individuo &padre_b) const {
 
     int punto_cruce_a = random.get_int(0, num_invididuos - 1);
     int punto_cruce_b = random.get_int(0, num_invididuos - 1);
@@ -243,12 +260,12 @@ Individuo Poblacion::crucePMX(const Individuo &padre_a, const Individuo &padre_b
         std::swap(punto_cruce_a, punto_cruce_b);
     }
 
-    std::vector<int> hijo(num_invididuos);
+    std::vector<int> camino_hijo(num_invididuos);
     std::unordered_map<int, int> mapeo;
 
     // Intercambiar los segmentos entre los puntos de cruce
     for (int i = punto_cruce_a; i <= punto_cruce_b; ++i) {
-        hijo[i] = padre_a.get_ciudad(i);
+        camino_hijo[i] = padre_a.get_ciudad(i);
         mapeo[padre_a.get_ciudad(i)] = padre_b.get_ciudad(i);
     }
 
@@ -259,48 +276,54 @@ Individuo Poblacion::crucePMX(const Individuo &padre_a, const Individuo &padre_b
         while (mapeo.count(ciudad)) {
             ciudad = mapeo[ciudad];
         }
-        hijo[i] = ciudad;
+        camino_hijo[i] = ciudad;
     }
 
-    return {hijo, lector_datos};
+    return camino_hijo;
 }
 
-Individuo Poblacion::torneo_kbest() {
-    std::vector<int> indices;
-    for (int i = 0; i < KBEST; ++i) {
+Individuo Poblacion::mejor_entre_random() {
+    if (KBEST > num_invididuos) {
+        throw std::runtime_error("KBEST no puede ser mayor que num_invididuos");
+    }
+
+    std::unordered_set<int> indices_unicos;
+    while (indices_unicos.size() < KBEST) {
         int indice;
         do {
             indice = random.get_int(0, num_invididuos - 1);
-        } while (std::find(indices.begin(), indices.end(), indice) !=
-                 indices.end()); // Asegurarse de que no esté repetido
-        indices.push_back(indice);
+        } while (indices_unicos.find(indice) != indices_unicos.end());
+
+        indices_unicos.insert(indice);
     }
 
-    int mejorIndice = indices[0];
-    for (int i = 1; i < KBEST; ++i) {
-        if (individuos[mejorIndice] < individuos[indices[i]]) {
-            mejorIndice = indices[i];
+    auto mejor_indice = *indices_unicos.begin();
+    for (auto indice: indices_unicos) {
+        if (individuos[mejor_indice] > individuos[indice]) {
+            mejor_indice = indice;
         }
     }
 
-    return individuos[mejorIndice];
+    return individuos[mejor_indice];
 }
 
+
 Individuo *Poblacion::torneo_kworst() {
-    std::vector<int> indices;
-    for (int i = 0; i < KWORST; ++i) {
-        int indice;
-        do {
-            indice = random.get_int(0, num_invididuos - 1);
-        } while (std::find(indices.begin(), indices.end(), indice) !=
-                 indices.end()); // Asegurarse de que no esté repetido
-        indices.push_back(indice);
+    if (KWORST > num_invididuos) {
+        // Manejar este error adecuadamente
+        throw std::runtime_error("KWORST no puede ser mayor que num_invididuos");
     }
 
-    int peor_indice = indices[0];
-    for (int i = 1; i < KWORST; ++i) {
-        if (individuos[peor_indice] > individuos[indices[i]]) {
-            peor_indice = indices[i];
+    std::unordered_set<int> indices_unicos;
+    while (indices_unicos.size() < KWORST) {
+        int indice = random.get_int(0, num_invididuos - 1);
+        indices_unicos.insert(indice);
+    }
+
+    auto peor_indice = *indices_unicos.begin();
+    for (auto indice: indices_unicos) {
+        if (individuos[peor_indice] < individuos[indice]) {
+            peor_indice = indice;
         }
     }
 
@@ -310,13 +333,9 @@ Individuo *Poblacion::torneo_kworst() {
 Poblacion::~Poblacion() = default;
 
 Poblacion::Poblacion(LectorCiudades &lector_datos) : lector_datos(lector_datos) {
-    // Individuos
-    individuos.reserve(NUMERO_INDIVIDUOS);
     num_ciudades = lector_datos.get_num_ciudades();
-    num_invididuos = NUMERO_INDIVIDUOS;
-    crear_poblacion();
-    num_evuaciones = 0;
     reloj.iniciar();
+    crear_poblacion();
 }
 
 const std::vector<Individuo> &Poblacion::get_individuos() const {

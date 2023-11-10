@@ -11,7 +11,6 @@ class Reloj {
 private:
     std::chrono::system_clock::time_point tiempo_inicio;
     std::chrono::system_clock::time_point tiempo_final;
-    double tiempo_transcurrido = 0.0;
 
 public:
     void iniciar();

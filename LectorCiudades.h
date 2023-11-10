@@ -31,25 +31,25 @@ public:
     static bool son_iguales(const std::vector<std::vector<double>> &A, const std::vector<std::vector<double>> &B,
                             double tolerancia = 1e-9);
 
-    std::string get_ruta_archivo_datos() const {
+    [[nodiscard]] std::string get_ruta_archivo_datos() const {
         return ruta_archivo_datos;
     }
 
-    std::vector<std::vector<double>> get_matriz_ciudades() const {
+    [[nodiscard]] std::vector<std::vector<double>> get_matriz_ciudades() const {
         return ciudades;
     }
 
-    std::vector<std::vector<double>> get_matriz_distancias() const {
+    [[nodiscard]] std::vector<std::vector<double>> get_matriz_distancias() const {
         return distancias;
     }
 
-    double calcular_distancia(int ciudad_a, int ciudad_b) const;
+    [[nodiscard]] double calcular_distancia(int ciudad_a, int ciudad_b) const;
 
-    int get_num_ciudades() const;
+    [[nodiscard]] int get_num_ciudades() const;
 
-    const std::vector<std::vector<double>> &get_ciudades() const;
+    [[nodiscard]] const std::vector<std::vector<double>> &get_ciudades() const;
 
-    const std::vector<std::vector<double>> &getDistancias() const;
+    [[nodiscard]] const std::vector<std::vector<double>> &get_distancias() const;
 };
 
 #endif //META_PRACTICA_02_LECTOR_DATOS_CUIDADES_H

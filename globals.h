@@ -17,6 +17,7 @@ extern bool PARALELIZACION;
 extern bool STATS;
 
 extern int MAX_NUM_EVALUACIONES;
+extern int MAX_NUMERO_GENERACIONES;
 extern int ALGORITMO;
 extern int NUMERO_ELITES;
 extern int NUMERO_INDIVIDUOS;
@@ -25,6 +26,7 @@ extern int KWORST;
 
 extern double PROBABILIDAD_CRUCE;
 extern double PROBABILIDAD_MUTACION;
+extern double PROBABILIDAD_GREEDY;
 
 constexpr int INFINITO_POSITIVO = std::numeric_limits<int>::max();
 constexpr int INFINITO_NEGATIVO = std::numeric_limits<int>::min();

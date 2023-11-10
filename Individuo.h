@@ -12,23 +12,23 @@
 class Individuo {
 
 private:
-    std::vector<int> camino;
-    double coste{};
-    LectorCiudades &lector_datos;
+    std::vector<int> camino{};
+    double coste = INFINITO_POSITIVO;
+    LectorCiudades &lector_ciudades;
 
 public:
 
     Individuo(std::vector<int> camino, LectorCiudades &lector_datos);
 
-    Individuo(const Individuo &otro) : camino(otro.camino), coste(otro.coste), lector_datos(otro.lector_datos) {}
+    Individuo(const Individuo &otro);
 
     virtual ~Individuo();
 
-    double get_coste() const;
+    [[nodiscard]] double get_coste() const;
 
-    int get_ciudad(int index) const;
+    [[nodiscard]] int get_ciudad(int index) const;
 
-    const std::vector<int> &get_camino() const;
+    [[nodiscard]] const std::vector<int> &get_camino() const;
 
     void mutar();
 
@@ -46,12 +46,13 @@ public:
 
     Individuo &operator=(const Individuo &otro);
 
-    void evaluar();
+    // void evaluar();
 
-    void set_ciudad(int index, int ciudad);
+    [[maybe_unused]] void set_ciudad(int index, int ciudad);
 
     void intercambiar(int posicion1, int posicion2);
 
+    void evaluar();
 };
 
 #endif //META_PRACTICA_02_INDIVIDUO_H

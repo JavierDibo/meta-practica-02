@@ -55,16 +55,24 @@ void LectorParametros::leer_parametros() {
         MAX_NUM_EVALUACIONES = std::stoi(mapa_parametros["max_num_evaluacion"]);
     }
 
-    if (mapa_parametros.find("probablidad_cruce") != mapa_parametros.end()) {
-        PROBABILIDAD_CRUCE = std::stod(mapa_parametros["probablidad_cruce"]);
+    if (mapa_parametros.find("probabilidad_cruce") != mapa_parametros.end()) {
+        PROBABILIDAD_CRUCE = std::stod(mapa_parametros["probabilidad_cruce"]);
     }
 
     if (mapa_parametros.find("probabilidad_mutacion") != mapa_parametros.end()) {
         PROBABILIDAD_MUTACION = std::stod(mapa_parametros["probabilidad_mutacion"]);
     }
 
+    if (mapa_parametros.find("probabilidad_greedy") != mapa_parametros.end()) {
+        PROBABILIDAD_GREEDY = std::stod(mapa_parametros["probabilidad_greedy"]);
+    }
+
     if (mapa_parametros.find("numero_elites") != mapa_parametros.end()) {
         NUMERO_ELITES = std::stoi(mapa_parametros["numero_elites"]);
+    }
+
+    if (mapa_parametros.find("max_num_generaciones") != mapa_parametros.end()) {
+        MAX_NUMERO_GENERACIONES = std::stoi(mapa_parametros["max_num_generaciones"]);
     }
 
     if (mapa_parametros.find("numero_individuos") != mapa_parametros.end()) {
