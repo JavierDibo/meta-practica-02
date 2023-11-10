@@ -3,6 +3,9 @@
 
 #include <utility>
 #include <vector>
+#include <fstream>
+#include <unordered_set>
+
 #include "LectorCiudades.h"
 #include "globals.h"
 
@@ -24,6 +27,8 @@ public:
     double get_coste() const;
 
     int get_ciudad(int index) const;
+
+    const std::vector<int> &get_camino() const;
 
     void mutar();
 

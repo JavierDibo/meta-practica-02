@@ -1,6 +1,6 @@
 Los distintos componentes de este algoritmo son:
 
-- Inicialización de una población de 50 y 100 individuos con un 80% de los individuos generados de forma aleatoria completamente, y el resto mediante un greedy aleatorizado con tamaño 5.
+- Inicialización de una población de 50 y 100 individuos con un 80% de los individuos generados de forma aleatoria completamente, y el resto mediante un camino_greedy aleatorizado con tamaño 5.
 
 - Esquema de evolución generacional con élite E=1 y E=2.
 

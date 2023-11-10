@@ -1,8 +1,4 @@
-#include <iomanip>
 #include "LectorCiudades.h"
-#include "omp.h"
-#include "globals.h"
-#include "Reloj.h"
 
 void mostrar_tiempo_transcurrido(const std::string &nombre_archivo, Reloj &reloj_lector_datos) {
 
@@ -108,6 +104,14 @@ double LectorCiudades::calcular_distancia(int ciudad_a, int ciudad_b) const {
 
 int LectorCiudades::get_num_ciudades() const {
     return num_ciudades;
+}
+
+const std::vector<std::vector<double>> &LectorCiudades::get_ciudades() const {
+    return ciudades;
+}
+
+const std::vector<std::vector<double>> &LectorCiudades::getDistancias() const {
+    return distancias;
 }
 
 LectorCiudades::LectorCiudades() = default;

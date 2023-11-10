@@ -18,13 +18,13 @@ paralelizacion=true
 log=false
 
 # Nombre de los archivos de datos
-#datos=ch130.tsp
-datos=pr144.tsp
+datos=ch130.tsp
+#datos=pr144.tsp
 #datos=d15112.tsp
 
-max_num_evaluacion=20000
+max_num_evaluacion=1000
 numero_elites=2
-numero_individuos=50
+numero_individuos=100
 numero_kbest=2
 numero_kworst=3
 probablidad_cruce=0.7

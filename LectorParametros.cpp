@@ -1,9 +1,5 @@
-#include <fstream>
-#include <iostream>
-#include <sstream>
-#include <utility>
 #include "LectorParametros.h"
-#include "globals.h"
+
 
 void LectorParametros::leer_parametros() {
 

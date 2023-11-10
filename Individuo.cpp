@@ -1,5 +1,4 @@
 #include "Individuo.h"
-#include "Reloj.h"
 
 Individuo::Individuo(std::vector<int> camino, LectorCiudades &lector_datos) : camino(std::move(camino)),
                                                                               lector_datos(lector_datos) {
@@ -59,9 +58,25 @@ Individuo &Individuo::operator=(const Individuo &otro) {
     std::cout << hola.obtener_tiempo_transcurrido(MICROSEGUNDOS) << ", ";
 }*/
 
-#include <fstream>
+bool hasDuplicates(const std::vector<int> &vec) {
+    std::unordered_set<int> elements;
+
+    for (int value: vec) {
+        if (elements.find(value) != elements.end()) {
+            // Si el valor ya se encuentra en el conjunto, hay un duplicado
+            return true;
+        }
+        // Si el valor no se encuentra, se agrega al conjunto
+        elements.insert(value);
+    }
+
+    // Si terminamos de revisar todos los elementos y no encontramos duplicados
+    return false;
+}
 
 void Individuo::evaluar() {
+
+    // hasDuplicates(camino);
 
     coste = 0.0;
     for (size_t i = 0; i < camino.size() - 1; ++i) {
@@ -105,6 +120,10 @@ bool Individuo::operator==(const Individuo &otro) const {
 
 bool Individuo::operator!=(const Individuo &otro) const {
     return coste != otro.get_coste();
+}
+
+const std::vector<int> &Individuo::get_camino() const {
+    return camino;
 }
 
 Individuo::~Individuo() = default;

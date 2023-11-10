@@ -7,6 +7,11 @@
 #include <vector>
 #include <cmath>
 #include <stdexcept>
+#include <iomanip>
+
+#include "omp.h"
+#include "globals.h"
+#include "Reloj.h"
 
 class LectorCiudades {
 private:
@@ -41,6 +46,10 @@ public:
     double calcular_distancia(int ciudad_a, int ciudad_b) const;
 
     int get_num_ciudades() const;
+
+    const std::vector<std::vector<double>> &get_ciudades() const;
+
+    const std::vector<std::vector<double>> &getDistancias() const;
 };
 
 #endif //META_PRACTICA_02_LECTOR_DATOS_CUIDADES_H

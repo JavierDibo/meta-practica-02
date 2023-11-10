@@ -29,5 +29,7 @@ int main() {
 
     std::sort(fin.begin(), fin.end());
 
+    std::cout << "Coste del mejor individuo: " << fin.begin()->get_coste();
+
     return 0;
 }

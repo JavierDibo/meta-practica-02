@@ -4,6 +4,8 @@
 #include <string>
 #include <chrono>
 
+#include "globals.h"
+
 class Reloj {
 
 private:

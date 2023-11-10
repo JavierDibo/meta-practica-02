@@ -2,6 +2,12 @@
 #define META_PRACTICA_02_LECTORPARAMETROS_H
 #include <string>
 #include <map>
+#include <fstream>
+#include <iostream>
+#include <sstream>
+#include <utility>
+
+#include "globals.h"
 
 using std::string;
 
