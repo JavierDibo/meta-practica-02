@@ -68,179 +68,163 @@ include CMakeFiles/meta_practica_02.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/meta_practica_02.dir/flags.make
 
-CMakeFiles/meta_practica_02.dir/main.cpp.obj: CMakeFiles/meta_practica_02.dir/flags.make
-CMakeFiles/meta_practica_02.dir/main.cpp.obj: C:/Users/Administrator/Desktop/meta-practica-02/main.cpp
-CMakeFiles/meta_practica_02.dir/main.cpp.obj: CMakeFiles/meta_practica_02.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/meta_practica_02.dir/main.cpp.obj"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/meta_practica_02.dir/main.cpp.obj -MF CMakeFiles\meta_practica_02.dir\main.cpp.obj.d -o CMakeFiles\meta_practica_02.dir\main.cpp.obj -c C:\Users\Administrator\Desktop\meta-practica-02\main.cpp
+CMakeFiles/meta_practica_02.dir/source/main.cpp.obj: CMakeFiles/meta_practica_02.dir/flags.make
+CMakeFiles/meta_practica_02.dir/source/main.cpp.obj: C:/Users/Administrator/Desktop/meta-practica-02/source/main.cpp
+CMakeFiles/meta_practica_02.dir/source/main.cpp.obj: CMakeFiles/meta_practica_02.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/meta_practica_02.dir/source/main.cpp.obj"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/meta_practica_02.dir/source/main.cpp.obj -MF CMakeFiles\meta_practica_02.dir\source\main.cpp.obj.d -o CMakeFiles\meta_practica_02.dir\source\main.cpp.obj -c C:\Users\Administrator\Desktop\meta-practica-02\source\main.cpp
 
-CMakeFiles/meta_practica_02.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meta_practica_02.dir/main.cpp.i"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\meta-practica-02\main.cpp > CMakeFiles\meta_practica_02.dir\main.cpp.i
+CMakeFiles/meta_practica_02.dir/source/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meta_practica_02.dir/source/main.cpp.i"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\meta-practica-02\source\main.cpp > CMakeFiles\meta_practica_02.dir\source\main.cpp.i
 
-CMakeFiles/meta_practica_02.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/main.cpp.s"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\main.cpp -o CMakeFiles\meta_practica_02.dir\main.cpp.s
+CMakeFiles/meta_practica_02.dir/source/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/source/main.cpp.s"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\source\main.cpp -o CMakeFiles\meta_practica_02.dir\source\main.cpp.s
 
-CMakeFiles/meta_practica_02.dir/LectorCiudades.cpp.obj: CMakeFiles/meta_practica_02.dir/flags.make
-CMakeFiles/meta_practica_02.dir/LectorCiudades.cpp.obj: C:/Users/Administrator/Desktop/meta-practica-02/LectorCiudades.cpp
-CMakeFiles/meta_practica_02.dir/LectorCiudades.cpp.obj: CMakeFiles/meta_practica_02.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/meta_practica_02.dir/LectorCiudades.cpp.obj"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/meta_practica_02.dir/LectorCiudades.cpp.obj -MF CMakeFiles\meta_practica_02.dir\LectorCiudades.cpp.obj.d -o CMakeFiles\meta_practica_02.dir\LectorCiudades.cpp.obj -c C:\Users\Administrator\Desktop\meta-practica-02\LectorCiudades.cpp
+CMakeFiles/meta_practica_02.dir/source/LectorCiudades.cpp.obj: CMakeFiles/meta_practica_02.dir/flags.make
+CMakeFiles/meta_practica_02.dir/source/LectorCiudades.cpp.obj: C:/Users/Administrator/Desktop/meta-practica-02/source/LectorCiudades.cpp
+CMakeFiles/meta_practica_02.dir/source/LectorCiudades.cpp.obj: CMakeFiles/meta_practica_02.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/meta_practica_02.dir/source/LectorCiudades.cpp.obj"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/meta_practica_02.dir/source/LectorCiudades.cpp.obj -MF CMakeFiles\meta_practica_02.dir\source\LectorCiudades.cpp.obj.d -o CMakeFiles\meta_practica_02.dir\source\LectorCiudades.cpp.obj -c C:\Users\Administrator\Desktop\meta-practica-02\source\LectorCiudades.cpp
 
-CMakeFiles/meta_practica_02.dir/LectorCiudades.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meta_practica_02.dir/LectorCiudades.cpp.i"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\meta-practica-02\LectorCiudades.cpp > CMakeFiles\meta_practica_02.dir\LectorCiudades.cpp.i
+CMakeFiles/meta_practica_02.dir/source/LectorCiudades.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meta_practica_02.dir/source/LectorCiudades.cpp.i"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\meta-practica-02\source\LectorCiudades.cpp > CMakeFiles\meta_practica_02.dir\source\LectorCiudades.cpp.i
 
-CMakeFiles/meta_practica_02.dir/LectorCiudades.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/LectorCiudades.cpp.s"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\LectorCiudades.cpp -o CMakeFiles\meta_practica_02.dir\LectorCiudades.cpp.s
+CMakeFiles/meta_practica_02.dir/source/LectorCiudades.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/source/LectorCiudades.cpp.s"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\source\LectorCiudades.cpp -o CMakeFiles\meta_practica_02.dir\source\LectorCiudades.cpp.s
 
-CMakeFiles/meta_practica_02.dir/globals.cpp.obj: CMakeFiles/meta_practica_02.dir/flags.make
-CMakeFiles/meta_practica_02.dir/globals.cpp.obj: C:/Users/Administrator/Desktop/meta-practica-02/globals.cpp
-CMakeFiles/meta_practica_02.dir/globals.cpp.obj: CMakeFiles/meta_practica_02.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/meta_practica_02.dir/globals.cpp.obj"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/meta_practica_02.dir/globals.cpp.obj -MF CMakeFiles\meta_practica_02.dir\globals.cpp.obj.d -o CMakeFiles\meta_practica_02.dir\globals.cpp.obj -c C:\Users\Administrator\Desktop\meta-practica-02\globals.cpp
+CMakeFiles/meta_practica_02.dir/source/globals.cpp.obj: CMakeFiles/meta_practica_02.dir/flags.make
+CMakeFiles/meta_practica_02.dir/source/globals.cpp.obj: C:/Users/Administrator/Desktop/meta-practica-02/source/globals.cpp
+CMakeFiles/meta_practica_02.dir/source/globals.cpp.obj: CMakeFiles/meta_practica_02.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/meta_practica_02.dir/source/globals.cpp.obj"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/meta_practica_02.dir/source/globals.cpp.obj -MF CMakeFiles\meta_practica_02.dir\source\globals.cpp.obj.d -o CMakeFiles\meta_practica_02.dir\source\globals.cpp.obj -c C:\Users\Administrator\Desktop\meta-practica-02\source\globals.cpp
 
-CMakeFiles/meta_practica_02.dir/globals.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meta_practica_02.dir/globals.cpp.i"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\meta-practica-02\globals.cpp > CMakeFiles\meta_practica_02.dir\globals.cpp.i
+CMakeFiles/meta_practica_02.dir/source/globals.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meta_practica_02.dir/source/globals.cpp.i"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\meta-practica-02\source\globals.cpp > CMakeFiles\meta_practica_02.dir\source\globals.cpp.i
 
-CMakeFiles/meta_practica_02.dir/globals.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/globals.cpp.s"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\globals.cpp -o CMakeFiles\meta_practica_02.dir\globals.cpp.s
+CMakeFiles/meta_practica_02.dir/source/globals.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/source/globals.cpp.s"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\source\globals.cpp -o CMakeFiles\meta_practica_02.dir\source\globals.cpp.s
 
-CMakeFiles/meta_practica_02.dir/Reloj.cpp.obj: CMakeFiles/meta_practica_02.dir/flags.make
-CMakeFiles/meta_practica_02.dir/Reloj.cpp.obj: C:/Users/Administrator/Desktop/meta-practica-02/Reloj.cpp
-CMakeFiles/meta_practica_02.dir/Reloj.cpp.obj: CMakeFiles/meta_practica_02.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/meta_practica_02.dir/Reloj.cpp.obj"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/meta_practica_02.dir/Reloj.cpp.obj -MF CMakeFiles\meta_practica_02.dir\Reloj.cpp.obj.d -o CMakeFiles\meta_practica_02.dir\Reloj.cpp.obj -c C:\Users\Administrator\Desktop\meta-practica-02\Reloj.cpp
+CMakeFiles/meta_practica_02.dir/source/Reloj.cpp.obj: CMakeFiles/meta_practica_02.dir/flags.make
+CMakeFiles/meta_practica_02.dir/source/Reloj.cpp.obj: C:/Users/Administrator/Desktop/meta-practica-02/source/Reloj.cpp
+CMakeFiles/meta_practica_02.dir/source/Reloj.cpp.obj: CMakeFiles/meta_practica_02.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/meta_practica_02.dir/source/Reloj.cpp.obj"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/meta_practica_02.dir/source/Reloj.cpp.obj -MF CMakeFiles\meta_practica_02.dir\source\Reloj.cpp.obj.d -o CMakeFiles\meta_practica_02.dir\source\Reloj.cpp.obj -c C:\Users\Administrator\Desktop\meta-practica-02\source\Reloj.cpp
 
-CMakeFiles/meta_practica_02.dir/Reloj.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meta_practica_02.dir/Reloj.cpp.i"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\meta-practica-02\Reloj.cpp > CMakeFiles\meta_practica_02.dir\Reloj.cpp.i
+CMakeFiles/meta_practica_02.dir/source/Reloj.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meta_practica_02.dir/source/Reloj.cpp.i"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\meta-practica-02\source\Reloj.cpp > CMakeFiles\meta_practica_02.dir\source\Reloj.cpp.i
 
-CMakeFiles/meta_practica_02.dir/Reloj.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/Reloj.cpp.s"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\Reloj.cpp -o CMakeFiles\meta_practica_02.dir\Reloj.cpp.s
+CMakeFiles/meta_practica_02.dir/source/Reloj.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/source/Reloj.cpp.s"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\source\Reloj.cpp -o CMakeFiles\meta_practica_02.dir\source\Reloj.cpp.s
 
-CMakeFiles/meta_practica_02.dir/LectorParametros.cpp.obj: CMakeFiles/meta_practica_02.dir/flags.make
-CMakeFiles/meta_practica_02.dir/LectorParametros.cpp.obj: C:/Users/Administrator/Desktop/meta-practica-02/LectorParametros.cpp
-CMakeFiles/meta_practica_02.dir/LectorParametros.cpp.obj: CMakeFiles/meta_practica_02.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/meta_practica_02.dir/LectorParametros.cpp.obj"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/meta_practica_02.dir/LectorParametros.cpp.obj -MF CMakeFiles\meta_practica_02.dir\LectorParametros.cpp.obj.d -o CMakeFiles\meta_practica_02.dir\LectorParametros.cpp.obj -c C:\Users\Administrator\Desktop\meta-practica-02\LectorParametros.cpp
+CMakeFiles/meta_practica_02.dir/source/LectorParametros.cpp.obj: CMakeFiles/meta_practica_02.dir/flags.make
+CMakeFiles/meta_practica_02.dir/source/LectorParametros.cpp.obj: C:/Users/Administrator/Desktop/meta-practica-02/source/LectorParametros.cpp
+CMakeFiles/meta_practica_02.dir/source/LectorParametros.cpp.obj: CMakeFiles/meta_practica_02.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/meta_practica_02.dir/source/LectorParametros.cpp.obj"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/meta_practica_02.dir/source/LectorParametros.cpp.obj -MF CMakeFiles\meta_practica_02.dir\source\LectorParametros.cpp.obj.d -o CMakeFiles\meta_practica_02.dir\source\LectorParametros.cpp.obj -c C:\Users\Administrator\Desktop\meta-practica-02\source\LectorParametros.cpp
 
-CMakeFiles/meta_practica_02.dir/LectorParametros.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meta_practica_02.dir/LectorParametros.cpp.i"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\meta-practica-02\LectorParametros.cpp > CMakeFiles\meta_practica_02.dir\LectorParametros.cpp.i
+CMakeFiles/meta_practica_02.dir/source/LectorParametros.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meta_practica_02.dir/source/LectorParametros.cpp.i"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\meta-practica-02\source\LectorParametros.cpp > CMakeFiles\meta_practica_02.dir\source\LectorParametros.cpp.i
 
-CMakeFiles/meta_practica_02.dir/LectorParametros.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/LectorParametros.cpp.s"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\LectorParametros.cpp -o CMakeFiles\meta_practica_02.dir\LectorParametros.cpp.s
+CMakeFiles/meta_practica_02.dir/source/LectorParametros.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/source/LectorParametros.cpp.s"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\source\LectorParametros.cpp -o CMakeFiles\meta_practica_02.dir\source\LectorParametros.cpp.s
 
-CMakeFiles/meta_practica_02.dir/Logger.cpp.obj: CMakeFiles/meta_practica_02.dir/flags.make
-CMakeFiles/meta_practica_02.dir/Logger.cpp.obj: C:/Users/Administrator/Desktop/meta-practica-02/Logger.cpp
-CMakeFiles/meta_practica_02.dir/Logger.cpp.obj: CMakeFiles/meta_practica_02.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/meta_practica_02.dir/Logger.cpp.obj"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/meta_practica_02.dir/Logger.cpp.obj -MF CMakeFiles\meta_practica_02.dir\Logger.cpp.obj.d -o CMakeFiles\meta_practica_02.dir\Logger.cpp.obj -c C:\Users\Administrator\Desktop\meta-practica-02\Logger.cpp
+CMakeFiles/meta_practica_02.dir/source/Logger.cpp.obj: CMakeFiles/meta_practica_02.dir/flags.make
+CMakeFiles/meta_practica_02.dir/source/Logger.cpp.obj: C:/Users/Administrator/Desktop/meta-practica-02/source/Logger.cpp
+CMakeFiles/meta_practica_02.dir/source/Logger.cpp.obj: CMakeFiles/meta_practica_02.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/meta_practica_02.dir/source/Logger.cpp.obj"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/meta_practica_02.dir/source/Logger.cpp.obj -MF CMakeFiles\meta_practica_02.dir\source\Logger.cpp.obj.d -o CMakeFiles\meta_practica_02.dir\source\Logger.cpp.obj -c C:\Users\Administrator\Desktop\meta-practica-02\source\Logger.cpp
 
-CMakeFiles/meta_practica_02.dir/Logger.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meta_practica_02.dir/Logger.cpp.i"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\meta-practica-02\Logger.cpp > CMakeFiles\meta_practica_02.dir\Logger.cpp.i
+CMakeFiles/meta_practica_02.dir/source/Logger.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meta_practica_02.dir/source/Logger.cpp.i"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\meta-practica-02\source\Logger.cpp > CMakeFiles\meta_practica_02.dir\source\Logger.cpp.i
 
-CMakeFiles/meta_practica_02.dir/Logger.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/Logger.cpp.s"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\Logger.cpp -o CMakeFiles\meta_practica_02.dir\Logger.cpp.s
+CMakeFiles/meta_practica_02.dir/source/Logger.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/source/Logger.cpp.s"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\source\Logger.cpp -o CMakeFiles\meta_practica_02.dir\source\Logger.cpp.s
 
-CMakeFiles/meta_practica_02.dir/Individuo.cpp.obj: CMakeFiles/meta_practica_02.dir/flags.make
-CMakeFiles/meta_practica_02.dir/Individuo.cpp.obj: C:/Users/Administrator/Desktop/meta-practica-02/Individuo.cpp
-CMakeFiles/meta_practica_02.dir/Individuo.cpp.obj: CMakeFiles/meta_practica_02.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/meta_practica_02.dir/Individuo.cpp.obj"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/meta_practica_02.dir/Individuo.cpp.obj -MF CMakeFiles\meta_practica_02.dir\Individuo.cpp.obj.d -o CMakeFiles\meta_practica_02.dir\Individuo.cpp.obj -c C:\Users\Administrator\Desktop\meta-practica-02\Individuo.cpp
+CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.obj: CMakeFiles/meta_practica_02.dir/flags.make
+CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.obj: C:/Users/Administrator/Desktop/meta-practica-02/source/Individuo.cpp
+CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.obj: CMakeFiles/meta_practica_02.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.obj"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.obj -MF CMakeFiles\meta_practica_02.dir\source\Individuo.cpp.obj.d -o CMakeFiles\meta_practica_02.dir\source\Individuo.cpp.obj -c C:\Users\Administrator\Desktop\meta-practica-02\source\Individuo.cpp
 
-CMakeFiles/meta_practica_02.dir/Individuo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meta_practica_02.dir/Individuo.cpp.i"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\meta-practica-02\Individuo.cpp > CMakeFiles\meta_practica_02.dir\Individuo.cpp.i
+CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.i"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\meta-practica-02\source\Individuo.cpp > CMakeFiles\meta_practica_02.dir\source\Individuo.cpp.i
 
-CMakeFiles/meta_practica_02.dir/Individuo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/Individuo.cpp.s"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\Individuo.cpp -o CMakeFiles\meta_practica_02.dir\Individuo.cpp.s
+CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.s"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\source\Individuo.cpp -o CMakeFiles\meta_practica_02.dir\source\Individuo.cpp.s
 
-CMakeFiles/meta_practica_02.dir/Poblacion.cpp.obj: CMakeFiles/meta_practica_02.dir/flags.make
-CMakeFiles/meta_practica_02.dir/Poblacion.cpp.obj: C:/Users/Administrator/Desktop/meta-practica-02/Poblacion.cpp
-CMakeFiles/meta_practica_02.dir/Poblacion.cpp.obj: CMakeFiles/meta_practica_02.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/meta_practica_02.dir/Poblacion.cpp.obj"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/meta_practica_02.dir/Poblacion.cpp.obj -MF CMakeFiles\meta_practica_02.dir\Poblacion.cpp.obj.d -o CMakeFiles\meta_practica_02.dir\Poblacion.cpp.obj -c C:\Users\Administrator\Desktop\meta-practica-02\Poblacion.cpp
+CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.obj: CMakeFiles/meta_practica_02.dir/flags.make
+CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.obj: C:/Users/Administrator/Desktop/meta-practica-02/source/Poblacion.cpp
+CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.obj: CMakeFiles/meta_practica_02.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.obj"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.obj -MF CMakeFiles\meta_practica_02.dir\source\Poblacion.cpp.obj.d -o CMakeFiles\meta_practica_02.dir\source\Poblacion.cpp.obj -c C:\Users\Administrator\Desktop\meta-practica-02\source\Poblacion.cpp
 
-CMakeFiles/meta_practica_02.dir/Poblacion.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meta_practica_02.dir/Poblacion.cpp.i"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\meta-practica-02\Poblacion.cpp > CMakeFiles\meta_practica_02.dir\Poblacion.cpp.i
+CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.i"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\meta-practica-02\source\Poblacion.cpp > CMakeFiles\meta_practica_02.dir\source\Poblacion.cpp.i
 
-CMakeFiles/meta_practica_02.dir/Poblacion.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/Poblacion.cpp.s"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\Poblacion.cpp -o CMakeFiles\meta_practica_02.dir\Poblacion.cpp.s
+CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.s"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\source\Poblacion.cpp -o CMakeFiles\meta_practica_02.dir\source\Poblacion.cpp.s
 
-CMakeFiles/meta_practica_02.dir/AlgoritmoGenetico.cpp.obj: CMakeFiles/meta_practica_02.dir/flags.make
-CMakeFiles/meta_practica_02.dir/AlgoritmoGenetico.cpp.obj: C:/Users/Administrator/Desktop/meta-practica-02/AlgoritmoGenetico.cpp
-CMakeFiles/meta_practica_02.dir/AlgoritmoGenetico.cpp.obj: CMakeFiles/meta_practica_02.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/meta_practica_02.dir/AlgoritmoGenetico.cpp.obj"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/meta_practica_02.dir/AlgoritmoGenetico.cpp.obj -MF CMakeFiles\meta_practica_02.dir\AlgoritmoGenetico.cpp.obj.d -o CMakeFiles\meta_practica_02.dir\AlgoritmoGenetico.cpp.obj -c C:\Users\Administrator\Desktop\meta-practica-02\AlgoritmoGenetico.cpp
+CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj: CMakeFiles/meta_practica_02.dir/flags.make
+CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj: C:/Users/Administrator/Desktop/meta-practica-02/source/GeneradorAleatorio.cpp
+CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj: CMakeFiles/meta_practica_02.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj -MF CMakeFiles\meta_practica_02.dir\source\GeneradorAleatorio.cpp.obj.d -o CMakeFiles\meta_practica_02.dir\source\GeneradorAleatorio.cpp.obj -c C:\Users\Administrator\Desktop\meta-practica-02\source\GeneradorAleatorio.cpp
 
-CMakeFiles/meta_practica_02.dir/AlgoritmoGenetico.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meta_practica_02.dir/AlgoritmoGenetico.cpp.i"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\meta-practica-02\AlgoritmoGenetico.cpp > CMakeFiles\meta_practica_02.dir\AlgoritmoGenetico.cpp.i
+CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.i"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\meta-practica-02\source\GeneradorAleatorio.cpp > CMakeFiles\meta_practica_02.dir\source\GeneradorAleatorio.cpp.i
 
-CMakeFiles/meta_practica_02.dir/AlgoritmoGenetico.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/AlgoritmoGenetico.cpp.s"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\AlgoritmoGenetico.cpp -o CMakeFiles\meta_practica_02.dir\AlgoritmoGenetico.cpp.s
-
-CMakeFiles/meta_practica_02.dir/GeneradorAleatorio.cpp.obj: CMakeFiles/meta_practica_02.dir/flags.make
-CMakeFiles/meta_practica_02.dir/GeneradorAleatorio.cpp.obj: C:/Users/Administrator/Desktop/meta-practica-02/GeneradorAleatorio.cpp
-CMakeFiles/meta_practica_02.dir/GeneradorAleatorio.cpp.obj: CMakeFiles/meta_practica_02.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/meta_practica_02.dir/GeneradorAleatorio.cpp.obj"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/meta_practica_02.dir/GeneradorAleatorio.cpp.obj -MF CMakeFiles\meta_practica_02.dir\GeneradorAleatorio.cpp.obj.d -o CMakeFiles\meta_practica_02.dir\GeneradorAleatorio.cpp.obj -c C:\Users\Administrator\Desktop\meta-practica-02\GeneradorAleatorio.cpp
-
-CMakeFiles/meta_practica_02.dir/GeneradorAleatorio.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meta_practica_02.dir/GeneradorAleatorio.cpp.i"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\meta-practica-02\GeneradorAleatorio.cpp > CMakeFiles\meta_practica_02.dir\GeneradorAleatorio.cpp.i
-
-CMakeFiles/meta_practica_02.dir/GeneradorAleatorio.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/GeneradorAleatorio.cpp.s"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\GeneradorAleatorio.cpp -o CMakeFiles\meta_practica_02.dir\GeneradorAleatorio.cpp.s
+CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.s"
+	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\source\GeneradorAleatorio.cpp -o CMakeFiles\meta_practica_02.dir\source\GeneradorAleatorio.cpp.s
 
 # Object files for target meta_practica_02
 meta_practica_02_OBJECTS = \
-"CMakeFiles/meta_practica_02.dir/main.cpp.obj" \
-"CMakeFiles/meta_practica_02.dir/LectorCiudades.cpp.obj" \
-"CMakeFiles/meta_practica_02.dir/globals.cpp.obj" \
-"CMakeFiles/meta_practica_02.dir/Reloj.cpp.obj" \
-"CMakeFiles/meta_practica_02.dir/LectorParametros.cpp.obj" \
-"CMakeFiles/meta_practica_02.dir/Logger.cpp.obj" \
-"CMakeFiles/meta_practica_02.dir/Individuo.cpp.obj" \
-"CMakeFiles/meta_practica_02.dir/Poblacion.cpp.obj" \
-"CMakeFiles/meta_practica_02.dir/AlgoritmoGenetico.cpp.obj" \
-"CMakeFiles/meta_practica_02.dir/GeneradorAleatorio.cpp.obj"
+"CMakeFiles/meta_practica_02.dir/source/main.cpp.obj" \
+"CMakeFiles/meta_practica_02.dir/source/LectorCiudades.cpp.obj" \
+"CMakeFiles/meta_practica_02.dir/source/globals.cpp.obj" \
+"CMakeFiles/meta_practica_02.dir/source/Reloj.cpp.obj" \
+"CMakeFiles/meta_practica_02.dir/source/LectorParametros.cpp.obj" \
+"CMakeFiles/meta_practica_02.dir/source/Logger.cpp.obj" \
+"CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.obj" \
+"CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.obj" \
+"CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj"
 
 # External object files for target meta_practica_02
 meta_practica_02_EXTERNAL_OBJECTS =
 
-meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/main.cpp.obj
-meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/LectorCiudades.cpp.obj
-meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/globals.cpp.obj
-meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/Reloj.cpp.obj
-meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/LectorParametros.cpp.obj
-meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/Logger.cpp.obj
-meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/Individuo.cpp.obj
-meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/Poblacion.cpp.obj
-meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/AlgoritmoGenetico.cpp.obj
-meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/GeneradorAleatorio.cpp.obj
+meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/source/main.cpp.obj
+meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/source/LectorCiudades.cpp.obj
+meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/source/globals.cpp.obj
+meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/source/Reloj.cpp.obj
+meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/source/LectorParametros.cpp.obj
+meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/source/Logger.cpp.obj
+meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.obj
+meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.obj
+meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj
 meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/build.make
 meta_practica_02.exe: C:/Users/Administrator/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/libgomp.dll.a
 meta_practica_02.exe: C:/Users/Administrator/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/x86_64-w64-mingw32/lib/libmingwthrd.a
 meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/linkLibs.rsp
 meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/objects1.rsp
 meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable meta_practica_02.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable meta_practica_02.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\meta_practica_02.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

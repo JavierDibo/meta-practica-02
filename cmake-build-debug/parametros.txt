@@ -17,8 +17,8 @@ paralelizacion=true
 log=false
 
 # Nombre de los archivos de datos
-#datos=ch130.tsp
-datos=pr144.tsp
+datos=ch130.tsp
+#datos=pr144.tsp
 #datos=d15112.tsp
 
 max_num_evaluacion=1000
@@ -29,7 +29,7 @@ numero_kbest=2
 numero_kworst=3
 probabilidad_cruce=0.7
 probabilidad_mutacion=0.1
-probabilidad_greedy=0.0
+probabilidad_greedy=1
 
 # Optimos
 # CH130 --> 6,110

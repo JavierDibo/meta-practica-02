@@ -82,61 +82,55 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/AlgoritmoGenetico.cpp">
+		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/source/GeneradorAleatorio.cpp">
 			<Option target="meta_practica_02"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/AlgoritmoGenetico.h">
+		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/source/GeneradorAleatorio.h">
 			<Option target="meta_practica_02"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/GeneradorAleatorio.cpp">
+		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/source/Individuo.cpp">
 			<Option target="meta_practica_02"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/GeneradorAleatorio.h">
+		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/source/Individuo.h">
 			<Option target="meta_practica_02"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/Individuo.cpp">
+		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/source/LectorCiudades.cpp">
 			<Option target="meta_practica_02"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/Individuo.h">
+		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/source/LectorCiudades.h">
 			<Option target="meta_practica_02"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/LectorCiudades.cpp">
+		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/source/LectorParametros.cpp">
 			<Option target="meta_practica_02"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/LectorCiudades.h">
+		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/source/LectorParametros.h">
 			<Option target="meta_practica_02"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/LectorParametros.cpp">
+		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/source/Logger.cpp">
 			<Option target="meta_practica_02"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/LectorParametros.h">
+		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/source/Logger.h">
 			<Option target="meta_practica_02"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/Logger.cpp">
+		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/source/Poblacion.cpp">
 			<Option target="meta_practica_02"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/Logger.h">
+		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/source/Poblacion.h">
 			<Option target="meta_practica_02"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/Poblacion.cpp">
+		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/source/Reloj.cpp">
 			<Option target="meta_practica_02"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/Poblacion.h">
+		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/source/Reloj.h">
 			<Option target="meta_practica_02"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/Reloj.cpp">
+		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/source/globals.cpp">
 			<Option target="meta_practica_02"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/Reloj.h">
+		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/source/globals.h">
 			<Option target="meta_practica_02"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/globals.cpp">
-			<Option target="meta_practica_02"/>
-		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/globals.h">
-			<Option target="meta_practica_02"/>
-		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/main.cpp">
+		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/source/main.cpp">
 			<Option target="meta_practica_02"/>
 		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/CMakeLists.txt">

@@ -128,245 +128,221 @@ meta_practica_02/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/build
 .PHONY : meta_practica_02/fast
 
-AlgoritmoGenetico.obj: AlgoritmoGenetico.cpp.obj
-.PHONY : AlgoritmoGenetico.obj
+source/GeneradorAleatorio.obj: source/GeneradorAleatorio.cpp.obj
+.PHONY : source/GeneradorAleatorio.obj
 
 # target to build an object file
-AlgoritmoGenetico.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/AlgoritmoGenetico.cpp.obj
-.PHONY : AlgoritmoGenetico.cpp.obj
+source/GeneradorAleatorio.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj
+.PHONY : source/GeneradorAleatorio.cpp.obj
 
-AlgoritmoGenetico.i: AlgoritmoGenetico.cpp.i
-.PHONY : AlgoritmoGenetico.i
+source/GeneradorAleatorio.i: source/GeneradorAleatorio.cpp.i
+.PHONY : source/GeneradorAleatorio.i
 
 # target to preprocess a source file
-AlgoritmoGenetico.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/AlgoritmoGenetico.cpp.i
-.PHONY : AlgoritmoGenetico.cpp.i
+source/GeneradorAleatorio.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.i
+.PHONY : source/GeneradorAleatorio.cpp.i
 
-AlgoritmoGenetico.s: AlgoritmoGenetico.cpp.s
-.PHONY : AlgoritmoGenetico.s
+source/GeneradorAleatorio.s: source/GeneradorAleatorio.cpp.s
+.PHONY : source/GeneradorAleatorio.s
 
 # target to generate assembly for a file
-AlgoritmoGenetico.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/AlgoritmoGenetico.cpp.s
-.PHONY : AlgoritmoGenetico.cpp.s
+source/GeneradorAleatorio.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.s
+.PHONY : source/GeneradorAleatorio.cpp.s
 
-GeneradorAleatorio.obj: GeneradorAleatorio.cpp.obj
-.PHONY : GeneradorAleatorio.obj
+source/Individuo.obj: source/Individuo.cpp.obj
+.PHONY : source/Individuo.obj
 
 # target to build an object file
-GeneradorAleatorio.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/GeneradorAleatorio.cpp.obj
-.PHONY : GeneradorAleatorio.cpp.obj
+source/Individuo.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.obj
+.PHONY : source/Individuo.cpp.obj
 
-GeneradorAleatorio.i: GeneradorAleatorio.cpp.i
-.PHONY : GeneradorAleatorio.i
+source/Individuo.i: source/Individuo.cpp.i
+.PHONY : source/Individuo.i
 
 # target to preprocess a source file
-GeneradorAleatorio.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/GeneradorAleatorio.cpp.i
-.PHONY : GeneradorAleatorio.cpp.i
+source/Individuo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.i
+.PHONY : source/Individuo.cpp.i
 
-GeneradorAleatorio.s: GeneradorAleatorio.cpp.s
-.PHONY : GeneradorAleatorio.s
+source/Individuo.s: source/Individuo.cpp.s
+.PHONY : source/Individuo.s
 
 # target to generate assembly for a file
-GeneradorAleatorio.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/GeneradorAleatorio.cpp.s
-.PHONY : GeneradorAleatorio.cpp.s
+source/Individuo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.s
+.PHONY : source/Individuo.cpp.s
 
-Individuo.obj: Individuo.cpp.obj
-.PHONY : Individuo.obj
+source/LectorCiudades.obj: source/LectorCiudades.cpp.obj
+.PHONY : source/LectorCiudades.obj
 
 # target to build an object file
-Individuo.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/Individuo.cpp.obj
-.PHONY : Individuo.cpp.obj
+source/LectorCiudades.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/LectorCiudades.cpp.obj
+.PHONY : source/LectorCiudades.cpp.obj
 
-Individuo.i: Individuo.cpp.i
-.PHONY : Individuo.i
+source/LectorCiudades.i: source/LectorCiudades.cpp.i
+.PHONY : source/LectorCiudades.i
 
 # target to preprocess a source file
-Individuo.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/Individuo.cpp.i
-.PHONY : Individuo.cpp.i
+source/LectorCiudades.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/LectorCiudades.cpp.i
+.PHONY : source/LectorCiudades.cpp.i
 
-Individuo.s: Individuo.cpp.s
-.PHONY : Individuo.s
+source/LectorCiudades.s: source/LectorCiudades.cpp.s
+.PHONY : source/LectorCiudades.s
 
 # target to generate assembly for a file
-Individuo.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/Individuo.cpp.s
-.PHONY : Individuo.cpp.s
+source/LectorCiudades.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/LectorCiudades.cpp.s
+.PHONY : source/LectorCiudades.cpp.s
 
-LectorCiudades.obj: LectorCiudades.cpp.obj
-.PHONY : LectorCiudades.obj
+source/LectorParametros.obj: source/LectorParametros.cpp.obj
+.PHONY : source/LectorParametros.obj
 
 # target to build an object file
-LectorCiudades.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/LectorCiudades.cpp.obj
-.PHONY : LectorCiudades.cpp.obj
+source/LectorParametros.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/LectorParametros.cpp.obj
+.PHONY : source/LectorParametros.cpp.obj
 
-LectorCiudades.i: LectorCiudades.cpp.i
-.PHONY : LectorCiudades.i
+source/LectorParametros.i: source/LectorParametros.cpp.i
+.PHONY : source/LectorParametros.i
 
 # target to preprocess a source file
-LectorCiudades.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/LectorCiudades.cpp.i
-.PHONY : LectorCiudades.cpp.i
+source/LectorParametros.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/LectorParametros.cpp.i
+.PHONY : source/LectorParametros.cpp.i
 
-LectorCiudades.s: LectorCiudades.cpp.s
-.PHONY : LectorCiudades.s
+source/LectorParametros.s: source/LectorParametros.cpp.s
+.PHONY : source/LectorParametros.s
 
 # target to generate assembly for a file
-LectorCiudades.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/LectorCiudades.cpp.s
-.PHONY : LectorCiudades.cpp.s
+source/LectorParametros.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/LectorParametros.cpp.s
+.PHONY : source/LectorParametros.cpp.s
 
-LectorParametros.obj: LectorParametros.cpp.obj
-.PHONY : LectorParametros.obj
+source/Logger.obj: source/Logger.cpp.obj
+.PHONY : source/Logger.obj
 
 # target to build an object file
-LectorParametros.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/LectorParametros.cpp.obj
-.PHONY : LectorParametros.cpp.obj
+source/Logger.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/Logger.cpp.obj
+.PHONY : source/Logger.cpp.obj
 
-LectorParametros.i: LectorParametros.cpp.i
-.PHONY : LectorParametros.i
+source/Logger.i: source/Logger.cpp.i
+.PHONY : source/Logger.i
 
 # target to preprocess a source file
-LectorParametros.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/LectorParametros.cpp.i
-.PHONY : LectorParametros.cpp.i
+source/Logger.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/Logger.cpp.i
+.PHONY : source/Logger.cpp.i
 
-LectorParametros.s: LectorParametros.cpp.s
-.PHONY : LectorParametros.s
+source/Logger.s: source/Logger.cpp.s
+.PHONY : source/Logger.s
 
 # target to generate assembly for a file
-LectorParametros.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/LectorParametros.cpp.s
-.PHONY : LectorParametros.cpp.s
+source/Logger.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/Logger.cpp.s
+.PHONY : source/Logger.cpp.s
 
-Logger.obj: Logger.cpp.obj
-.PHONY : Logger.obj
+source/Poblacion.obj: source/Poblacion.cpp.obj
+.PHONY : source/Poblacion.obj
 
 # target to build an object file
-Logger.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/Logger.cpp.obj
-.PHONY : Logger.cpp.obj
+source/Poblacion.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.obj
+.PHONY : source/Poblacion.cpp.obj
 
-Logger.i: Logger.cpp.i
-.PHONY : Logger.i
+source/Poblacion.i: source/Poblacion.cpp.i
+.PHONY : source/Poblacion.i
 
 # target to preprocess a source file
-Logger.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/Logger.cpp.i
-.PHONY : Logger.cpp.i
+source/Poblacion.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.i
+.PHONY : source/Poblacion.cpp.i
 
-Logger.s: Logger.cpp.s
-.PHONY : Logger.s
+source/Poblacion.s: source/Poblacion.cpp.s
+.PHONY : source/Poblacion.s
 
 # target to generate assembly for a file
-Logger.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/Logger.cpp.s
-.PHONY : Logger.cpp.s
+source/Poblacion.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.s
+.PHONY : source/Poblacion.cpp.s
 
-Poblacion.obj: Poblacion.cpp.obj
-.PHONY : Poblacion.obj
+source/Reloj.obj: source/Reloj.cpp.obj
+.PHONY : source/Reloj.obj
 
 # target to build an object file
-Poblacion.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/Poblacion.cpp.obj
-.PHONY : Poblacion.cpp.obj
+source/Reloj.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/Reloj.cpp.obj
+.PHONY : source/Reloj.cpp.obj
 
-Poblacion.i: Poblacion.cpp.i
-.PHONY : Poblacion.i
+source/Reloj.i: source/Reloj.cpp.i
+.PHONY : source/Reloj.i
 
 # target to preprocess a source file
-Poblacion.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/Poblacion.cpp.i
-.PHONY : Poblacion.cpp.i
+source/Reloj.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/Reloj.cpp.i
+.PHONY : source/Reloj.cpp.i
 
-Poblacion.s: Poblacion.cpp.s
-.PHONY : Poblacion.s
+source/Reloj.s: source/Reloj.cpp.s
+.PHONY : source/Reloj.s
 
 # target to generate assembly for a file
-Poblacion.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/Poblacion.cpp.s
-.PHONY : Poblacion.cpp.s
+source/Reloj.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/Reloj.cpp.s
+.PHONY : source/Reloj.cpp.s
 
-Reloj.obj: Reloj.cpp.obj
-.PHONY : Reloj.obj
+source/globals.obj: source/globals.cpp.obj
+.PHONY : source/globals.obj
 
 # target to build an object file
-Reloj.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/Reloj.cpp.obj
-.PHONY : Reloj.cpp.obj
+source/globals.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/globals.cpp.obj
+.PHONY : source/globals.cpp.obj
 
-Reloj.i: Reloj.cpp.i
-.PHONY : Reloj.i
+source/globals.i: source/globals.cpp.i
+.PHONY : source/globals.i
 
 # target to preprocess a source file
-Reloj.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/Reloj.cpp.i
-.PHONY : Reloj.cpp.i
+source/globals.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/globals.cpp.i
+.PHONY : source/globals.cpp.i
 
-Reloj.s: Reloj.cpp.s
-.PHONY : Reloj.s
+source/globals.s: source/globals.cpp.s
+.PHONY : source/globals.s
 
 # target to generate assembly for a file
-Reloj.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/Reloj.cpp.s
-.PHONY : Reloj.cpp.s
+source/globals.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/globals.cpp.s
+.PHONY : source/globals.cpp.s
 
-globals.obj: globals.cpp.obj
-.PHONY : globals.obj
+source/main.obj: source/main.cpp.obj
+.PHONY : source/main.obj
 
 # target to build an object file
-globals.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/globals.cpp.obj
-.PHONY : globals.cpp.obj
+source/main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/main.cpp.obj
+.PHONY : source/main.cpp.obj
 
-globals.i: globals.cpp.i
-.PHONY : globals.i
-
-# target to preprocess a source file
-globals.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/globals.cpp.i
-.PHONY : globals.cpp.i
-
-globals.s: globals.cpp.s
-.PHONY : globals.s
-
-# target to generate assembly for a file
-globals.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/globals.cpp.s
-.PHONY : globals.cpp.s
-
-main.obj: main.cpp.obj
-.PHONY : main.obj
-
-# target to build an object file
-main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/main.cpp.obj
-.PHONY : main.cpp.obj
-
-main.i: main.cpp.i
-.PHONY : main.i
+source/main.i: source/main.cpp.i
+.PHONY : source/main.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/main.cpp.i
-.PHONY : main.cpp.i
+source/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/main.cpp.i
+.PHONY : source/main.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+source/main.s: source/main.cpp.s
+.PHONY : source/main.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/main.cpp.s
-.PHONY : main.cpp.s
+source/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/main.cpp.s
+.PHONY : source/main.cpp.s
 
 # Help Target
 help:
@@ -377,36 +353,33 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... meta_practica_02
-	@echo ... AlgoritmoGenetico.obj
-	@echo ... AlgoritmoGenetico.i
-	@echo ... AlgoritmoGenetico.s
-	@echo ... GeneradorAleatorio.obj
-	@echo ... GeneradorAleatorio.i
-	@echo ... GeneradorAleatorio.s
-	@echo ... Individuo.obj
-	@echo ... Individuo.i
-	@echo ... Individuo.s
-	@echo ... LectorCiudades.obj
-	@echo ... LectorCiudades.i
-	@echo ... LectorCiudades.s
-	@echo ... LectorParametros.obj
-	@echo ... LectorParametros.i
-	@echo ... LectorParametros.s
-	@echo ... Logger.obj
-	@echo ... Logger.i
-	@echo ... Logger.s
-	@echo ... Poblacion.obj
-	@echo ... Poblacion.i
-	@echo ... Poblacion.s
-	@echo ... Reloj.obj
-	@echo ... Reloj.i
-	@echo ... Reloj.s
-	@echo ... globals.obj
-	@echo ... globals.i
-	@echo ... globals.s
-	@echo ... main.obj
-	@echo ... main.i
-	@echo ... main.s
+	@echo ... source/GeneradorAleatorio.obj
+	@echo ... source/GeneradorAleatorio.i
+	@echo ... source/GeneradorAleatorio.s
+	@echo ... source/Individuo.obj
+	@echo ... source/Individuo.i
+	@echo ... source/Individuo.s
+	@echo ... source/LectorCiudades.obj
+	@echo ... source/LectorCiudades.i
+	@echo ... source/LectorCiudades.s
+	@echo ... source/LectorParametros.obj
+	@echo ... source/LectorParametros.i
+	@echo ... source/LectorParametros.s
+	@echo ... source/Logger.obj
+	@echo ... source/Logger.i
+	@echo ... source/Logger.s
+	@echo ... source/Poblacion.obj
+	@echo ... source/Poblacion.i
+	@echo ... source/Poblacion.s
+	@echo ... source/Reloj.obj
+	@echo ... source/Reloj.i
+	@echo ... source/Reloj.s
+	@echo ... source/globals.obj
+	@echo ... source/globals.i
+	@echo ... source/globals.s
+	@echo ... source/main.obj
+	@echo ... source/main.i
+	@echo ... source/main.s
 .PHONY : help
 
 
