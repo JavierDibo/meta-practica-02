@@ -90,44 +90,64 @@ bool Poblacion::condicion_parada() {
     return (num_generaciones >= MAX_NUMERO_GENERACIONES || tiempo >= 60.0);
 }
 
-void Poblacion::evolucionar() {
+void encontrar_elites(const std::vector<Individuo> &individuos, std::vector<Individuo> &elites) {
+    if (NUMERO_ELITES > 0) {
+        std::vector<Individuo> aux = individuos;
+        std::sort(aux.begin(), aux.end());
+        elites.clear();
+        elites.insert(elites.end(), aux.begin(), aux.begin() + NUMERO_ELITES);
+    }
+}
+
+void Poblacion::generar_nueva_poblacion(std::vector<Individuo> &nueva_poblacion) {
+
+    while (nueva_poblacion.size() < num_invididuos) {
+        Individuo padre_a = mejor_entre_random(KBEST);
+        Individuo padre_b = mejor_entre_random(KBEST);
+        std::vector<int> camino_hijo = cruzar(padre_a, padre_b);
+        Individuo hijo(camino_hijo, lector_datos);
+        hijo.mutar();
+        hijo.evaluar();
+        nueva_poblacion.push_back(hijo);
+    }
+}
+
+void Poblacion::introducir_elites(const std::vector<Individuo> &elites, const std::vector<Individuo> &nueva_poblacion) {
+    for (const Individuo& elite: elites) {
+        Individuo *peor = torneo_kworst();
+        *peor = elite;
+    }
+}
+
+void Poblacion::evolucion_generacional() {
+
     while (!condicion_parada()) {
-
-        std::vector<Individuo> nueva_poblacion;
+        /// Aplicar encontrar_elites: almacenar los "num_elites" mejores individuos
         std::vector<Individuo> elites;
-
-        nueva_poblacion.reserve(num_invididuos);
         elites.reserve(NUMERO_ELITES);
-
-        /// Aplicar elitismo: almacenar los "num_elites" mejores individuos
-        if (NUMERO_ELITES > 0) {
-            std::vector<Individuo> aux = individuos;
-            std::sort(aux.begin(), aux.end());
-            elites.clear();
-            elites.insert(elites.end(), aux.begin(), aux.begin() + NUMERO_ELITES);
-        }
+        encontrar_elites(individuos, elites);
 
         /// Generar la nueva población
-        while (nueva_poblacion.size() < num_invididuos) {
-            Individuo padre_a = mejor_entre_random();
-            Individuo padre_b = mejor_entre_random();
-            std::vector<int> camino_hijo = cruzar(padre_a, padre_b);
-            Individuo hijo(camino_hijo, lector_datos);
-            hijo.mutar();
-            hijo.evaluar();
-            nueva_poblacion.push_back(hijo);
-        }
+        std::vector<Individuo> nueva_poblacion;
+        nueva_poblacion.reserve(num_invididuos);
+        generar_nueva_poblacion(nueva_poblacion);
 
-        std::sort(nueva_poblacion.begin(), nueva_poblacion.end());
+        /// Reemplazar los peores individuos por los elites
+        introducir_elites(elites, nueva_poblacion);
 
-        /// Buscar los elites en la nueva poblacion y reemplazarlos si no estan por uno malo
-        for (const Individuo &elite: elites) {
-            // Si no está en la poblacion lanzo torneo kworst
-            if (std::find(nueva_poblacion.begin(), nueva_poblacion.end(), elite) == nueva_poblacion.end()) {
-                Individuo *peor = torneo_kworst();
-                *peor = elite;
-            }
-        }
+        /// Reemplazar la población antigua con la nueva
+        individuos = nueva_poblacion;
+        num_generaciones++;
+    }
+}
+
+void Poblacion::evolucion_diferencial() {
+    while (!condicion_parada()) {
+
+        /// Generar la nueva población
+        std::vector<Individuo> nueva_poblacion;
+        nueva_poblacion.reserve(num_invididuos);
+        generar_nueva_poblacion(nueva_poblacion);
 
         /// Reemplazar la población antigua con la nueva
         individuos = nueva_poblacion;
@@ -282,13 +302,13 @@ std::vector<int> Poblacion::cruceMOC(const Individuo &padre_a, const Individuo &
     return camino_hijo;
 }
 
-Individuo Poblacion::mejor_entre_random() {
-    if (KBEST > num_invididuos) {
+Individuo Poblacion::mejor_entre_random(int kbest) {
+    if (kbest > num_invididuos) {
         throw std::runtime_error("KBEST no puede ser mayor que num_invididuos");
     }
 
     std::unordered_set<int> indices_unicos;
-    while (indices_unicos.size() < KBEST) {
+    while (indices_unicos.size() < kbest) {
         int indice;
         do {
             indice = random.get_int(0, num_invididuos - 1);

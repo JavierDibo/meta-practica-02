@@ -69,7 +69,8 @@ int main(int argc, char *argv[]) {
         inicializar_generador_aleatorio(semilla);
 
         Poblacion poblacion(lector_ciudades);
-        poblacion.evolucionar();
+
+        poblacion.evolucion_generacional();
 
         vector<Individuo> poblacion_final = poblacion.get_individuos();
         std::sort(poblacion_final.begin(), poblacion_final.end());

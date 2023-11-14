@@ -29,9 +29,11 @@ public:
 
     virtual ~Poblacion();
 
-    void evolucionar();
+    void evolucion_diferencial();
 
     [[nodiscard]] const std::vector<Individuo> &get_individuos() const;
+
+    void evolucion_generacional();
 
 private:
 
@@ -51,9 +53,14 @@ private:
 
     Individuo *torneo_kworst();
 
-    Individuo mejor_entre_random();
+    Individuo mejor_entre_random(int kbest);
 
     std::vector<int> camino_greedy();
+
+    void generar_nueva_poblacion(std::vector<Individuo> &nueva_poblacion);
+
+    void introducir_elites(const std::vector<Individuo> &elites, const std::vector<Individuo> &nueva_poblacion);
+
 };
 
 #endif //META_PRACTICA_02_POBLACION_H

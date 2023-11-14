@@ -21,10 +21,10 @@ datos=ch130.tsp
 #datos=pr144.tsp
 #datos=d15112.tsp
 
-max_num_evaluacion=1000
-max_num_generaciones=10
+#max_num_evaluacion=1000
+max_num_generaciones=100
 numero_elites=3
-numero_individuos=1000
+numero_individuos=100
 numero_kbest=2
 numero_kworst=3
 probabilidad_cruce=0.7
