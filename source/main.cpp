@@ -33,7 +33,10 @@ void imprimir_informacion_global(Reloj reloj) {
     if (ECHO) {
         cout << "\nTiempo de ejecucion total: " << reloj.obtener_tiempo_transcurrido(MILISEGUNDOS)
              << " milisegundos" << endl;
-        cout << "Numero de generaciones: " << MAX_NUMERO_GENERACIONES << endl;
+        if (MAX_NUMERO_GENERACIONES < MAX_NUM_EVALUACIONES)
+            cout << "Numero de generaciones maximo: " << MAX_NUMERO_GENERACIONES << endl;
+        else
+            cout << "Numero de evaluaciones maximo: " << MAX_NUM_EVALUACIONES << endl;
         cout << "Numero de elites: " << NUMERO_ELITES << endl;
         cout << "Numero de individuos: " << NUMERO_INDIVIDUOS << endl;
         cout << "KBest: " << KBEST << endl;
@@ -45,6 +48,12 @@ void imprimir_informacion_global(Reloj reloj) {
 }
 
 void lanzar_evolucion(Poblacion &poblacion) {
+
+    if (ECHO) {
+        std::cout << std::endl;
+        std::cout << "Lanzando evolucion de la poblacion..." << std::endl;
+    }
+
     if (ALGORITMO == 0)
         poblacion.evolucion_generacional();
     if (ALGORITMO == 1)

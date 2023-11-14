@@ -3,10 +3,8 @@
 void mostrar_tiempo_transcurrido(const std::string &nombre_archivo, Reloj &reloj_lector_datos) {
 
     if (ECHO) {
-        std::cout << "\n----------------------------------------------------------------------" << std::endl;
-        std::cout << "| Tiempo en procesar el archivo " << nombre_archivo << ": "
-                  << reloj_lector_datos.obtener_tiempo_transcurrido(MILISEGUNDOS) << " milisegundos. |" << std::endl;
-        std::cout << "----------------------------------------------------------------------\n" << std::endl;
+        std::cout << "Tiempo en procesar el archivo " << nombre_archivo << ": "
+                  << reloj_lector_datos.obtener_tiempo_transcurrido(MILISEGUNDOS) << " milisegundos." << std::endl;
     }
 }
 
@@ -15,6 +13,11 @@ LectorCiudades::LectorCiudades(const std::string &ruta) {
     Reloj reloj_lector_datos;
 
     reloj_lector_datos.iniciar();
+
+    if (ECHO) {
+        std::cout << std::endl;
+        std::cout << "Leyendo el archivo de datos..." << std::endl;
+    }
 
     // Extraer nombre del archivo
     std::string nombre_archivo;
@@ -57,11 +60,13 @@ LectorCiudades::LectorCiudades(const std::string &ruta) {
         iss >> ciudades[index][0] >> ciudades[index][1];
     }
 
+    reloj_lector_datos.finalizar();
+    mostrar_tiempo_transcurrido(nombre_archivo, reloj_lector_datos);
+
     distancias.resize(num_ciudades, std::vector<double>(num_ciudades));
 
     // Calcular las distancias entre las ciudades
     for (int i = 0; i < num_ciudades; ++i) {
-#pragma omp parallel for default(none) shared(num_ciudades, i, INFINITO_POSITIVO) if (PARALELIZACION)
         for (int j = i; j < num_ciudades; ++j) {
             if (i == j) {
                 distancias[i][j] = INFINITO_POSITIVO;

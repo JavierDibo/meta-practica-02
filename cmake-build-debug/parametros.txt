@@ -1,4 +1,4 @@
-# Uso: semilla=1 -- semilla=3293,423,4166 -- semilla= -- etc
+# Uso: semilla=1    semilla=3293,423,4166     semilla= -- etc
 semilla=77646884
 #,47764688,84776468,88477646,68847764
 
@@ -19,13 +19,13 @@ paralelizacion=true
 log=false
 
 # Nombre de los archivos de datos
-datos=ch130.tsp
+#datos=ch130.tsp
 #datos=pr144.tsp
-#datos=d15112.tsp
+datos=d15112.tsp
 
-max_num_evaluaciones=50000
-max_num_generaciones=99999
-max_segundos_ejecucion=60
+max_num_evaluaciones=1000
+max_num_generaciones=0
+max_segundos_ejecucion=5
 numero_elites=3
 numero_individuos=100
 numero_kbest=2

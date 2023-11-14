@@ -59,6 +59,8 @@ bool hasDuplicates(const std::vector<int> &vec) {
 
 void Individuo::evaluar() {
 
+    hasDuplicates(camino);
+
     coste = 0.0;
     for (size_t i = 0; i < camino.size() - 1; ++i) {
         coste += lector_ciudades.calcular_distancia(camino[i], camino[i + 1]);

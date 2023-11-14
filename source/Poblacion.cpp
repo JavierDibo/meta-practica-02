@@ -25,6 +25,8 @@ void Poblacion::avanzar_poblacion_generacional(std::vector<Individuo> &nueva_pob
 
 void Poblacion::evolucion_generacional() {
 
+    reloj.iniciar();
+
     while (!condicion_parada()) {
         /// Aplicar encontrar_elites: almacenar los "num_elites" mejores individuos
         std::vector<Individuo> elites;
@@ -61,8 +63,7 @@ int encontrar_ciudad_mas_cercana(int ciudad_actual, const std::vector<bool> &vis
     return ciudad_mas_cercana;
 }
 
-std::vector<int> Poblacion::camino_greedy() {
-    std::vector<std::vector<double>> distancias = lector_datos.get_distancias();
+std::vector<int> Poblacion::camino_greedy(const std::vector<std::vector<double>> &distancias) {
     std::vector<bool> visitadas(num_ciudades, false);
     std::vector<int> camino;
     camino.reserve(num_ciudades + 1);
@@ -71,12 +72,13 @@ std::vector<int> Poblacion::camino_greedy() {
     visitadas[ciudad_actual] = true;
     camino.push_back(ciudad_actual);
 
+// #pragma omp parallel for default(none) shared(distancias, ciudad_actual, visitadas, camino) if (PARALELIZACION)
     for (int i = 1; i < num_ciudades; ++i) {
         int siguiente_ciudad = -1;
         double min_distancia = INFINITO_POSITIVO;
 
         int local_siguiente_ciudad = -1;
-        double local_min_distancia = std::numeric_limits<double>::max();
+        double local_min_distancia = INFINITO_POSITIVO;
 
         for (int j = 0; j < num_ciudades; ++j) {
             if (!visitadas[j] && distancias[ciudad_actual][j] < local_min_distancia) {
@@ -84,7 +86,6 @@ std::vector<int> Poblacion::camino_greedy() {
                 local_siguiente_ciudad = j;
             }
         }
-
 
         if (local_min_distancia < min_distancia) {
             min_distancia = local_min_distancia;
@@ -103,22 +104,47 @@ std::vector<int> Poblacion::camino_greedy() {
 
 void Poblacion::crear_poblacion() {
 
-    for (int i = 0; i < num_invididuos; ++i) {
+    Reloj reloj_creacion;
+    reloj_creacion.iniciar();
 
+    if (ECHO) {
+        std::cout << std::endl;
+        std::cout << "Generando poblacion inicial..." << std::endl;
+    }
+
+    int num_random = static_cast<int>(num_invididuos * (1 - PROBABILIDAD_GREEDY));
+
+    for (int i = 0; i < num_random; ++i) {
         std::vector<int> ruta_inicial;
-        double valor_aleatorio = random.get_double(0.0, 1.0);
-
-        if (valor_aleatorio > PROBABILIDAD_GREEDY) {
-            /// 80% aleatorio
-            ruta_inicial = vector_aleatorio(num_ciudades);
-        } else {
-            /// 20% camino greedy
-            ruta_inicial = camino_greedy();
-        }
+        ruta_inicial = vector_aleatorio(num_ciudades);
 
         Individuo individuo(ruta_inicial, lector_datos);
         individuo.evaluar();
         individuos.emplace_back(individuo);
+    }
+
+    int num_greedy = num_invididuos - num_random;
+    std::vector<std::vector<double>> distancias = lector_datos.get_distancias();
+
+#pragma omp parallel for schedule(dynamic) default(none) shared(num_greedy, distancias) if (PARALELIZACION)
+    for (int i = 0; i < num_greedy; ++i) {
+        std::vector<int> ruta_inicial;
+        ruta_inicial = camino_greedy(distancias);
+#pragma omp critical
+        {
+            Individuo individuo(ruta_inicial, lector_datos);
+            individuo.evaluar();
+            individuos.emplace_back(individuo);
+        }
+    }
+
+    reloj_creacion.finalizar();
+
+    double tiempo = reloj_creacion.obtener_tiempo_transcurrido(MILISEGUNDOS);
+
+    if (ECHO) {
+        std::cout << "Tiempo para generar la poblacion inicial: " << tiempo << " milisegundos. " <<
+                  std::endl;
     }
 }
 
@@ -126,7 +152,7 @@ void Poblacion::crear_poblacion() {
 bool Poblacion::condicion_parada() {
 
     reloj.finalizar();
-    double tiempo = reloj.obtener_tiempo_transcurrido(SEGUNDOS);
+    double tiempo = reloj.obtener_tiempo_transcurrido(MILISEGUNDOS);
 
     return (num_generaciones >= MAX_NUMERO_GENERACIONES ||
             tiempo >= MAX_TIEMPO_EJECUCION ||
@@ -173,8 +199,7 @@ std::vector<int> Poblacion::cruce_ternario_diferencial(const Individuo &padre, I
     /// Intercambio cruzado del primer valor (indice_a) con camino_a1
 
     for (int i = 0; i < tam; ++i) {
-        if (camino_a1[i] == indice_a)
-        {}
+        if (camino_a1[i] == indice_a) {}
     }
 
     return camino_hijo;
@@ -430,7 +455,6 @@ Poblacion::~Poblacion() = default;
 
 Poblacion::Poblacion(LectorCiudades &lector_datos) : lector_datos(lector_datos) {
     num_ciudades = lector_datos.get_num_ciudades();
-    reloj.iniciar();
     crear_poblacion();
 }
 

@@ -73,6 +73,9 @@ void LectorParametros::leer_parametros() {
 
     if (mapa_parametros.find("max_num_generaciones") != mapa_parametros.end()) {
         MAX_NUMERO_GENERACIONES = std::stoi(mapa_parametros["max_num_generaciones"]);
+        if (MAX_NUMERO_GENERACIONES <= 0) {
+            MAX_NUMERO_GENERACIONES = INFINITO_POSITIVO;
+        }
     }
 
     if (mapa_parametros.find("numero_individuos") != mapa_parametros.end()) {
@@ -80,11 +83,14 @@ void LectorParametros::leer_parametros() {
     }
 
     if (mapa_parametros.find("max_segundos_ejecucion") != mapa_parametros.end()) {
-        MAX_TIEMPO_EJECUCION = std::stoi(mapa_parametros["max_segundos_ejecucion"]);
+        MAX_TIEMPO_EJECUCION = std::stod(mapa_parametros["max_segundos_ejecucion"]);
     }
 
     if (mapa_parametros.find("max_num_evaluaciones") != mapa_parametros.end()) {
         MAX_NUM_EVALUACIONES = std::stoi(mapa_parametros["max_num_evaluaciones"]);
+        if (MAX_NUM_EVALUACIONES <= 0) {
+            MAX_NUM_EVALUACIONES = INFINITO_POSITIVO;
+        }
     }
 
     if (mapa_parametros.find("numero_kbest") != mapa_parametros.end()) {

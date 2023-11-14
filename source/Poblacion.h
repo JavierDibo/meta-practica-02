@@ -57,8 +57,6 @@ private:
     // Torneo kbest
     Individuo mejor_entre_random(int kbest);
 
-    std::vector<int> camino_greedy();
-
     void avanzar_poblacion_generacional(std::vector<Individuo> &nueva_poblacion);
 
     void avanzar_poblacion_diferencial(std::vector<Individuo> &nueva_poblacion);
@@ -74,6 +72,8 @@ private:
     std::vector<int>
     cruce_ternario_diferencial(const Individuo &padre, Individuo &aleatorio_1, Individuo &aleatorio_2,
                                Individuo &objetivo);
+
+    std::vector<int> camino_greedy(const std::vector<std::vector<double>> &distancias);
 };
 
 #endif //META_PRACTICA_02_POBLACION_H

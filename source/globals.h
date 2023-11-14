@@ -18,13 +18,13 @@ extern bool STATS;
 
 extern int MAX_NUM_EVALUACIONES;
 extern int MAX_NUMERO_GENERACIONES;
-extern int MAX_TIEMPO_EJECUCION;
 extern int ALGORITMO;
 extern int NUMERO_ELITES;
 extern int NUMERO_INDIVIDUOS;
 extern int KBEST;
 extern int KWORST;
 
+extern double MAX_TIEMPO_EJECUCION;
 extern double PROBABILIDAD_CRUCE;
 extern double PROBABILIDAD_MUTACION;
 extern double PROBABILIDAD_GREEDY;
@@ -45,9 +45,7 @@ void inicializar_generador_aleatorio(unsigned int semilla);
 
 inline std::vector<int> vector_aleatorio(int tamanno) {
     std::vector<int> vec(tamanno);
-    for (int i = 0; i < tamanno; i++) {
-        vec[i] = i;
-    }
+    std::iota(vec.begin(), vec.end(), 0); // Generar permutacion identidad
     std::shuffle(vec.begin(), vec.end(), random.get_motor());
 
     return vec;
