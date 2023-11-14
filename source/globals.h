@@ -18,6 +18,7 @@ extern bool STATS;
 
 extern int MAX_NUM_EVALUACIONES;
 extern int MAX_NUMERO_GENERACIONES;
+extern int MAX_TIEMPO_EJECUCION;
 extern int ALGORITMO;
 extern int NUMERO_ELITES;
 extern int NUMERO_INDIVIDUOS;
@@ -35,7 +36,7 @@ constexpr int MILISEGUNDOS = 2;
 constexpr int MICROSEGUNDOS = 3;
 
 extern std::vector<int> SEMILLAS;
-extern std::vector<std::string> ARCHIVOS_DATOS;
+extern std::vector<std::string> VEC_ARCHIVOS_DATOS;
 extern std::string ARCHIVO_DATOS;
 
 extern GeneradorAleatorio random;

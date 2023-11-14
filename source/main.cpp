@@ -44,6 +44,13 @@ void imprimir_informacion_global(Reloj reloj) {
     }
 }
 
+void lanzar_evolucion(Poblacion &poblacion) {
+    if (ALGORITMO == 0)
+        poblacion.evolucion_generacional();
+    if (ALGORITMO == 1)
+        poblacion.evolucion_diferencial();
+}
+
 int main(int argc, char *argv[]) {
 
     if (argc < 2) {
@@ -70,7 +77,7 @@ int main(int argc, char *argv[]) {
 
         Poblacion poblacion(lector_ciudades);
 
-        poblacion.evolucion_generacional();
+        lanzar_evolucion(poblacion);
 
         vector<Individuo> poblacion_final = poblacion.get_individuos();
         std::sort(poblacion_final.begin(), poblacion_final.end());

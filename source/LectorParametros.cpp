@@ -79,8 +79,12 @@ void LectorParametros::leer_parametros() {
         NUMERO_INDIVIDUOS = std::stoi(mapa_parametros["numero_individuos"]);
     }
 
-    if (mapa_parametros.find("max_num_evaluacion") != mapa_parametros.end()) {
-        MAX_NUM_EVALUACIONES = std::stoi(mapa_parametros["max_num_evaluacion"]);
+    if (mapa_parametros.find("max_segundos_ejecucion") != mapa_parametros.end()) {
+        MAX_TIEMPO_EJECUCION = std::stoi(mapa_parametros["max_segundos_ejecucion"]);
+    }
+
+    if (mapa_parametros.find("max_num_evaluaciones") != mapa_parametros.end()) {
+        MAX_NUM_EVALUACIONES = std::stoi(mapa_parametros["max_num_evaluaciones"]);
     }
 
     if (mapa_parametros.find("numero_kbest") != mapa_parametros.end()) {
@@ -96,7 +100,7 @@ void LectorParametros::leer_parametros() {
         std::stringstream ss(archivos_string);
         string archivo;
         while (getline(ss, archivo, ',')) {
-            ARCHIVOS_DATOS.push_back("datos/" + archivo);
+            VEC_ARCHIVOS_DATOS.push_back("datos/" + archivo);
             ARCHIVO_DATOS = "datos/" + archivo;
         }
     }

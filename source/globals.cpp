@@ -7,6 +7,7 @@ bool STATS;
 
 int MAX_NUM_EVALUACIONES;
 int MAX_NUMERO_GENERACIONES;
+int MAX_TIEMPO_EJECUCION;
 int ALGORITMO;
 int NUMERO_ELITES;
 int NUMERO_INDIVIDUOS;
@@ -17,7 +18,7 @@ double PROBABILIDAD_MUTACION;
 double PROBABILIDAD_GREEDY;
 
 std::vector<int> SEMILLAS;
-std::vector<std::string> ARCHIVOS_DATOS;
+std::vector<std::string> VEC_ARCHIVOS_DATOS;
 
 std::string ARCHIVO_DATOS;
 

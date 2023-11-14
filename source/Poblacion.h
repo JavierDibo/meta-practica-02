@@ -19,7 +19,7 @@ private:
     int num_invididuos = NUMERO_INDIVIDUOS;
     int num_ciudades;
     int num_generaciones = 0;
-    [[maybe_unused]] int num_evaluaciones = 0;
+    int num_evaluaciones = 0;
     LectorCiudades &lector_datos;
     Reloj reloj;
 
@@ -29,11 +29,11 @@ public:
 
     virtual ~Poblacion();
 
-    void evolucion_diferencial();
-
     [[nodiscard]] const std::vector<Individuo> &get_individuos() const;
 
     void evolucion_generacional();
+
+    void evolucion_diferencial();
 
 private:
 
@@ -49,18 +49,31 @@ private:
 
     [[maybe_unused]] [[nodiscard]] std::vector<int> crucePMX(const Individuo &padre_a, const Individuo &padre_b) const;
 
-    [[maybe_unused]] std::vector<int> cruceSimple(const Individuo &padre_a, const Individuo &padre_b) const;
+    [[maybe_unused]] [[nodiscard]] std::vector<int>
+    cruceSimple(const Individuo &padre_a, const Individuo &padre_b) const;
 
     Individuo *torneo_kworst();
 
+    // Torneo kbest
     Individuo mejor_entre_random(int kbest);
 
     std::vector<int> camino_greedy();
 
-    void generar_nueva_poblacion(std::vector<Individuo> &nueva_poblacion);
+    void avanzar_poblacion_generacional(std::vector<Individuo> &nueva_poblacion);
+
+    void avanzar_poblacion_diferencial(std::vector<Individuo> &nueva_poblacion);
 
     void introducir_elites(const std::vector<Individuo> &elites, const std::vector<Individuo> &nueva_poblacion);
 
+    static void encontrar_elites(const std::vector<Individuo> &individuos, std::vector<Individuo> &elites);
+
+    Individuo individuo_aleatorio();
+
+    void intercambiar(int posicion1, int posicion2, std::vector<int> camino);
+
+    std::vector<int>
+    cruce_ternario_diferencial(const Individuo &padre, Individuo &aleatorio_1, Individuo &aleatorio_2,
+                               Individuo &objetivo);
 };
 
 #endif //META_PRACTICA_02_POBLACION_H
