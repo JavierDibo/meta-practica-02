@@ -33,14 +33,14 @@ void LectorParametros::leer_parametros() {
         std::stringstream ss(seeds_string);
         string seed;
         while (std::getline(ss, seed, ',')) {
-            SEMILLAS.push_back(std::stoi(seed));
+            VEC_SEMILLAS.push_back(std::stoi(seed));
         }
     }
 
-    if (SEMILLAS.empty()) {
-        SEMILLAS.push_back(12345678);
-        SEMILLAS.push_back(23456781);
-        SEMILLAS.push_back(34567812);
+    if (VEC_SEMILLAS.empty()) {
+        VEC_SEMILLAS.push_back(12345678);
+        VEC_SEMILLAS.push_back(23456781);
+        VEC_SEMILLAS.push_back(34567812);
     }
 
     if (mapa_parametros.find("echo") != mapa_parametros.end()) {
@@ -73,19 +73,40 @@ void LectorParametros::leer_parametros() {
 
     if (mapa_parametros.find("max_num_generaciones") != mapa_parametros.end()) {
         MAX_NUMERO_GENERACIONES = std::stoi(mapa_parametros["max_num_generaciones"]);
+        if (MAX_NUMERO_GENERACIONES <= 0) {
+            MAX_NUMERO_GENERACIONES = INFINITO_POSITIVO;
+        }
     }
 
     if (mapa_parametros.find("numero_individuos") != mapa_parametros.end()) {
-        NUMERO_INDIVIDUOS = std::stoi(mapa_parametros["numero_individuos"]);
+        string numeros_string = mapa_parametros["numero_individuos"];
+        std::stringstream ss(numeros_string);
+        string numero;
+        while (getline(ss, numero, ',')) {
+            VEC_NUM_INDIVIDUOS.push_back(std::stoi(numero));
+        }
     }
 
-    if (mapa_parametros.find("max_num_evaluacion") != mapa_parametros.end()) {
-        MAX_NUM_EVALUACIONES = std::stoi(mapa_parametros["max_num_evaluacion"]);
+    if (mapa_parametros.find("max_segundos_ejecucion") != mapa_parametros.end()) {
+        MAX_TIEMPO_EJECUCION = std::stod(mapa_parametros["max_segundos_ejecucion"]);
+    }
+
+    if (mapa_parametros.find("max_num_evaluaciones") != mapa_parametros.end()) {
+        MAX_NUM_EVALUACIONES = std::stoi(mapa_parametros["max_num_evaluaciones"]);
+        if (MAX_NUM_EVALUACIONES <= 0) {
+            MAX_NUM_EVALUACIONES = INFINITO_POSITIVO;
+        }
     }
 
     if (mapa_parametros.find("numero_kbest") != mapa_parametros.end()) {
-        KBEST = std::stoi(mapa_parametros["numero_kbest"]);
+        string numeros_string = mapa_parametros["numero_kbest"];
+        std::stringstream ss(numeros_string);
+        string numero;
+        while (getline(ss, numero, ',')) { // Use comma as the delimiter
+            VEC_KBEST.push_back(std::stoi(numero));
+        }
     }
+
 
     if (mapa_parametros.find("numero_kworst") != mapa_parametros.end()) {
         KWORST = std::stoi(mapa_parametros["numero_kworst"]);
@@ -96,7 +117,7 @@ void LectorParametros::leer_parametros() {
         std::stringstream ss(archivos_string);
         string archivo;
         while (getline(ss, archivo, ',')) {
-            ARCHIVOS_DATOS.push_back("datos/" + archivo);
+            VEC_ARCHIVOS_DATOS.push_back("datos/" + archivo);
             ARCHIVO_DATOS = "datos/" + archivo;
         }
     }

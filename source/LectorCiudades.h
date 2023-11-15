@@ -16,8 +16,8 @@
 class LectorCiudades {
 private:
     std::string ruta_archivo_datos;
-    std::vector<std::vector<double>> ciudades;
-    std::vector<std::vector<double>> distancias;
+    std::vector<std::vector<float>> ciudades;
+    std::vector<std::vector<float>> distancias;
     int num_ciudades{};
 public:
 
@@ -35,11 +35,11 @@ public:
         return ruta_archivo_datos;
     }
 
-    [[nodiscard]] std::vector<std::vector<double>> get_matriz_ciudades() const {
+    [[nodiscard]] std::vector<std::vector<float>> get_matriz_ciudades() const {
         return ciudades;
     }
 
-    [[nodiscard]] std::vector<std::vector<double>> get_matriz_distancias() const {
+    [[nodiscard]] std::vector<std::vector<float>> get_matriz_distancias() const {
         return distancias;
     }
 
@@ -47,9 +47,9 @@ public:
 
     [[nodiscard]] int get_num_ciudades() const;
 
-    [[nodiscard]] const std::vector<std::vector<double>> &get_ciudades() const;
+    [[nodiscard]] const std::vector<std::vector<float>> &get_ciudades() const;
 
-    [[nodiscard]] const std::vector<std::vector<double>> &get_distancias() const;
+    [[nodiscard]] const std::vector<std::vector<float>> &get_distancias() const;
 };
 
 #endif //META_PRACTICA_02_LECTOR_DATOS_CUIDADES_H

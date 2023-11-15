@@ -128,30 +128,6 @@ meta_practica_02/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/build
 .PHONY : meta_practica_02/fast
 
-source/GeneradorAleatorio.obj: source/GeneradorAleatorio.cpp.obj
-.PHONY : source/GeneradorAleatorio.obj
-
-# target to build an object file
-source/GeneradorAleatorio.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj
-.PHONY : source/GeneradorAleatorio.cpp.obj
-
-source/GeneradorAleatorio.i: source/GeneradorAleatorio.cpp.i
-.PHONY : source/GeneradorAleatorio.i
-
-# target to preprocess a source file
-source/GeneradorAleatorio.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.i
-.PHONY : source/GeneradorAleatorio.cpp.i
-
-source/GeneradorAleatorio.s: source/GeneradorAleatorio.cpp.s
-.PHONY : source/GeneradorAleatorio.s
-
-# target to generate assembly for a file
-source/GeneradorAleatorio.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\meta_practica_02.dir\build.make CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.s
-.PHONY : source/GeneradorAleatorio.cpp.s
-
 source/Individuo.obj: source/Individuo.cpp.obj
 .PHONY : source/Individuo.obj
 
@@ -353,9 +329,6 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... meta_practica_02
-	@echo ... source/GeneradorAleatorio.obj
-	@echo ... source/GeneradorAleatorio.i
-	@echo ... source/GeneradorAleatorio.s
 	@echo ... source/Individuo.obj
 	@echo ... source/Individuo.i
 	@echo ... source/Individuo.s

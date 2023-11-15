@@ -6,7 +6,7 @@ Los distintos componentes de este algoritmo son:
 
 - Operador de selección basada en un torneo binario con kBest=2 y kBest=3 aplicándose tantas veces como individuos tengamos en la población.
 
-- Reemplazamiento que será realizado con el reemplazo de la población completa por la población descendiente. Para conservar el elitismo, si la mejor solución de la generación anterior no sobrevive, sustituye al peor de un torneo de perdedores de la nueva población con kWorst=3.
+- Reemplazamiento que será realizado con el reemplazo de la población completa por la población descendiente. Para conservar el encontrar_elites, si la mejor solución de la generación anterior no sobrevive, sustituye al peor de un torneo de perdedores de la nueva población con kWorst=3.
 
 - Operador de cruce con una probabilidad del 70% se deberán implementar dos operadores el cruce de orden OX2 y el cruce PMX.
 

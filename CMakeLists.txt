@@ -20,8 +20,6 @@ add_executable(meta_practica_02 source/main.cpp
         source/Poblacion.cpp
         source/Poblacion.h
         source/Poblacion.cpp
-        source/GeneradorAleatorio.cpp
-        source/GeneradorAleatorio.h
 )
 
 find_package(OpenMP)

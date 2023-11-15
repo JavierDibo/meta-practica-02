@@ -82,12 +82,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/source/GeneradorAleatorio.cpp">
-			<Option target="meta_practica_02"/>
-		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/source/GeneradorAleatorio.h">
-			<Option target="meta_practica_02"/>
-		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/meta-practica-02/source/Individuo.cpp">
 			<Option target="meta_practica_02"/>
 		</Unit>

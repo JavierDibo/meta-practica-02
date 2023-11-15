@@ -46,8 +46,6 @@ public:
 
     Individuo &operator=(const Individuo &otro);
 
-    // void evaluar();
-
     [[maybe_unused]] void set_ciudad(int index, int ciudad);
 
     void intercambiar(int posicion1, int posicion2);

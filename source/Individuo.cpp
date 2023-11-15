@@ -8,16 +8,16 @@ Individuo::Individuo(const Individuo &otro) = default;
 
 void Individuo::mutar() {
     // Aplicar mutación con una probabilidad del 10%
-    double dado_mutar = random.get_double(0.0, 1.0);
+    double dado_mutar = get_rand_double(0.0, 1.0);
     int tam = static_cast<int>(camino.size());
 
     if (dado_mutar < PROBABILIDAD_MUTACION) {
-        int posicion1 = random.get_int(0,  tam - 1);
-        int posicion2 = random.get_int(0,  tam - 1);
+        int posicion1 = get_rand_int(0, tam - 1);
+        int posicion2 = get_rand_int(0, tam - 1);
 
         // Asegurarse de que las dos posiciones son diferentes
         while (posicion1 == posicion2) {
-            posicion2 = random.get_int(0,  tam - 1);
+            posicion2 = get_rand_int(0, tam - 1);
         }
 
         // Realizar el intercambio 2-opt
@@ -59,13 +59,16 @@ bool hasDuplicates(const std::vector<int> &vec) {
 
 void Individuo::evaluar() {
 
-    // hasDuplicates(camino);
+    hasDuplicates(camino);
 
     coste = 0.0;
     for (size_t i = 0; i < camino.size() - 1; ++i) {
         coste += lector_ciudades.calcular_distancia(camino[i], camino[i + 1]);
     }
     coste += lector_ciudades.calcular_distancia(camino.back(), camino.front()); // Cerrar el ciclo
+
+    if(coste < 0)
+        throw std::bad_alloc();
 }
 
 double Individuo::get_coste() const {

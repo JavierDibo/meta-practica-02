@@ -180,20 +180,6 @@ CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.s"
 	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\source\Poblacion.cpp -o CMakeFiles\meta_practica_02.dir\source\Poblacion.cpp.s
 
-CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj: CMakeFiles/meta_practica_02.dir/flags.make
-CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj: C:/Users/Administrator/Desktop/meta-practica-02/source/GeneradorAleatorio.cpp
-CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj: CMakeFiles/meta_practica_02.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj -MF CMakeFiles\meta_practica_02.dir\source\GeneradorAleatorio.cpp.obj.d -o CMakeFiles\meta_practica_02.dir\source\GeneradorAleatorio.cpp.obj -c C:\Users\Administrator\Desktop\meta-practica-02\source\GeneradorAleatorio.cpp
-
-CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.i"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\meta-practica-02\source\GeneradorAleatorio.cpp > CMakeFiles\meta_practica_02.dir\source\GeneradorAleatorio.cpp.i
-
-CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.s"
-	C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\meta-practica-02\source\GeneradorAleatorio.cpp -o CMakeFiles\meta_practica_02.dir\source\GeneradorAleatorio.cpp.s
-
 # Object files for target meta_practica_02
 meta_practica_02_OBJECTS = \
 "CMakeFiles/meta_practica_02.dir/source/main.cpp.obj" \
@@ -203,8 +189,7 @@ meta_practica_02_OBJECTS = \
 "CMakeFiles/meta_practica_02.dir/source/LectorParametros.cpp.obj" \
 "CMakeFiles/meta_practica_02.dir/source/Logger.cpp.obj" \
 "CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.obj" \
-"CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.obj" \
-"CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj"
+"CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.obj"
 
 # External object files for target meta_practica_02
 meta_practica_02_EXTERNAL_OBJECTS =
@@ -217,14 +202,13 @@ meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/source/LectorParametros.cp
 meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/source/Logger.cpp.obj
 meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.obj
 meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.obj
-meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj
 meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/build.make
 meta_practica_02.exe: C:/Users/Administrator/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/libgomp.dll.a
 meta_practica_02.exe: C:/Users/Administrator/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/x86_64-w64-mingw32/lib/libmingwthrd.a
 meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/linkLibs.rsp
 meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/objects1.rsp
 meta_practica_02.exe: CMakeFiles/meta_practica_02.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable meta_practica_02.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable meta_practica_02.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\meta_practica_02.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
