@@ -7,7 +7,7 @@
 #include <limits>
 #include <random>
 #include <algorithm>
-#include "GeneradorAleatorio.h"
+#include <thread>
 
 /// Variables globales --------------------------------------------------------------------------------------------------
 
@@ -20,9 +20,11 @@ extern int MAX_NUM_EVALUACIONES;
 extern int MAX_NUMERO_GENERACIONES;
 extern int ALGORITMO;
 extern int NUMERO_ELITES;
-extern int NUMERO_INDIVIDUOS;
-extern int KBEST;
 extern int KWORST;
+extern int SEMILLA;
+
+extern int NUM_EVALUACIONES_SEMILLA;
+extern int NUM_GENERACIONES_SEMILLA;
 
 extern double MAX_TIEMPO_EJECUCION;
 extern double PROBABILIDAD_CRUCE;
@@ -35,20 +37,18 @@ constexpr int SEGUNDOS = 1;
 constexpr int MILISEGUNDOS = 2;
 constexpr int MICROSEGUNDOS = 3;
 
-extern std::vector<int> SEMILLAS;
+extern std::vector<int> VEC_SEMILLAS;
+extern std::vector<int> VEC_KBEST;
+extern std::vector<int> VEC_NUM_INDIVIDUOS;
 extern std::vector<std::string> VEC_ARCHIVOS_DATOS;
 extern std::string ARCHIVO_DATOS;
 
-extern GeneradorAleatorio random;
+void inicializar_generador_aleatorio(int semilla);
 
-void inicializar_generador_aleatorio(unsigned int semilla);
+std::vector<int> vector_aleatorio(int tamanno);
 
-inline std::vector<int> vector_aleatorio(int tamanno) {
-    std::vector<int> vec(tamanno);
-    std::iota(vec.begin(), vec.end(), 0); // Generar permutacion identidad
-    std::shuffle(vec.begin(), vec.end(), random.get_motor());
+int get_rand_int(const int &min, const int &max);
 
-    return vec;
-}
+double get_rand_double(const double &min, const double &max);
 
 #endif //META_PRACTICA_02_GLOBALS_H

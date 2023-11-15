@@ -193,4 +193,7 @@ CMakeFiles/meta_practica_02.dir/source/Reloj.cpp.obj: \
  C:/Users/Administrator/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_heap.h \
  C:/Users/Administrator/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tempbuf.h \
  C:/Users/Administrator/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_algorithm_defs.h \
- C:\Users\Administrator\Desktop\meta-practica-02\source\GeneradorAleatorio.h
+ C:/Users/Administrator/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/thread \
+ C:/Users/Administrator/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h \
+ C:/Users/Administrator/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_ptr.h \
+ C:/Users/Administrator/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/this_thread_sleep.h

@@ -10,13 +10,14 @@
 #include "Individuo.h"
 #include "LectorCiudades.h"
 #include "globals.h"
-#include "GeneradorAleatorio.h"
 #include "Reloj.h"
 
 class Poblacion {
 private:
+
     std::vector<Individuo> individuos;
-    int num_invididuos = NUMERO_INDIVIDUOS;
+    int num_invididuos;
+    int kbest;
     int num_ciudades;
     int num_generaciones = 0;
     int num_evaluaciones = 0;
@@ -25,7 +26,7 @@ private:
 
 public:
 
-    explicit Poblacion(LectorCiudades &lector_datos);
+    Poblacion(LectorCiudades &lector_datos, int num_ind, int kb);
 
     virtual ~Poblacion();
 
@@ -47,15 +48,10 @@ private:
 
     [[nodiscard]] std::vector<int> cruceMOC(const Individuo &padre_a, const Individuo &padre_b) const;
 
-    [[maybe_unused]] [[nodiscard]] std::vector<int> crucePMX(const Individuo &padre_a, const Individuo &padre_b) const;
-
-    [[maybe_unused]] [[nodiscard]] std::vector<int>
-    cruceSimple(const Individuo &padre_a, const Individuo &padre_b) const;
-
     Individuo *torneo_kworst();
 
     // Torneo kbest
-    Individuo mejor_entre_random(int kbest);
+    Individuo torneo_kbest(int kbest);
 
     void avanzar_poblacion_generacional(std::vector<Individuo> &nueva_poblacion);
 
@@ -69,11 +65,11 @@ private:
 
     void intercambiar(int posicion1, int posicion2, std::vector<int> camino);
 
-    std::vector<int>
-    cruce_ternario_diferencial(const Individuo &padre, Individuo &aleatorio_1, Individuo &aleatorio_2,
-                               Individuo &objetivo);
+    std::vector<int> cruce_ternario_diferencial(const Individuo &padre, Individuo &aleatorio_1, Individuo &aleatorio_2,
+                                                Individuo &objetivo);
 
-    std::vector<int> camino_greedy(const std::vector<std::vector<double>> &distancias);
+    [[nodiscard]] std::vector<int>
+    camino_greedy(const std::vector<std::vector<float>> &distancias, int ciudad_actual) const;
 };
 
 #endif //META_PRACTICA_02_POBLACION_H

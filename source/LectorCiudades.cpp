@@ -1,14 +1,21 @@
 #include "LectorCiudades.h"
 
+const std::string MAGENTA = "\033[35m";
+const std::string RESET = "\033[0m";
+
 void mostrar_tiempo_transcurrido(const std::string &nombre_archivo, Reloj &reloj_lector_datos) {
 
     if (ECHO) {
         std::cout << "Tiempo en procesar el archivo " << nombre_archivo << ": "
                   << reloj_lector_datos.obtener_tiempo_transcurrido(MILISEGUNDOS) << " milisegundos." << std::endl;
     }
+
+    std::cout << RESET;
 }
 
 LectorCiudades::LectorCiudades(const std::string &ruta) {
+
+    std::cout << MAGENTA;
 
     Reloj reloj_lector_datos;
 
@@ -45,7 +52,7 @@ LectorCiudades::LectorCiudades(const std::string &ruta) {
 
     // Leer el tamaño y las ciudades
     num_ciudades = std::stoi(linea.substr(linea.find(':') + 1));
-    ciudades.resize(num_ciudades, std::vector<double>(2));
+    ciudades.resize(num_ciudades, std::vector<float>(2));
     while (getline(archivo_datos, linea)) {
         if (linea.find("EOF") != std::string::npos) {
             break;
@@ -60,20 +67,18 @@ LectorCiudades::LectorCiudades(const std::string &ruta) {
         iss >> ciudades[index][0] >> ciudades[index][1];
     }
 
-    reloj_lector_datos.finalizar();
-    mostrar_tiempo_transcurrido(nombre_archivo, reloj_lector_datos);
-
-    distancias.resize(num_ciudades, std::vector<double>(num_ciudades));
+    distancias.resize(num_ciudades, std::vector<float>(num_ciudades));
 
     // Calcular las distancias entre las ciudades
+#pragma omp parallel for default(none) schedule(static) if (PARALELIZACION)
     for (int i = 0; i < num_ciudades; ++i) {
         for (int j = i; j < num_ciudades; ++j) {
             if (i == j) {
-                distancias[i][j] = INFINITO_POSITIVO;
+                distancias[i][j] = static_cast<float>(INFINITO_POSITIVO);
             } else {
-                double dx = ciudades[i][0] - ciudades[j][0];
-                double dy = ciudades[i][1] - ciudades[j][1];
-                double distancia = std::hypot(dx, dy);
+                float dx = ciudades[i][0] - ciudades[j][0];
+                float dy = ciudades[i][1] - ciudades[j][1];
+                float distancia = std::hypot(dx, dy);
                 distancias[i][j] = distancias[j][i] = distancia;
             }
         }
@@ -113,11 +118,11 @@ int LectorCiudades::get_num_ciudades() const {
     return num_ciudades;
 }
 
-const std::vector<std::vector<double>> &LectorCiudades::get_ciudades() const {
+const std::vector<std::vector<float>> &LectorCiudades::get_ciudades() const {
     return ciudades;
 }
 
-const std::vector<std::vector<double>> &LectorCiudades::get_distancias() const {
+const std::vector<std::vector<float>> &LectorCiudades::get_distancias() const {
     return distancias;
 }
 

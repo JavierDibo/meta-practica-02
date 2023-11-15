@@ -13,38 +13,79 @@ using std::vector;
 using std::cout;
 using std::endl;
 
+const std::string YELLOW = "\033[33m";  // Yellow
+const std::string BLUE = "\033[34m";    // Blue
+const std::string RESET = "\033[0m";    // Reset to default color
+
 /// Funciones ----------------------------------------------------------------------------------------------------------
 
-void imprimir_informacion_semilla(int semilla, Reloj &reloj, std::vector<Individuo> &poblacion) {
+void imprimir_informacion_semilla(int semilla, Reloj &reloj_semilla, std::vector<Individuo> &poblacion, int kbest,
+                                  int num_ind, string archivo) {
 
-    if (ECHO) {
-        cout << "\nSemilla: " << semilla << endl;
-        cout << "Tiempo de ejecucion: " << reloj.obtener_tiempo_transcurrido(MILISEGUNDOS)
-             << " milisegundos." << endl;
-        cout << "Coste del mejor individuo: " << poblacion.begin()->get_coste() << endl;
-        cout << "Coste del peor individuo: " << poblacion.at(poblacion.size() - 1).get_coste()
-             << endl;
-        cout << "---------------------------------------------------------------------" << endl;
-    }
+    if (!ECHO)
+        return;
+
+    cout << BLUE;
+    cout << "\nSemilla: " << semilla << endl;
+    cout << "Archivo datos: " << archivo << endl;
+    cout << "Numero de individuos: " << num_ind << endl;
+    cout << "Kbest:" << kbest << endl;
+    cout << RESET;
+    cout << "Tiempo de ejecucion: " << reloj_semilla.obtener_tiempo_transcurrido(MILISEGUNDOS) << " milisegundos."
+         << endl;
+    cout << YELLOW;
+    cout << "Coste del mejor individuo: " << poblacion.begin()->get_coste() << endl;
+    cout << RESET;
+    cout << "Coste del peor individuo: " << poblacion.at(poblacion.size() - 1).get_coste() << endl;
+    cout << "Numero de generaciones: " << NUM_GENERACIONES_SEMILLA << endl;
+    cout << "Numero de evaluaciones: " << NUM_EVALUACIONES_SEMILLA << endl;
+    cout << "---------------------------------------------------------------------" << endl;
+
 }
 
 void imprimir_informacion_global(Reloj reloj) {
+    /*if (!ECHO)
+        return;*/
 
-    if (ECHO) {
-        cout << "\nTiempo de ejecucion total: " << reloj.obtener_tiempo_transcurrido(MILISEGUNDOS)
-             << " milisegundos" << endl;
-        if (MAX_NUMERO_GENERACIONES < MAX_NUM_EVALUACIONES)
-            cout << "Numero de generaciones maximo: " << MAX_NUMERO_GENERACIONES << endl;
-        else
-            cout << "Numero de evaluaciones maximo: " << MAX_NUM_EVALUACIONES << endl;
-        cout << "Numero de elites: " << NUMERO_ELITES << endl;
-        cout << "Numero de individuos: " << NUMERO_INDIVIDUOS << endl;
-        cout << "KBest: " << KBEST << endl;
-        cout << "KWorst: " << KWORST << endl;
-        cout << "Probabilidad de cruce: " << PROBABILIDAD_CRUCE * 100 << "%" << endl;
-        cout << "Probabilidad de mutacion: " << PROBABILIDAD_MUTACION * 100 << "%" << endl;
-        cout << "Porcentaje generado por greedy: " << PROBABILIDAD_GREEDY * 100 << "%" << endl;
+    cout << "\nRESUMEN GLOBAL\n";
+
+    /// Semillas
+    cout << (VEC_SEMILLAS.size() < 2 ? "Semilla: " : "Semillas: ");
+    for (const auto &semilla: VEC_SEMILLAS) {
+        cout << semilla << " ";
     }
+    cout << "\n";
+
+    /// Archivos
+    cout << (VEC_ARCHIVOS_DATOS.size() < 2 ? "Archivo de datos: " : "Archivos de datos: ");
+    for (const auto &archivo: VEC_ARCHIVOS_DATOS) {
+        cout << archivo << " ";
+    }
+    cout << "\n";
+
+    /// Kbest
+    cout << "KBest: ";
+    for (const auto &kbest : VEC_KBEST) {
+        cout << kbest << " ";
+    }
+    cout << "\n";
+
+    /// Numeros de individuos
+    cout << "Num individuos: ";
+    for (const auto &num_individuos : VEC_NUM_INDIVIDUOS) {
+        cout << num_individuos << " ";
+    }
+    cout << "\n";
+
+    cout << "Tiempo de ejecucion total: " << reloj.obtener_tiempo_transcurrido(MILISEGUNDOS) << " milisegundos\n";
+    cout << (MAX_NUMERO_GENERACIONES < MAX_NUM_EVALUACIONES ? "Numero de generaciones maximo: "
+                                                            : "Numero de evaluaciones maximo: ")
+         << (MAX_NUMERO_GENERACIONES < MAX_NUM_EVALUACIONES ? MAX_NUMERO_GENERACIONES : MAX_NUM_EVALUACIONES) << "\n";
+
+    cout << "Probabilidad de cruce: " << PROBABILIDAD_CRUCE * 100 << "%\n";
+    cout << "Probabilidad de mutacion: " << PROBABILIDAD_MUTACION * 100 << "%\n";
+    cout << "Porcentaje generado por greedy: " << PROBABILIDAD_GREEDY * 100 << "%\n";
+
 }
 
 void lanzar_evolucion(Poblacion &poblacion) {
@@ -75,25 +116,34 @@ int main(int argc, char *argv[]) {
 
     LectorParametros lector_parametros(ruta_parametros);
 
-    LectorCiudades lector_ciudades(ARCHIVO_DATOS);
+    for (const string &archivo_datos: VEC_ARCHIVOS_DATOS) {
 
-    for (int semilla: SEMILLAS) {
+        LectorCiudades lector_ciudades(archivo_datos);
 
-        Reloj reloj_iteracion;
-        reloj_iteracion.iniciar();
+        for (const int &semilla: VEC_SEMILLAS) {
 
-        inicializar_generador_aleatorio(semilla);
+            for (const int &num: VEC_NUM_INDIVIDUOS) {
 
-        Poblacion poblacion(lector_ciudades);
+                for (const int &kbest: VEC_KBEST) {
 
-        lanzar_evolucion(poblacion);
+                    Reloj reloj_iteracion;
+                    reloj_iteracion.iniciar();
 
-        vector<Individuo> poblacion_final = poblacion.get_individuos();
-        std::sort(poblacion_final.begin(), poblacion_final.end());
+                    inicializar_generador_aleatorio(semilla);
 
-        reloj_iteracion.finalizar();
+                    Poblacion poblacion(lector_ciudades, num, kbest);
 
-        imprimir_informacion_semilla(semilla, reloj_iteracion, poblacion_final);
+                    lanzar_evolucion(poblacion);
+
+                    vector<Individuo> poblacion_final = poblacion.get_individuos();
+                    std::sort(poblacion_final.begin(), poblacion_final.end());
+
+                    reloj_iteracion.finalizar();
+
+                    imprimir_informacion_semilla(semilla, reloj_iteracion, poblacion_final, kbest, num, archivo_datos);
+                }
+            }
+        }
     }
 
     reloj_principal.finalizar();

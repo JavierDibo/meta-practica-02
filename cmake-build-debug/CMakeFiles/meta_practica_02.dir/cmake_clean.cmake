@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj"
-  "CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj.d"
   "CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.obj"
   "CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.obj.d"
   "CMakeFiles/meta_practica_02.dir/source/LectorCiudades.cpp.obj"

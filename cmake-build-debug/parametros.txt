@@ -19,16 +19,16 @@ paralelizacion=true
 log=false
 
 # Nombre de los archivos de datos
-#datos=ch130.tsp
+datos=ch130.tsp,pr144.tsp
 #datos=pr144.tsp
-datos=d15112.tsp
+#datos=d15112.tsp
 
-max_num_evaluaciones=1000
+numero_individuos=50,100
+max_num_evaluaciones=50000
 max_num_generaciones=0
-max_segundos_ejecucion=5
+max_segundos_ejecucion=60
 numero_elites=3
-numero_individuos=100
-numero_kbest=2
+numero_kbest=2,3
 numero_kworst=3
 probabilidad_cruce=0.7
 probabilidad_mutacion=0.1
@@ -37,6 +37,6 @@ probabilidad_greedy=0.2
 # Optimos
 # CH130 --> 6,110
 # PR144 --> 58,537
-# D15112 --> 1,573,084
+# D15112 --> 1,573,084 --> 1.57308e+6
 
 
