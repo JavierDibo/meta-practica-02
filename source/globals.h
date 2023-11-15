@@ -22,6 +22,7 @@ extern int ALGORITMO;
 extern int NUMERO_ELITES;
 extern int KWORST;
 extern int SEMILLA;
+extern double MEJOR_COSTE;
 
 extern int NUM_EVALUACIONES_SEMILLA;
 extern int NUM_GENERACIONES_SEMILLA;
