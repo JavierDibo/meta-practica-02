@@ -8,10 +8,7 @@ bool STATS;
 int MAX_NUM_EVALUACIONES;
 int MAX_NUMERO_GENERACIONES;
 int ALGORITMO;
-int NUMERO_ELITES;
 int KWORST;
-int SEMILLA;
-double MEJOR_COSTE;
 double MAX_TIEMPO_EJECUCION;
 double PROBABILIDAD_CRUCE;
 double PROBABILIDAD_MUTACION;
@@ -23,6 +20,7 @@ int NUM_GENERACIONES_SEMILLA;
 std::vector<int> VEC_SEMILLAS;
 std::vector<int> VEC_KBEST;
 std::vector<int> VEC_NUM_INDIVIDUOS;
+std::vector<int> VEC_NUMERO_ELITES;
 std::vector<std::string> VEC_ARCHIVOS_DATOS;
 
 std::string ARCHIVO_DATOS;
@@ -30,8 +28,7 @@ std::string ARCHIVO_DATOS;
 static std::mt19937 generator;
 
 void inicializar_generador_aleatorio(int semilla) {
-    SEMILLA = semilla;
-    generator = std::mt19937(SEMILLA);
+    generator = std::mt19937(semilla);
 }
 
 int get_rand_int(const int &min, const int &max) {

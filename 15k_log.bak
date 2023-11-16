@@ -1,0 +1,703 @@
+C:\Users\Administrator\Desktop\meta-practica-02\cmake-build-debug\meta_practica_02.exe .\parametros.txt
+
+Leyendo el archivo de datos...
+Tiempo en procesar el archivo datos/d15112.tsp: 1003.28 milisegundos.
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 7145.54 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 77646884
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 50
+Kbest: 2
+Num elites: 1
+Tiempo de ejecucion: 67420.2 milisegundos.
+Coste del mejor individuo: 1.94815e+06
+Coste del peor individuo: 1.97747e+06
+Numero de generaciones: 163
+Numero de evaluaciones: 8150
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 7243.08 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 77646884
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 50
+Kbest: 3
+Num elites: 1
+Tiempo de ejecucion: 67525.8 milisegundos.
+Coste del mejor individuo: 1.93829e+06
+Coste del peor individuo: 1.96569e+06
+Numero de generaciones: 162
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 7268.73 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 77646884
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 50
+Kbest: 2
+Num elites: 2
+Tiempo de ejecucion: 67658.4 milisegundos.
+Coste del mejor individuo: 1.9447e+06
+Coste del peor individuo: 2.02193e+06
+Numero de generaciones: 162
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 7208.84 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 77646884
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 50
+Kbest: 3
+Num elites: 2
+Tiempo de ejecucion: 67499.9 milisegundos.
+Coste del mejor individuo: 1.93414e+06
+Coste del peor individuo: 1.99313e+06
+Numero de generaciones: 163
+Numero de evaluaciones: 8150
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 14205.6 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 77646884
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 100
+Kbest: 2
+Num elites: 1
+Tiempo de ejecucion: 74814.8 milisegundos.
+Coste del mejor individuo: 1.9433e+06
+Coste del peor individuo: 2.02e+06
+Numero de generaciones: 81
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 14130.1 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 77646884
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 100
+Kbest: 3
+Num elites: 1
+Tiempo de ejecucion: 74404.5 milisegundos.
+Coste del mejor individuo: 1.9293e+06
+Coste del peor individuo: 1.99626e+06
+Numero de generaciones: 81
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 14258.5 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 77646884
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 100
+Kbest: 2
+Num elites: 2
+Tiempo de ejecucion: 74871.6 milisegundos.
+Coste del mejor individuo: 1.94172e+06
+Coste del peor individuo: 2.00319e+06
+Numero de generaciones: 81
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 14214 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 77646884
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 100
+Kbest: 3
+Num elites: 2
+Tiempo de ejecucion: 74351.9 milisegundos.
+Coste del mejor individuo: 1.93419e+06
+Coste del peor individuo: 1.99856e+06
+Numero de generaciones: 81
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 7173.69 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 47764688
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 50
+Kbest: 2
+Num elites: 1
+Tiempo de ejecucion: 67534.1 milisegundos.
+Coste del mejor individuo: 1.91735e+06
+Coste del peor individuo: 1.9893e+06
+Numero de generaciones: 163
+Numero de evaluaciones: 8150
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 7206.07 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 47764688
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 50
+Kbest: 3
+Num elites: 1
+Tiempo de ejecucion: 67331.3 milisegundos.
+Coste del mejor individuo: 1.92866e+06
+Coste del peor individuo: 1.98153e+06
+Numero de generaciones: 164
+Numero de evaluaciones: 8200
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 7158.29 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 47764688
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 50
+Kbest: 2
+Num elites: 2
+Tiempo de ejecucion: 67546.3 milisegundos.
+Coste del mejor individuo: 1.93837e+06
+Coste del peor individuo: 1.9982e+06
+Numero de generaciones: 163
+Numero de evaluaciones: 8150
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 7156.52 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 47764688
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 50
+Kbest: 3
+Num elites: 2
+Tiempo de ejecucion: 67263.2 milisegundos.
+Coste del mejor individuo: 1.93538e+06
+Coste del peor individuo: 1.96951e+06
+Numero de generaciones: 163
+Numero de evaluaciones: 8150
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 14234.8 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 47764688
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 100
+Kbest: 2
+Num elites: 1
+Tiempo de ejecucion: 74708.8 milisegundos.
+Coste del mejor individuo: 1.94429e+06
+Coste del peor individuo: 2.0029e+06
+Numero de generaciones: 81
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 14260.3 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 47764688
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 100
+Kbest: 3
+Num elites: 1
+Tiempo de ejecucion: 74428.6 milisegundos.
+Coste del mejor individuo: 1.93216e+06
+Coste del peor individuo: 1.97594e+06
+Numero de generaciones: 81
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 14149.1 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 47764688
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 100
+Kbest: 2
+Num elites: 2
+Tiempo de ejecucion: 74535.9 milisegundos.
+Coste del mejor individuo: 1.93507e+06
+Coste del peor individuo: 2.00163e+06
+Numero de generaciones: 81
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 14422.5 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 47764688
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 100
+Kbest: 3
+Num elites: 2
+Tiempo de ejecucion: 74860.4 milisegundos.
+Coste del mejor individuo: 1.9373e+06
+Coste del peor individuo: 2.00485e+06
+Numero de generaciones: 81
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 7355.59 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 84776468
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 50
+Kbest: 2
+Num elites: 1
+Tiempo de ejecucion: 67715.2 milisegundos.
+Coste del mejor individuo: 2.01986e+06
+Coste del peor individuo: 2.85824e+06
+Numero de generaciones: 161
+Numero de evaluaciones: 8050
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 7443.44 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 84776468
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 50
+Kbest: 3
+Num elites: 1
+Tiempo de ejecucion: 67668.3 milisegundos.
+Coste del mejor individuo: 1.93627e+06
+Coste del peor individuo: 1.98086e+06
+Numero de generaciones: 162
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 7437.18 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 84776468
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 50
+Kbest: 2
+Num elites: 2
+Tiempo de ejecucion: 67584.7 milisegundos.
+Coste del mejor individuo: 1.94033e+06
+Coste del peor individuo: 2.00919e+06
+Numero de generaciones: 160
+Numero de evaluaciones: 8000
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 7229.51 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 84776468
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 50
+Kbest: 3
+Num elites: 2
+Tiempo de ejecucion: 67507.9 milisegundos.
+Coste del mejor individuo: 1.93463e+06
+Coste del peor individuo: 1.98511e+06
+Numero de generaciones: 163
+Numero de evaluaciones: 8150
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 14152.8 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 84776468
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 100
+Kbest: 2
+Num elites: 1
+Tiempo de ejecucion: 74831 milisegundos.
+Coste del mejor individuo: 1.93646e+06
+Coste del peor individuo: 1.98661e+06
+Numero de generaciones: 81
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 14142.1 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 84776468
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 100
+Kbest: 3
+Num elites: 1
+Tiempo de ejecucion: 74441.3 milisegundos.
+Coste del mejor individuo: 1.9337e+06
+Coste del peor individuo: 1.99349e+06
+Numero de generaciones: 81
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 14276 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 84776468
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 100
+Kbest: 2
+Num elites: 2
+Tiempo de ejecucion: 74413.9 milisegundos.
+Coste del mejor individuo: 1.93939e+06
+Coste del peor individuo: 2.61462e+06
+Numero de generaciones: 80
+Numero de evaluaciones: 8000
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 14064.6 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 84776468
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 100
+Kbest: 3
+Num elites: 2
+Tiempo de ejecucion: 74343.2 milisegundos.
+Coste del mejor individuo: 1.93596e+06
+Coste del peor individuo: 2.0118e+06
+Numero de generaciones: 81
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 7357 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 88477646
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 50
+Kbest: 2
+Num elites: 1
+Tiempo de ejecucion: 67680.9 milisegundos.
+Coste del mejor individuo: 1.94588e+06
+Coste del peor individuo: 1.97438e+06
+Numero de generaciones: 164
+Numero de evaluaciones: 8200
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 7345.17 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 88477646
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 50
+Kbest: 3
+Num elites: 1
+Tiempo de ejecucion: 67711.3 milisegundos.
+Coste del mejor individuo: 1.93994e+06
+Coste del peor individuo: 1.99089e+06
+Numero de generaciones: 164
+Numero de evaluaciones: 8200
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 7361.7 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 88477646
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 50
+Kbest: 2
+Num elites: 2
+Tiempo de ejecucion: 67412.3 milisegundos.
+Coste del mejor individuo: 1.92628e+06
+Coste del peor individuo: 1.99247e+06
+Numero de generaciones: 162
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 7306.22 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 88477646
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 50
+Kbest: 3
+Num elites: 2
+Tiempo de ejecucion: 67449.6 milisegundos.
+Coste del mejor individuo: 1.93983e+06
+Coste del peor individuo: 1.99841e+06
+Numero de generaciones: 162
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 14166.1 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 88477646
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 100
+Kbest: 2
+Num elites: 1
+Tiempo de ejecucion: 74657.9 milisegundos.
+Coste del mejor individuo: 1.94068e+06
+Coste del peor individuo: 2.00735e+06
+Numero de generaciones: 81
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 14144.4 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 88477646
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 100
+Kbest: 3
+Num elites: 1
+Tiempo de ejecucion: 74842.2 milisegundos.
+Coste del mejor individuo: 1.94014e+06
+Coste del peor individuo: 2.00088e+06
+Numero de generaciones: 82
+Numero de evaluaciones: 8200
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 14059.1 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 88477646
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 100
+Kbest: 2
+Num elites: 2
+Tiempo de ejecucion: 74498.4 milisegundos.
+Coste del mejor individuo: 1.93647e+06
+Coste del peor individuo: 1.99114e+06
+Numero de generaciones: 81
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 14151.1 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 88477646
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 100
+Kbest: 3
+Num elites: 2
+Tiempo de ejecucion: 74619.7 milisegundos.
+Coste del mejor individuo: 1.93237e+06
+Coste del peor individuo: 1.99587e+06
+Numero de generaciones: 81
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 7278.54 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 68847764
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 50
+Kbest: 2
+Num elites: 1
+Tiempo de ejecucion: 67567.6 milisegundos.
+Coste del mejor individuo: 1.9428e+06
+Coste del peor individuo: 1.98882e+06
+Numero de generaciones: 162
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 7403.89 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 68847764
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 50
+Kbest: 3
+Num elites: 1
+Tiempo de ejecucion: 67534.9 milisegundos.
+Coste del mejor individuo: 1.93706e+06
+Coste del peor individuo: 1.98695e+06
+Numero de generaciones: 163
+Numero de evaluaciones: 8150
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 7351.38 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 68847764
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 50
+Kbest: 2
+Num elites: 2
+Tiempo de ejecucion: 67679.9 milisegundos.
+Coste del mejor individuo: 1.9285e+06
+Coste del peor individuo: 1.97544e+06
+Numero de generaciones: 164
+Numero de evaluaciones: 8200
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 7454.79 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 68847764
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 50
+Kbest: 3
+Num elites: 2
+Tiempo de ejecucion: 67747 milisegundos.
+Coste del mejor individuo: 1.93395e+06
+Coste del peor individuo: 1.99988e+06
+Numero de generaciones: 164
+Numero de evaluaciones: 8200
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 14309.4 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 68847764
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 100
+Kbest: 2
+Num elites: 1
+Tiempo de ejecucion: 74399.1 milisegundos.
+Coste del mejor individuo: 1.94055e+06
+Coste del peor individuo: 1.98517e+06
+Numero de generaciones: 80
+Numero de evaluaciones: 8000
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 14348.7 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 68847764
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 100
+Kbest: 3
+Num elites: 1
+Tiempo de ejecucion: 74457.5 milisegundos.
+Coste del mejor individuo: 1.93866e+06
+Coste del peor individuo: 2.02204e+06
+Numero de generaciones: 81
+Numero de evaluaciones: 8100
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 14270 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 68847764
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 100
+Kbest: 2
+Num elites: 2
+Tiempo de ejecucion: 74344.3 milisegundos.
+Coste del mejor individuo: 1.93952e+06
+Coste del peor individuo: 2.02103e+06
+Numero de generaciones: 80
+Numero de evaluaciones: 8000
+---------------------------------------------------------------------
+
+Generando poblacion inicial...
+Tiempo para generar la poblacion inicial: 14202.7 milisegundos.
+
+Lanzando evolucion de la poblacion...
+
+Semilla: 68847764
+Archivo datos: datos/d15112.tsp
+Numero de individuos: 100
+Kbest: 3
+Num elites: 2
+Tiempo de ejecucion: 75025.3 milisegundos.
+Coste del mejor individuo: 1.9346e+06
+Coste del peor individuo: 2.00172e+06
+Numero de generaciones: 82
+Numero de evaluaciones: 8200
+---------------------------------------------------------------------
+
+RESUMEN GLOBAL
+Semilla: 77646884 47764688 84776468 88477646 68847764
+Archivo de datos: datos/d15112.tsp
+KBest: 2 3
+Num individuos: 50 100
+Num elites: 1 2
+Mejor coste: 1.91735e+06
+Semilla: 47764688
+Numero de individuos: 50
+Num kbest: 2
+Num elites: 1
+Tiempo de ejecucion total: 2.84433e+06 milisegundos
+Numero de evaluaciones maximo: 50000
+Probabilidad de cruce: 70%
+Probabilidad de mutacion: 10%
+Porcentaje generado por greedy: 20%
+
+Process finished with exit code 0

@@ -68,7 +68,12 @@ void LectorParametros::leer_parametros() {
     }
 
     if (mapa_parametros.find("numero_elites") != mapa_parametros.end()) {
-        NUMERO_ELITES = std::stoi(mapa_parametros["numero_elites"]);
+        string numeros_string = mapa_parametros["numero_elites"];
+        std::stringstream ss(numeros_string);
+        string numero;
+        while (getline(ss, numero, ',')) {
+            VEC_NUMERO_ELITES.push_back(std::stoi(numero));
+        }
     }
 
     if (mapa_parametros.find("max_num_generaciones") != mapa_parametros.end()) {

@@ -1,11 +1,11 @@
 #include "Poblacion.h"
 
-void Poblacion::encontrar_elites(const std::vector<Individuo> &individuos, std::vector<Individuo> &elites) {
-    if (NUMERO_ELITES > 0) {
-        std::vector<Individuo> aux = individuos;
+void Poblacion::encontrar_elites(const std::vector<Individuo> &ind, std::vector<Individuo> &elites) const {
+    if (num_elites > 0) {
+        std::vector<Individuo> aux = ind;
         std::sort(aux.begin(), aux.end());
         elites.clear();
-        elites.insert(elites.end(), aux.begin(), aux.begin() + NUMERO_ELITES);
+        elites.insert(elites.end(), aux.begin(), aux.begin() + num_elites);
     }
 }
 
@@ -30,7 +30,7 @@ void Poblacion::evolucion_generacional() {
     while (!condicion_parada()) {
         /// Aplicar encontrar_elites: almacenar los "num_elites" mejores individuos
         std::vector<Individuo> elites;
-        elites.reserve(NUMERO_ELITES);
+        elites.reserve(num_elites);
         encontrar_elites(individuos, elites);
 
         /// Generar la nueva población
@@ -398,10 +398,11 @@ Individuo *Poblacion::torneo_kworst() {
 
 Poblacion::~Poblacion() = default;
 
-Poblacion::Poblacion(LectorCiudades &lector_datos, int num_ind, int kb) : lector_datos(lector_datos) {
+Poblacion::Poblacion(LectorCiudades &lector_datos, int num_ind, int kb, int elites) : lector_datos(lector_datos) {
     num_invididuos = num_ind;
     kbest = kb;
     num_ciudades = lector_datos.get_num_ciudades();
+    num_elites = elites;
     crear_poblacion();
 }
 

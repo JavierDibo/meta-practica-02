@@ -24,6 +24,7 @@ struct ResultadoT {
     int semilla = 0;
     int num_ind = 0;
     int kbest = 0;
+    int num_elites = 0;
 };
 
 ResultadoT mejor_resultado{};
@@ -33,6 +34,15 @@ ResultadoT mejor_resultado{};
 void imprimir_informacion_actual(Reloj &reloj_actual, ResultadoT resultado_actual, std::vector<Individuo> &poblacion,
                                  const string &archivo) {
 
+    double coste = poblacion.begin()->get_coste();
+    if (coste < mejor_resultado.coste) {
+        mejor_resultado.coste = coste;
+        mejor_resultado.kbest = resultado_actual.kbest;
+        mejor_resultado.num_ind = resultado_actual.num_ind;
+        mejor_resultado.semilla = resultado_actual.semilla;
+        mejor_resultado.num_elites = resultado_actual.num_elites;
+    }
+
     if (!ECHO)
         return;
 
@@ -41,41 +51,32 @@ void imprimir_informacion_actual(Reloj &reloj_actual, ResultadoT resultado_actua
     cout << "Archivo datos: " << archivo << endl;
     cout << "Numero de individuos: " << resultado_actual.num_ind << endl;
     cout << "Kbest: " << resultado_actual.kbest << endl;
+    cout << "Num elites: " << resultado_actual.num_elites << std::endl;
     cout << RESET;
     cout << "Tiempo de ejecucion: " << reloj_actual.obtener_tiempo_transcurrido(MILISEGUNDOS) << " milisegundos."
          << endl;
     cout << YELLOW;
-    double coste = poblacion.begin()->get_coste();
-    if (coste < mejor_resultado.coste) {
-        mejor_resultado.coste = coste;
-        mejor_resultado.kbest = resultado_actual.kbest;
-        mejor_resultado.num_ind = resultado_actual.num_ind;
-        mejor_resultado.semilla = resultado_actual.semilla;
-    }
     cout << "Coste del mejor individuo: " << coste << endl;
     cout << RESET;
     cout << "Coste del peor individuo: " << poblacion.at(poblacion.size() - 1).get_coste() << endl;
     cout << "Numero de generaciones: " << NUM_GENERACIONES_SEMILLA << endl;
     cout << "Numero de evaluaciones: " << NUM_EVALUACIONES_SEMILLA << endl;
     cout << "---------------------------------------------------------------------" << endl;
-
 }
 
 void imprimir_informacion_global(Reloj reloj) {
-    /*if (!ECHO)
-        return;*/
 
     cout << "\nRESUMEN GLOBAL\n";
 
     /// Semillas
-    cout << (VEC_SEMILLAS.size() < 2 ? "Semilla: " : "Semillas: ");
+    cout << "Semilla: ";
     for (const auto &semilla: VEC_SEMILLAS) {
         cout << semilla << " ";
     }
     cout << "\n";
 
     /// Archivos
-    cout << (VEC_ARCHIVOS_DATOS.size() < 2 ? "Archivo de datos: " : "Archivos de datos: ");
+    cout << "Archivo de datos: ";
     for (const auto &archivo: VEC_ARCHIVOS_DATOS) {
         cout << archivo << " ";
     }
@@ -95,13 +96,21 @@ void imprimir_informacion_global(Reloj reloj) {
     }
     cout << "\n";
 
+    /// Numeros de elites
+    cout << "Num elites: ";
+    for (const auto &elites: VEC_NUMERO_ELITES) {
+        cout << elites << " ";
+    }
+    cout << "\n";
+
     if (VEC_ARCHIVOS_DATOS.size() < 2) {
-        std::cout << CYAN;
-        std::cout << "Mejor coste: " << mejor_resultado.coste << std::endl;
-        std::cout << "Semilla: " << mejor_resultado.semilla << std::endl;
-        std::cout << "Numero de individuos: " << mejor_resultado.num_ind << std::endl;
-        std::cout << "Num kbest: " << mejor_resultado.kbest << std::endl;
-        std::cout << RESET;
+        cout << CYAN;
+        cout << "Mejor coste: " << mejor_resultado.coste << std::endl;
+        cout << "Semilla: " << mejor_resultado.semilla << std::endl;
+        cout << "Numero de individuos: " << mejor_resultado.num_ind << std::endl;
+        cout << "Num kbest: " << mejor_resultado.kbest << std::endl;
+        cout << "Num elites: " << mejor_resultado.num_elites << std::endl;
+        cout << RESET;
     }
     cout << "Tiempo de ejecucion total: " << reloj.obtener_tiempo_transcurrido(MILISEGUNDOS) << " milisegundos\n";
     cout << (MAX_NUMERO_GENERACIONES < MAX_NUM_EVALUACIONES ? "Numero de generaciones maximo: "
@@ -127,6 +136,37 @@ void lanzar_evolucion(Poblacion &poblacion) {
         poblacion.evolucion_diferencial();
 }
 
+void ejecutar( LectorCiudades lector_ciudades, const string& archivo_datos) {
+    for (const int &semilla: VEC_SEMILLAS) {
+
+        inicializar_generador_aleatorio(semilla);
+
+        for (const int &num: VEC_NUM_INDIVIDUOS) {
+
+            for (const int &elite: VEC_NUMERO_ELITES) {
+
+                for (const int &kbest: VEC_KBEST) {
+
+                    Reloj reloj_iteracion;
+                    reloj_iteracion.iniciar();
+
+                    Poblacion poblacion(lector_ciudades, num, kbest, elite);
+
+                    lanzar_evolucion(poblacion);
+
+                    vector<Individuo> poblacion_final = poblacion.get_individuos();
+                    std::sort(poblacion_final.begin(), poblacion_final.end());
+
+                    reloj_iteracion.finalizar();
+
+                    imprimir_informacion_actual(reloj_iteracion, {INFINITO_POSITIVO, semilla, num, kbest, elite},
+                                                poblacion_final, archivo_datos);
+                }
+            }
+        }
+    }
+}
+
 int main(int argc, char *argv[]) {
 
     if (argc < 2) {
@@ -146,39 +186,7 @@ int main(int argc, char *argv[]) {
 
     LectorCiudades lector_ciudades(archivo_datos);
 
-    omp_set_num_threads(5);
-
-    for (const int &semilla: VEC_SEMILLAS) {
-
-#pragma omp parallel for default(none) shared(VEC_SEMILLAS, VEC_NUM_INDIVIDUOS, VEC_KBEST, lector_ciudades, archivo_datos, semilla) if (true)
-        for (const int &num: VEC_NUM_INDIVIDUOS) {
-
-            for (const int &kbest: VEC_KBEST) {
-
-                Reloj reloj_iteracion;
-                reloj_iteracion.iniciar();
-
-                inicializar_generador_aleatorio(semilla);
-
-                Poblacion poblacion(lector_ciudades, num, kbest);
-
-                lanzar_evolucion(poblacion);
-
-                vector<Individuo> poblacion_final = poblacion.get_individuos();
-                std::sort(poblacion_final.begin(), poblacion_final.end());
-
-                reloj_iteracion.finalizar();
-
-                ResultadoT resultado{INFINITO_POSITIVO, semilla, num, kbest};
-
-#pragma omp critical
-                {
-                    imprimir_informacion_actual(reloj_iteracion, resultado, poblacion_final, archivo_datos);
-                }
-            }
-        }
-    }
-
+    ejecutar(lector_ciudades, archivo_datos);
 
     reloj_principal.finalizar();
 

@@ -18,6 +18,7 @@ private:
     std::vector<Individuo> individuos;
     int num_invididuos;
     int kbest;
+    int num_elites;
     int num_ciudades;
     int num_generaciones = 0;
     int num_evaluaciones = 0;
@@ -26,7 +27,7 @@ private:
 
 public:
 
-    Poblacion(LectorCiudades &lector_datos, int num_ind, int kb);
+    Poblacion(LectorCiudades &lector_datos, int num_ind, int kb, int elites);
 
     virtual ~Poblacion();
 
@@ -59,7 +60,7 @@ private:
 
     void introducir_elites(const std::vector<Individuo> &elites, const std::vector<Individuo> &nueva_poblacion);
 
-    static void encontrar_elites(const std::vector<Individuo> &individuos, std::vector<Individuo> &elites);
+    void encontrar_elites(const std::vector<Individuo> &individuos, std::vector<Individuo> &elites) const;
 
     Individuo individuo_aleatorio();
 

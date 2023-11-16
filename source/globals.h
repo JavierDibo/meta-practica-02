@@ -19,10 +19,7 @@ extern bool STATS;
 extern int MAX_NUM_EVALUACIONES;
 extern int MAX_NUMERO_GENERACIONES;
 extern int ALGORITMO;
-extern int NUMERO_ELITES;
 extern int KWORST;
-extern int SEMILLA;
-extern double MEJOR_COSTE;
 
 extern int NUM_EVALUACIONES_SEMILLA;
 extern int NUM_GENERACIONES_SEMILLA;
@@ -41,6 +38,7 @@ constexpr int MICROSEGUNDOS = 3;
 extern std::vector<int> VEC_SEMILLAS;
 extern std::vector<int> VEC_KBEST;
 extern std::vector<int> VEC_NUM_INDIVIDUOS;
+extern std::vector<int> VEC_NUMERO_ELITES;
 extern std::vector<std::string> VEC_ARCHIVOS_DATOS;
 extern std::string ARCHIVO_DATOS;
 
