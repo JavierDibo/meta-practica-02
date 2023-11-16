@@ -21,7 +21,7 @@
 		"files" : 
 		[
 			"CMakeLists.txt",
-			"C:/Users/Administrator/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/cmake/win/x64/share/cmake-3.26/Modules/FindOpenMP.cmake"
+			"C:/Users/jfdg0/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/FindOpenMP.cmake"
 		],
 		"nodes" : 
 		[
@@ -108,12 +108,12 @@
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "C:\\Users\\Administrator\\AppData\\Local\\JetBrains\\Toolbox\\apps\\CLion\\ch-0\\232.9921.42\\bin\\mingw\\lib\\gcc\\x86_64-w64-mingw32\\13.1.0\\libgomp.dll.a",
+				"fragment" : "C:\\Users\\jfdg0\\AppData\\Local\\Programs\\CLion\\bin\\mingw\\lib\\gcc\\x86_64-w64-mingw32\\13.1.0\\libgomp.dll.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "C:\\Users\\Administrator\\AppData\\Local\\JetBrains\\Toolbox\\apps\\CLion\\ch-0\\232.9921.42\\bin\\mingw\\x86_64-w64-mingw32\\lib\\libmingwthrd.a",
+				"fragment" : "C:\\Users\\jfdg0\\AppData\\Local\\Programs\\CLion\\bin\\mingw\\x86_64-w64-mingw32\\lib\\libmingwthrd.a",
 				"role" : "libraries"
 			},
 			{

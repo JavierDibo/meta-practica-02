@@ -113,14 +113,6 @@ build CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.obj: CXX_COMPILER__me
   TARGET_COMPILE_PDB = CMakeFiles\meta_practica_02.dir\
   TARGET_PDB = meta_practica_02.pdb
 
-build CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj: CXX_COMPILER__meta_practica_02_unscanned_Debug C$:/Users/jfdg0/Desktop/Metaheuristicas/Practica$ 2/meta-practica-02/source/GeneradorAleatorio.cpp || cmake_object_order_depends_target_meta_practica_02
-  DEP_FILE = CMakeFiles\meta_practica_02.dir\source\GeneradorAleatorio.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always -fopenmp
-  OBJECT_DIR = CMakeFiles\meta_practica_02.dir
-  OBJECT_FILE_DIR = CMakeFiles\meta_practica_02.dir\source
-  TARGET_COMPILE_PDB = CMakeFiles\meta_practica_02.dir\
-  TARGET_PDB = meta_practica_02.pdb
-
 
 # =============================================================================
 # Link build statements for EXECUTABLE target meta_practica_02
@@ -129,7 +121,7 @@ build CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj: CXX_COM
 #############################################
 # Link the executable meta_practica_02.exe
 
-build meta_practica_02.exe: CXX_EXECUTABLE_LINKER__meta_practica_02_Debug CMakeFiles/meta_practica_02.dir/source/main.cpp.obj CMakeFiles/meta_practica_02.dir/source/LectorCiudades.cpp.obj CMakeFiles/meta_practica_02.dir/source/globals.cpp.obj CMakeFiles/meta_practica_02.dir/source/Reloj.cpp.obj CMakeFiles/meta_practica_02.dir/source/LectorParametros.cpp.obj CMakeFiles/meta_practica_02.dir/source/Logger.cpp.obj CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.obj CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.obj CMakeFiles/meta_practica_02.dir/source/GeneradorAleatorio.cpp.obj | C$:/Users/jfdg0/AppData/Local/Programs/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/libgomp.dll.a C$:/Users/jfdg0/AppData/Local/Programs/CLion/bin/mingw/x86_64-w64-mingw32/lib/libmingwthrd.a
+build meta_practica_02.exe: CXX_EXECUTABLE_LINKER__meta_practica_02_Debug CMakeFiles/meta_practica_02.dir/source/main.cpp.obj CMakeFiles/meta_practica_02.dir/source/LectorCiudades.cpp.obj CMakeFiles/meta_practica_02.dir/source/globals.cpp.obj CMakeFiles/meta_practica_02.dir/source/Reloj.cpp.obj CMakeFiles/meta_practica_02.dir/source/LectorParametros.cpp.obj CMakeFiles/meta_practica_02.dir/source/Logger.cpp.obj CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.obj CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.obj | C$:/Users/jfdg0/AppData/Local/Programs/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/libgomp.dll.a C$:/Users/jfdg0/AppData/Local/Programs/CLion/bin/mingw/x86_64-w64-mingw32/lib/libmingwthrd.a
   FLAGS = -g
   LINK_LIBRARIES = C:/Users/jfdg0/AppData/Local/Programs/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/libgomp.dll.a  C:/Users/jfdg0/AppData/Local/Programs/CLion/bin/mingw/x86_64-w64-mingw32/lib/libmingwthrd.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\meta_practica_02.dir
