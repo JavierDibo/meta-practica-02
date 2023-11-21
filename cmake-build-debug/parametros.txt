@@ -3,7 +3,7 @@ semilla=77646884,47764688,84776468,88477646,68847764
 
 # Algoritmos implementados:
 # generacional: 0, diferencial: 1
-algoritmo=1
+algoritmo=0
 
 # Imprimir datos por consola
 echo=true
@@ -18,9 +18,13 @@ paralelizacion=true
 log=false
 
 # Nombre de los archivos de datos
-#datos=ch130.tsp
+datos=ch130.tsp
 #datos=pr144.tsp
-datos=d15112.tsp
+#datos=d15112.tsp
+
+# Operador de cruce a utilizar
+# ox2: 0    moc: 1
+cruce=0
 
 numero_individuos=100
 max_num_evaluaciones=50000
@@ -38,9 +42,9 @@ probabilidad_greedy=0.2
 # PR144 --> 58,537
 # D15112 --> 1,573,084 --> 1.57308e+6
 
-# num_ind
-# kbest
-# semilla
-
+# Datos totales a recoger (SOLO PARA GENERACIONAL)
+# numero_individuos=50,100
+# numero_elites=1,2
+# numero_kbest=2,3
 
 

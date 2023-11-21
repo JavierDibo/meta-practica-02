@@ -42,16 +42,9 @@ private:
 
     bool condicion_parada();
 
-    std::vector<int> cruzar(const Individuo &padre1, const Individuo &padre2);
-
-    [[nodiscard]] std::vector<int> cruceOX2(const Individuo &padre_a, const Individuo &padre_b) const;
-
-    [[nodiscard]] std::vector<int> cruceMOC(const Individuo &padre_a, const Individuo &padre_b) const;
-
     Individuo *torneo_kworst();
 
-    // Torneo kbest
-    Individuo torneo_kbest(int kbest);
+    Individuo torneo_kbest(int num);
 
     void avanzar_poblacion_generacional(std::vector<Individuo> &nueva_poblacion);
 
@@ -68,8 +61,20 @@ private:
     std::vector<int> cruce_ternario_diferencial(const Individuo &padre, Individuo &aleatorio_1, Individuo &aleatorio_2,
                                                 Individuo &objetivo);
 
-    [[nodiscard]] std::vector<int>
-    camino_greedy(const std::vector<std::vector<float>> &distancias, int ciudad_actual) const;
+    std::vector<int> cruce_generacional(const Individuo &padre1, const Individuo &padre2);
+
+    [[nodiscard]] std::vector<int> cruceOX2(const Individuo &padre_a, const Individuo &padre_b) const;
+
+    [[nodiscard]] std::vector<int> cruceMOC(const Individuo &padre_a, const Individuo &padre_b) const;
+
+    [[nodiscard]] std::vector<int> camino_greedy(const std::vector<std::vector<float>> &distancias, int ciudad_actual)
+    const;
+
+    std::vector<int> EDA(Individuo &padre);
+
+    std::vector<int> EDB(Individuo &padre);
+
+    std::vector<int> elegir_cruce(const Individuo &padre1, const Individuo &padre2);
 };
 
 #endif //META_PRACTICA_02_POBLACION_H

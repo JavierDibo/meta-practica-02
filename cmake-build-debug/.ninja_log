@@ -43,3 +43,15 @@
 2045	2473	7222656959962183	meta_practica_02.exe	ad56096ebf76073a
 6	1768	7222666830340777	CMakeFiles/meta_practica_02.dir/source/main.cpp.obj	fe805d2e612df9f6
 1769	2340	7222666836053822	meta_practica_02.exe	ad56096ebf76073a
+6	1604	7222676007916293	CMakeFiles/meta_practica_02.dir/source/main.cpp.obj	fe805d2e612df9f6
+14	2067	7222676012526314	CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.obj	9e8b020dd05ac1ba
+2067	2511	7222676016946921	meta_practica_02.exe	ad56096ebf76073a
+48	1175	7222686702675381	CMakeFiles/meta_practica_02.dir/source/Reloj.cpp.obj	17c9ca0e9d3264b5
+33	1480	7222686705745433	CMakeFiles/meta_practica_02.dir/source/LectorCiudades.cpp.obj	71452aabd92568f9
+43	1548	7222686706435428	CMakeFiles/meta_practica_02.dir/source/LectorParametros.cpp.obj	a7e13573a5630ecc
+39	1630	7222686707265395	CMakeFiles/meta_practica_02.dir/source/main.cpp.obj	fe805d2e612df9f6
+1480	2484	7222686715795403	CMakeFiles/meta_practica_02.dir/source/globals.cpp.obj	40c4400a13dc7228
+1177	2776	7222686718735402	CMakeFiles/meta_practica_02.dir/source/Logger.cpp.obj	fd6613757a5fd22a
+1548	2979	7222686720745355	CMakeFiles/meta_practica_02.dir/source/Individuo.cpp.obj	c397fd3fb9b60693
+1630	3543	7222686726379978	CMakeFiles/meta_practica_02.dir/source/Poblacion.cpp.obj	9e8b020dd05ac1ba
+3544	4003	7222686730949848	meta_practica_02.exe	ad56096ebf76073a

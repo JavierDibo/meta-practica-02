@@ -13,10 +13,10 @@ using std::vector;
 using std::cout;
 using std::endl;
 
-const std::string YELLOW = "\033[33m";  // Yellow
+/*const std::string YELLOW = "\033[33m";  // Yellow
 const std::string BLUE = "\033[34m";    // Blue
 const std::string RESET = "\033[0m";    // Reset to default color
-const std::string CYAN = "\033[36m";  // Cyan
+const std::string CYAN = "\033[36m";    // Cyan*/
 
 
 struct ResultadoT {
@@ -36,15 +36,15 @@ void imprimir_informacion_actual(Reloj &reloj_actual, ResultadoT resultado_actua
     if (!ECHO)
         return;
 
-    cout << BLUE;
+    // cout << BLUE;
     cout << "\nSemilla: " << resultado_actual.semilla << endl;
     cout << "Archivo datos: " << archivo << endl;
     cout << "Numero de individuos: " << resultado_actual.num_ind << endl;
     cout << "Kbest: " << resultado_actual.kbest << endl;
-    cout << RESET;
+    // cout << RESET;
     cout << "Tiempo de ejecucion: " << reloj_actual.obtener_tiempo_transcurrido(MILISEGUNDOS) << " milisegundos."
          << endl;
-    cout << YELLOW;
+    // cout << YELLOW;
     double coste = poblacion.begin()->get_coste();
     if (coste < mejor_resultado.coste) {
         mejor_resultado.coste = coste;
@@ -53,7 +53,7 @@ void imprimir_informacion_actual(Reloj &reloj_actual, ResultadoT resultado_actua
         mejor_resultado.semilla = resultado_actual.semilla;
     }
     cout << "Coste del mejor individuo: " << coste << endl;
-    cout << RESET;
+    // cout << RESET;
     cout << "Coste del peor individuo: " << poblacion.at(poblacion.size() - 1).get_coste() << endl;
     cout << "Numero de generaciones: " << NUM_GENERACIONES_SEMILLA << endl;
     cout << "Numero de evaluaciones: " << NUM_EVALUACIONES_SEMILLA << endl;
@@ -96,19 +96,19 @@ void imprimir_informacion_global(Reloj reloj) {
     cout << "\n";
 
     if (VEC_ARCHIVOS_DATOS.size() < 2) {
-        std::cout << CYAN;
+        // std::cout << CYAN;
         std::cout << "Mejor coste: " << mejor_resultado.coste << std::endl;
         std::cout << "Semilla: " << mejor_resultado.semilla << std::endl;
         std::cout << "Numero de individuos: " << mejor_resultado.num_ind << std::endl;
         std::cout << "Num kbest: " << mejor_resultado.kbest << std::endl;
-        std::cout << RESET;
+        // std::cout << RESET;
     }
     cout << "Tiempo de ejecucion total: " << reloj.obtener_tiempo_transcurrido(MILISEGUNDOS) << " milisegundos\n";
     cout << (MAX_NUMERO_GENERACIONES < MAX_NUM_EVALUACIONES ? "Numero de generaciones maximo: "
                                                             : "Numero de evaluaciones maximo: ")
          << (MAX_NUMERO_GENERACIONES < MAX_NUM_EVALUACIONES ? MAX_NUMERO_GENERACIONES : MAX_NUM_EVALUACIONES) << "\n";
 
-    cout << "Probabilidad de cruce: " << PROBABILIDAD_CRUCE * 100 << "%\n";
+    cout << "Probabilidad de elegir_cruce: " << PROBABILIDAD_CRUCE * 100 << "%\n";
     cout << "Probabilidad de mutacion: " << PROBABILIDAD_MUTACION * 100 << "%\n";
     cout << "Porcentaje generado por greedy: " << PROBABILIDAD_GREEDY * 100 << "%\n";
 
