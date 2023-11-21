@@ -63,7 +63,7 @@ private:
 
     Individuo individuo_aleatorio();
 
-    void intercambiar(int posicion1, int posicion2, std::vector<int> camino);
+    static void intercambiar(int posicion1, int posicion2, std::vector<int> camino);
 
     std::vector<int> cruce_ternario_diferencial(const Individuo &padre, Individuo &aleatorio_1, Individuo &aleatorio_2,
                                                 Individuo &objetivo);

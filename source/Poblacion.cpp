@@ -180,25 +180,32 @@ std::vector<int> Poblacion::cruce_ternario_diferencial(const Individuo &padre, I
                                                        Individuo &aleatorio_2, Individuo &objetivo) {
 
     std::vector<int> camino_hijo = padre.get_camino();
-    std::vector<int> camino_a1 = aleatorio_1.get_camino();
-    // std::vector<int> camino_a2 = aleatorio_2.get_camino();
-    // std::vector<int> camino_o = objetivo.get_camino();
+    std::vector<int> random2 = aleatorio_1.get_camino();
+    std::vector<int> random1 = aleatorio_2.get_camino();
 
-    int tam = static_cast<int>(camino_hijo.size()) - 1;
+    int tam = static_cast<int>(camino_hijo.size());
 
     int indice_aleatorio = get_rand_int(0, tam - 1);
 
-    // intercambiar(indice_aleatorio, indice_aleatorio + 1, camino_hijo);
+    int origA = indice_aleatorio, origB = (indice_aleatorio + 1) % tam;
+    intercambiar(origA, origB, camino_hijo);
 
-    int indice_a = camino_hijo[indice_aleatorio];
+    int a = camino_hijo[origA]; // 2
+    int b = camino_hijo[origB]; // 3
 
-    // int valor2 = camino_hijo[indice_aleatorio+1];
+    auto it1 = std::find(random1.begin(), random1.end(), a); // el 2 esta en it1
+    auto it2 = std::find(random2.begin(), random2.end(), b); // el 3 esta en it2
 
-    /// Intercambio cruzado del primer valor (indice_a) con camino_a1
+    int pos_a_en_r1 = static_cast<int>(std::distance(random1.begin(), it1));
+    int pos_b_en_r2 = static_cast<int>(std::distance(random2.begin(), it2));
 
-    for (int i = 0; i < tam; ++i) {
-        if (camino_a1[i] == indice_a) {}
-    }
+    intercambiar(a, pos_a_en_r1, camino_hijo);
+    intercambiar(b, pos_b_en_r2, camino_hijo);
+
+    Individuo aux(camino_hijo, lector_datos);
+    aux.evaluar();
+
+    camino_hijo = cruceOX2(aux, objetivo);
 
     return camino_hijo;
 }
@@ -237,10 +244,15 @@ void Poblacion::avanzar_poblacion_diferencial(std::vector<Individuo> &nueva_pobl
         }
     }
 
+    NUM_GENERACIONES_SEMILLA = num_generaciones;
+    NUM_EVALUACIONES_SEMILLA = num_evaluaciones;
     num_generaciones++;
 }
 
 void Poblacion::evolucion_diferencial() {
+
+    reloj.iniciar();
+
     while (!condicion_parada()) {
 
         /// Generar la nueva población
@@ -250,7 +262,6 @@ void Poblacion::evolucion_diferencial() {
 
         /// Reemplazar la población antigua con la nueva
         individuos = nueva_poblacion;
-        num_generaciones++;
     }
 }
 

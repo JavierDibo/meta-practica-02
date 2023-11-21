@@ -55,6 +55,10 @@ void LectorParametros::leer_parametros() {
         MAX_NUM_EVALUACIONES = std::stoi(mapa_parametros["max_num_evaluacion"]);
     }
 
+    if (mapa_parametros.find("algoritmo") != mapa_parametros.end()) {
+        ALGORITMO = std::stoi(mapa_parametros["algoritmo"]);
+    }
+
     if (mapa_parametros.find("probabilidad_cruce") != mapa_parametros.end()) {
         PROBABILIDAD_CRUCE = std::stod(mapa_parametros["probabilidad_cruce"]);
     }
