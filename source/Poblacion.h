@@ -76,6 +76,8 @@ private:
     std::vector<int> EDB(Individuo &padre);
 
     std::vector<int> elegir_cruce(const Individuo &padre1, const Individuo &padre2);
+
+    void elegir_diferencial(std::vector<int> &camino_hijo, Individuo &padre);
 };
 
 #endif //META_PRACTICA_02_POBLACION_H

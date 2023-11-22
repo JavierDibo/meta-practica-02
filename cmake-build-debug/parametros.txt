@@ -3,7 +3,15 @@ semilla=77646884,47764688,84776468,88477646,68847764
 
 # Algoritmos implementados:
 # generacional: 0, diferencial: 1
-algoritmo=0
+algoritmo=1
+
+# Operador de cruce a utilizar
+# ox2: 0    moc: 1
+cruce=0
+
+# Operador diferencial
+# EDA: 0 EDB: 1
+diferencial=1
 
 # Imprimir datos por consola
 echo=true
@@ -18,13 +26,9 @@ paralelizacion=true
 log=false
 
 # Nombre de los archivos de datos
-#datos=ch130.tsp
+datos=ch130.tsp
 #datos=pr144.tsp
-datos=d15112.tsp
-
-# Operador de cruce a utilizar
-# ox2: 0    moc: 1
-cruce=0
+#datos=d15112.tsp
 
 numero_individuos=100
 max_num_evaluaciones=50000

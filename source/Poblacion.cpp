@@ -259,6 +259,13 @@ std::vector<int> Poblacion::EDA(Individuo &padre) {
     return camino_hijo;
 }
 
+void Poblacion::elegir_diferencial(std::vector<int> &camino_hijo, Individuo &padre) {
+    if (DIFERENCIAL == 0)
+        camino_hijo = EDA(padre);
+    else
+        camino_hijo = EDB(padre);
+}
+
 void Poblacion::avanzar_poblacion_diferencial(std::vector<Individuo> &nueva_poblacion) {
 
     for (Individuo &padre: individuos) {
@@ -266,10 +273,7 @@ void Poblacion::avanzar_poblacion_diferencial(std::vector<Individuo> &nueva_pobl
         /// Realizo el elegir_cruce con dos aleatorios y un objetivo
         std::vector<int> camino_hijo;
         camino_hijo.reserve(num_invididuos);
-        camino_hijo = EDA(padre);
-
-
-
+        elegir_diferencial(camino_hijo, padre);
 
         /// Creo y evaluo el hijo
         Individuo hijo(camino_hijo, lector_datos);

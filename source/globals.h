@@ -19,6 +19,7 @@ extern bool STATS;
 extern int MAX_NUM_EVALUACIONES;
 extern int MAX_NUMERO_GENERACIONES;
 extern int ALGORITMO;
+extern int DIFERENCIAL;
 extern int CRUCE;
 extern int NUMERO_ELITES;
 extern int KWORST;

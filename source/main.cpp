@@ -36,32 +36,28 @@ void imprimir_informacion_actual(Reloj &reloj_actual, ResultadoT resultado_actua
 
     double coste = poblacion.begin()->get_coste();
     if (coste < mejor_resultado.coste) {
+        mejor_resultado = resultado_actual;
         mejor_resultado.coste = coste;
-        mejor_resultado.kbest = resultado_actual.kbest;
-        mejor_resultado.num_ind = resultado_actual.num_ind;
-        mejor_resultado.semilla = resultado_actual.semilla;
-        mejor_resultado.num_elites = resultado_actual.num_elites;
     }
 
-    if (!ECHO)
-        return;
-
-    cout << BLUE;
-    cout << "\nSemilla: " << resultado_actual.semilla << endl;
-    cout << "Archivo datos: " << archivo << endl;
-    cout << "Numero de individuos: " << resultado_actual.num_ind << endl;
-    cout << "Kbest: " << resultado_actual.kbest << endl;
-    cout << "Num elites: " << resultado_actual.num_elites << std::endl;
-    cout << RESET;
-    cout << "Tiempo de ejecucion: " << reloj_actual.obtener_tiempo_transcurrido(MILISEGUNDOS) << " milisegundos."
-         << endl;
-    cout << YELLOW;
-    cout << "Coste del mejor individuo: " << coste << endl;
-    cout << RESET;
-    cout << "Coste del peor individuo: " << poblacion.at(poblacion.size() - 1).get_coste() << endl;
-    cout << "Numero de generaciones: " << NUM_GENERACIONES_SEMILLA << endl;
-    cout << "Numero de evaluaciones: " << NUM_EVALUACIONES_SEMILLA << endl;
-    cout << "---------------------------------------------------------------------" << endl;
+    if (ECHO) {
+        cout << BLUE;
+        cout << "\nSemilla: " << resultado_actual.semilla << endl;
+        cout << "Archivo datos: " << archivo << endl;
+        cout << "Numero de individuos: " << resultado_actual.num_ind << endl;
+        cout << "Kbest: " << resultado_actual.kbest << endl;
+        cout << "Num elites: " << resultado_actual.num_elites << std::endl;
+        cout << RESET;
+        cout << "Tiempo de ejecucion: " << reloj_actual.obtener_tiempo_transcurrido(MILISEGUNDOS) << " milisegundos."
+             << endl;
+        cout << YELLOW;
+        cout << "Coste del mejor individuo: " << coste << endl;
+        cout << RESET;
+        cout << "Coste del peor individuo: " << poblacion.at(poblacion.size() - 1).get_coste() << endl;
+        cout << "Numero de generaciones: " << NUM_GENERACIONES_SEMILLA << endl;
+        cout << "Numero de evaluaciones: " << NUM_EVALUACIONES_SEMILLA << endl;
+        cout << "---------------------------------------------------------------------" << endl;
+    }
 }
 
 void imprimir_informacion_global(Reloj reloj) {
@@ -103,15 +99,14 @@ void imprimir_informacion_global(Reloj reloj) {
     }
     cout << "\n";
 
-    if (VEC_ARCHIVOS_DATOS.size() < 2) {
-        cout << CYAN;
-        cout << "Mejor coste: " << mejor_resultado.coste << std::endl;
-        cout << "Semilla: " << mejor_resultado.semilla << std::endl;
-        cout << "Numero de individuos: " << mejor_resultado.num_ind << std::endl;
-        cout << "Num kbest: " << mejor_resultado.kbest << std::endl;
-        cout << "Num elites: " << mejor_resultado.num_elites << std::endl;
-        cout << RESET;
-    }
+    cout << CYAN;
+    cout << "Mejor coste: " << mejor_resultado.coste << std::endl;
+    cout << "Semilla: " << mejor_resultado.semilla << std::endl;
+    cout << "Numero de individuos: " << mejor_resultado.num_ind << std::endl;
+    cout << "Num kbest: " << mejor_resultado.kbest << std::endl;
+    cout << "Num elites: " << mejor_resultado.num_elites << std::endl;
+    cout << RESET;
+
     cout << "Tiempo de ejecucion total: " << reloj.obtener_tiempo_transcurrido(MILISEGUNDOS) << " milisegundos\n";
     cout << (MAX_NUMERO_GENERACIONES < MAX_NUM_EVALUACIONES ? "Numero de generaciones maximo: "
                                                             : "Numero de evaluaciones maximo: ")
@@ -136,7 +131,7 @@ void lanzar_evolucion(Poblacion &poblacion) {
         poblacion.evolucion_diferencial();
 }
 
-void ejecutar( LectorCiudades lector_ciudades, const string& archivo_datos) {
+void ejecutar(LectorCiudades lector_ciudades, const string &archivo_datos) {
     for (const int &semilla: VEC_SEMILLAS) {
 
         inicializar_generador_aleatorio(semilla);
