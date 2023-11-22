@@ -28,6 +28,16 @@ void Poblacion::evolucion_generacional() {
     reloj.iniciar();
 
     while (!condicion_parada()) {
+
+        if (LOG) {
+            auto a = individuos;
+            std::sort(a.begin(), a.end());
+            Individuo *mejor = &a[0];
+            Individuo *peor = &a[a.size() - 1];
+            logger->escribir_log_csv(num_evaluaciones, num_generaciones,
+                                     mejor->get_coste(), peor->get_coste(), mejor->get_camino());
+        }
+
         /// Aplicar encontrar_elites: almacenar los "num_elites" mejores individuos
         std::vector<Individuo> elites;
         elites.reserve(num_elites);
@@ -260,7 +270,7 @@ std::vector<int> Poblacion::EDA(Individuo &padre) {
 }
 
 void Poblacion::elegir_diferencial(std::vector<int> &camino_hijo, Individuo &padre) {
-    if (DIFERENCIAL == 0)
+    if (OPERADOR_DIFERENCIAL == 0)
         camino_hijo = EDA(padre);
     else
         camino_hijo = EDB(padre);
@@ -288,6 +298,14 @@ void Poblacion::avanzar_poblacion_diferencial(std::vector<Individuo> &nueva_pobl
         }
     }
 
+    if (LOG) {
+        std::sort(individuos.begin(), individuos.end());
+        Individuo *mejor = &individuos[0];
+        Individuo *peor = &individuos[individuos.size() - 1];
+        logger->escribir_log_csv(num_evaluaciones, num_generaciones,
+                                 mejor->get_coste(), peor->get_coste(), mejor->get_camino());
+    }
+
     num_generaciones++;
     NUM_GENERACIONES_SEMILLA = num_generaciones;
     NUM_EVALUACIONES_SEMILLA = num_evaluaciones;
@@ -310,7 +328,7 @@ void Poblacion::evolucion_diferencial() {
 }
 
 std::vector<int> Poblacion::elegir_cruce(const Individuo &padre1, const Individuo &padre2) {
-    if (CRUCE == 0)
+    if (OPERADOR_CRUCE_GEN == 0)
         return cruceOX2(padre1, padre2);
     else
         return cruceMOC(padre1, padre2);
@@ -455,14 +473,36 @@ Individuo *Poblacion::torneo_kworst() {
 
 Poblacion::~Poblacion() = default;
 
-Poblacion::Poblacion(LectorCiudades &lector_datos, int num_ind, int kb, int elites) : lector_datos(lector_datos) {
+Poblacion::Poblacion(LectorCiudades &lector_datos, int num_ind, int kb, int elites, Logger *a_logger) : lector_datos(
+        lector_datos) {
     num_invididuos = num_ind;
     kbest = kb;
     num_ciudades = lector_datos.get_num_ciudades();
     num_elites = elites;
+    logger = a_logger;
     crear_poblacion();
 }
 
 const std::vector<Individuo> &Poblacion::get_individuos() const {
     return individuos;
+}
+
+int Poblacion::getNumInvididuos() const {
+    return num_invididuos;
+}
+
+int Poblacion::getKbest() const {
+    return kbest;
+}
+
+int Poblacion::getNumElites() const {
+    return num_elites;
+}
+
+int Poblacion::getNumGeneraciones() const {
+    return num_generaciones;
+}
+
+int Poblacion::getNumEvaluaciones() const {
+    return num_evaluaciones;
 }

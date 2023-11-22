@@ -56,11 +56,11 @@ void LectorParametros::leer_parametros() {
     }
 
     if (mapa_parametros.find("cruce") != mapa_parametros.end()) {
-        CRUCE = std::stoi(mapa_parametros["cruce"]);
+        OPERADOR_CRUCE_GEN = std::stoi(mapa_parametros["cruce"]);
     }
 
     if (mapa_parametros.find("diferencial") != mapa_parametros.end()) {
-        DIFERENCIAL = std::stoi(mapa_parametros["diferencial"]);
+        OPERADOR_DIFERENCIAL = std::stoi(mapa_parametros["diferencial"]);
     }
 
     if (mapa_parametros.find("algoritmo") != mapa_parametros.end()) {

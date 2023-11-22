@@ -4,6 +4,7 @@
 #include "LectorParametros.h"
 #include "globals.h"
 #include "Poblacion.h"
+#include "Logger.h"
 
 /// Defs -----------------------------------------------------------------------------------------------------------
 
@@ -131,7 +132,7 @@ void lanzar_evolucion(Poblacion &poblacion) {
         poblacion.evolucion_diferencial();
 }
 
-void ejecutar(LectorCiudades lector_ciudades, const string &archivo_datos) {
+void ejecutar(LectorCiudades &lector_ciudades, const string &archivo_datos) {
     for (const int &semilla: VEC_SEMILLAS) {
 
         inicializar_generador_aleatorio(semilla);
@@ -145,7 +146,9 @@ void ejecutar(LectorCiudades lector_ciudades, const string &archivo_datos) {
                     Reloj reloj_iteracion;
                     reloj_iteracion.iniciar();
 
-                    Poblacion poblacion(lector_ciudades, num, kbest, elite);
+                    Logger logger(num, kbest, elite, semilla);
+
+                    Poblacion poblacion(lector_ciudades, num, kbest, elite, &logger);
 
                     lanzar_evolucion(poblacion);
 
@@ -170,11 +173,8 @@ int main(int argc, char *argv[]) {
     }
 
     Reloj reloj_principal;
-
     reloj_principal.iniciar();
-
     std::string ruta_parametros = argv[1];
-
     LectorParametros lector_parametros(ruta_parametros);
 
     string archivo_datos = VEC_ARCHIVOS_DATOS[0];

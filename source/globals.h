@@ -19,8 +19,8 @@ extern bool STATS;
 extern int MAX_NUM_EVALUACIONES;
 extern int MAX_NUMERO_GENERACIONES;
 extern int ALGORITMO;
-extern int DIFERENCIAL;
-extern int CRUCE;
+extern int OPERADOR_DIFERENCIAL;
+extern int OPERADOR_CRUCE_GEN;
 extern int NUMERO_ELITES;
 extern int KWORST;
 

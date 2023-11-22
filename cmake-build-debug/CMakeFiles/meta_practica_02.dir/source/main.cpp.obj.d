@@ -235,4 +235,5 @@ CMakeFiles/meta_practica_02.dir/source/main.cpp.obj: \
  C:/Users/Administrator/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/mutex \
  C:/Users/Administrator/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_mutex.h \
  C:/Users/Administrator/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_lock.h \
- C:\Users\Administrator\Desktop\meta-practica-02\source\Individuo.h
+ C:\Users\Administrator\Desktop\meta-practica-02\source\Individuo.h \
+ C:\Users\Administrator\Desktop\meta-practica-02\source\Logger.h

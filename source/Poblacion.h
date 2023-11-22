@@ -11,23 +11,39 @@
 #include "LectorCiudades.h"
 #include "globals.h"
 #include "Reloj.h"
+#include "Logger.h"
+
+class Logger;
 
 class Poblacion {
 private:
 
     std::vector<Individuo> individuos;
-    int num_invididuos;
-    int kbest;
-    int num_elites;
-    int num_ciudades;
+    int num_invididuos = 0;
+    int kbest = 0;
+    int num_elites = 0;
+    int num_ciudades = 0;
     int num_generaciones = 0;
     int num_evaluaciones = 0;
     LectorCiudades &lector_datos;
+    Logger *logger;
     Reloj reloj;
 
 public:
 
-    Poblacion(LectorCiudades &lector_datos, int num_ind, int kb, int elites);
+    int getNumInvididuos() const;
+
+    int getKbest() const;
+
+    int getSemilla() const;
+
+    int getNumElites() const;
+
+    int getNumGeneraciones() const;
+
+    int getNumEvaluaciones() const;
+
+    Poblacion(LectorCiudades &lector_datos, int num_ind, int kb, int elites, Logger *logger);
 
     virtual ~Poblacion();
 
