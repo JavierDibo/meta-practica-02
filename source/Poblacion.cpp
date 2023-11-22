@@ -14,7 +14,7 @@ void Poblacion::avanzar_poblacion_generacional(std::vector<Individuo> &nueva_pob
     for (int i = 0; i < num_invididuos; i++) {
         Individuo padre_a = torneo_kbest(kbest);
         Individuo padre_b = torneo_kbest(kbest);
-        std::vector<int> camino_hijo = cruzar(padre_a, padre_b);
+        std::vector<int> camino_hijo = cruce_generacional(padre_a, padre_b);
         Individuo hijo(camino_hijo, lector_datos);
         hijo.mutar();
         num_evaluaciones++;
@@ -179,26 +179,82 @@ void Poblacion::intercambiar(int posicion1, int posicion2, std::vector<int> cami
 std::vector<int> Poblacion::cruce_ternario_diferencial(const Individuo &padre, Individuo &aleatorio_1,
                                                        Individuo &aleatorio_2, Individuo &objetivo) {
 
+    /// Tomo los caminos necesarios
     std::vector<int> camino_hijo = padre.get_camino();
-    std::vector<int> camino_a1 = aleatorio_1.get_camino();
-    // std::vector<int> camino_a2 = aleatorio_2.get_camino();
-    // std::vector<int> camino_o = objetivo.get_camino();
+    std::vector<int> random2 = aleatorio_1.get_camino();
+    std::vector<int> random1 = aleatorio_2.get_camino();
 
-    int tam = static_cast<int>(camino_hijo.size()) - 1;
+    int tam = static_cast<int>(camino_hijo.size());
 
     int indice_aleatorio = get_rand_int(0, tam - 1);
 
-    // intercambiar(indice_aleatorio, indice_aleatorio + 1, camino_hijo);
+    /// Tomo los dos valores ancla del padre
+    int origA = indice_aleatorio, origB = (indice_aleatorio + 1) % tam;
+    intercambiar(origA, origB, camino_hijo);
 
-    int indice_a = camino_hijo[indice_aleatorio];
+    /// Obtengo los valores que se encuentran en los indices
+    int a = camino_hijo[origA];
+    int b = camino_hijo[origB];
 
-    // int valor2 = camino_hijo[indice_aleatorio+1];
+    /// Encuentro los valores en los caminos de los aleatorios
+    auto it1 = std::find(random1.begin(), random1.end(), a);
+    auto it2 = std::find(random2.begin(), random2.end(), b);
 
-    /// Intercambio cruzado del primer valor (indice_a) con camino_a1
+    /// Encuentro los indices de los valores anteriores en los aleatorios
+    int pos_a_en_r1 = static_cast<int>(std::distance(random1.begin(), it1));
+    int pos_b_en_r2 = static_cast<int>(std::distance(random2.begin(), it2));
 
-    for (int i = 0; i < tam; ++i) {
-        if (camino_a1[i] == indice_a) {}
+    /// Intercambio lso valores nuevos por los originales
+    intercambiar(origA, pos_a_en_r1, camino_hijo);
+    intercambiar(origB, pos_b_en_r2, camino_hijo);
+
+    Individuo aux(camino_hijo, lector_datos);
+    aux.evaluar();
+
+    /// Hago el elegir_cruce entre el camino actual y el objetivo
+    camino_hijo = cruceOX2(aux, objetivo);
+
+    return camino_hijo;
+}
+
+std::vector<int> Poblacion::EDB(Individuo &padre) {
+    /// Genero los tres Individuos necesarios para el elegir_cruce
+    Individuo aleatorio_1 = torneo_kbest(2);
+    Individuo aleatorio_2 = torneo_kbest(2);
+    Individuo aleatorio_3 = torneo_kbest(2);
+
+    while (aleatorio_2 == aleatorio_1) {
+        aleatorio_2 = individuo_aleatorio();
     }
+
+    while (aleatorio_3 == aleatorio_2 || aleatorio_3 == aleatorio_1) {
+        aleatorio_3 = individuo_aleatorio();
+    }
+
+    /// Creo el camino para el hijo
+    std::vector<int> camino_hijo;
+    camino_hijo = cruce_ternario_diferencial(padre, aleatorio_2, aleatorio_3, aleatorio_1);
+
+    return camino_hijo;
+}
+
+std::vector<int> Poblacion::EDA(Individuo &padre) {
+    /// Genero los tres Individuos necesarios para el elegir_cruce
+    Individuo objetivo = torneo_kbest(2);
+    Individuo aleatorio_1 = individuo_aleatorio();
+    Individuo aleatorio_2 = individuo_aleatorio();
+
+    while (aleatorio_1 == objetivo) {
+        aleatorio_1 = individuo_aleatorio();
+    }
+
+    while (aleatorio_2 == aleatorio_1 || aleatorio_2 == objetivo) {
+        aleatorio_2 = individuo_aleatorio();
+    }
+
+    /// Creo el camino para el hijo
+    std::vector<int> camino_hijo;
+    camino_hijo = cruce_ternario_diferencial(padre, aleatorio_1, aleatorio_2, objetivo);
 
     return camino_hijo;
 }
@@ -207,22 +263,13 @@ void Poblacion::avanzar_poblacion_diferencial(std::vector<Individuo> &nueva_pobl
 
     for (Individuo &padre: individuos) {
 
-        /// Genero los tres Individuos necesarios para el cruce
-        Individuo objetivo = torneo_kbest(kbest);
-        Individuo aleatorio_1 = individuo_aleatorio();
-        Individuo aleatorio_2 = individuo_aleatorio();
-
-        while (aleatorio_1 == objetivo) {
-            aleatorio_1 = individuo_aleatorio();
-        }
-
-        while (aleatorio_2 == aleatorio_1) {
-            aleatorio_2 = individuo_aleatorio();
-        }
-
-        /// Creo el camino para el hijo
+        /// Realizo el elegir_cruce con dos aleatorios y un objetivo
         std::vector<int> camino_hijo;
-        camino_hijo = cruce_ternario_diferencial(padre, aleatorio_1, aleatorio_2, objetivo);
+        camino_hijo.reserve(num_invididuos);
+        camino_hijo = EDA(padre);
+
+
+
 
         /// Creo y evaluo el hijo
         Individuo hijo(camino_hijo, lector_datos);
@@ -238,9 +285,14 @@ void Poblacion::avanzar_poblacion_diferencial(std::vector<Individuo> &nueva_pobl
     }
 
     num_generaciones++;
+    NUM_GENERACIONES_SEMILLA = num_generaciones;
+    NUM_EVALUACIONES_SEMILLA = num_evaluaciones;
 }
 
 void Poblacion::evolucion_diferencial() {
+
+    reloj.iniciar();
+
     while (!condicion_parada()) {
 
         /// Generar la nueva población
@@ -250,21 +302,23 @@ void Poblacion::evolucion_diferencial() {
 
         /// Reemplazar la población antigua con la nueva
         individuos = nueva_poblacion;
-        num_generaciones++;
     }
 }
 
-std::vector<int> Poblacion::cruzar(const Individuo &padre1, const Individuo &padre2) {
+std::vector<int> Poblacion::elegir_cruce(const Individuo &padre1, const Individuo &padre2) {
+    if (CRUCE == 0)
+        return cruceOX2(padre1, padre2);
+    else
+        return cruceMOC(padre1, padre2);
+}
+
+std::vector<int> Poblacion::cruce_generacional(const Individuo &padre1, const Individuo &padre2) {
     double probabilidad_cruzar = get_rand_double(0.0, 1.0);
 
     if (probabilidad_cruzar < PROBABILIDAD_CRUCE) {
-        if (get_rand_double(0.0, 1.0) < 0.5) { // Elige uno de los dos operadores de cruce
-            return cruceOX2(padre1, padre2);
-        } else {
-            return cruceMOC(padre1, padre2);
-        }
+        return elegir_cruce(padre1, padre2);
     } else {
-        /// Si no hay cruce, devuelve el mejor de los padres
+        /// Si no hay elegir_cruce, devuelve el mejor de los padres
         if (padre1 < padre2) {
             return padre1.get_camino();
         } else {
@@ -348,14 +402,13 @@ std::vector<int> Poblacion::cruceMOC(const Individuo &padre_a, const Individuo &
     return camino_hijo;
 }
 
-// Torneo kbest
-Individuo Poblacion::torneo_kbest(int kbest) {
-    if (kbest > num_invididuos) {
+Individuo Poblacion::torneo_kbest(int num) {
+    if (num > num_invididuos) {
         throw std::runtime_error("KBEST no puede ser mayor que num_invididuos");
     }
 
     std::unordered_set<int> indices_unicos;
-    while (indices_unicos.size() < kbest) {
+    while (indices_unicos.size() < num) {
         int indice;
         do {
             indice = get_rand_int(0, num_invididuos - 1);

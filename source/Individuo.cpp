@@ -59,14 +59,16 @@ bool hasDuplicates(const std::vector<int> &vec) {
 
 void Individuo::evaluar() {
 
-    hasDuplicates(camino);
+    double local_coste = 0.0;
 
-    coste = 0.0;
+#pragma omp parallel for reduction(+:local_coste) default(none) if (PARALELIZACION)
     for (size_t i = 0; i < camino.size() - 1; ++i) {
-        coste += lector_ciudades.calcular_distancia(camino[i], camino[i + 1]);
+        local_coste += lector_ciudades.calcular_distancia(camino[i], camino[i + 1]);
     }
-    coste += lector_ciudades.calcular_distancia(camino.back(), camino.front()); // Cerrar el ciclo
 
+    local_coste += lector_ciudades.calcular_distancia(camino.back(), camino.front());
+
+    coste = local_coste;
     if(coste < 0)
         throw std::bad_alloc();
 }

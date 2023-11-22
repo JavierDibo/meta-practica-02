@@ -16,7 +16,7 @@ using std::endl;
 const std::string YELLOW = "\033[33m";  // Yellow
 const std::string BLUE = "\033[34m";    // Blue
 const std::string RESET = "\033[0m";    // Reset to default color
-const std::string CYAN = "\033[36m";  // Cyan
+const std::string CYAN = "\033[36m";    // Cyan
 
 
 struct ResultadoT {
@@ -117,7 +117,7 @@ void imprimir_informacion_global(Reloj reloj) {
                                                             : "Numero de evaluaciones maximo: ")
          << (MAX_NUMERO_GENERACIONES < MAX_NUM_EVALUACIONES ? MAX_NUMERO_GENERACIONES : MAX_NUM_EVALUACIONES) << "\n";
 
-    cout << "Probabilidad de cruce: " << PROBABILIDAD_CRUCE * 100 << "%\n";
+    cout << "Probabilidad de elegir_cruce: " << PROBABILIDAD_CRUCE * 100 << "%\n";
     cout << "Probabilidad de mutacion: " << PROBABILIDAD_MUTACION * 100 << "%\n";
     cout << "Porcentaje generado por greedy: " << PROBABILIDAD_GREEDY * 100 << "%\n";
 

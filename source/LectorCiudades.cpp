@@ -1,21 +1,14 @@
 #include "LectorCiudades.h"
 
-const std::string MAGENTA = "\033[35m";
-const std::string RESET = "\033[0m";
-
 void mostrar_tiempo_transcurrido(const std::string &nombre_archivo, Reloj &reloj_lector_datos) {
 
     if (ECHO) {
         std::cout << "Tiempo en procesar el archivo " << nombre_archivo << ": "
                   << reloj_lector_datos.obtener_tiempo_transcurrido(MILISEGUNDOS) << " milisegundos." << std::endl;
     }
-
-    std::cout << RESET;
 }
 
 LectorCiudades::LectorCiudades(const std::string &ruta) {
-
-    std::cout << MAGENTA;
 
     Reloj reloj_lector_datos;
 

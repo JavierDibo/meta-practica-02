@@ -8,7 +8,7 @@ Los distintos componentes de este algoritmo son:
 
 - Reemplazamiento que será realizado con el reemplazo de la población completa por la población descendiente. Para conservar el encontrar_elites, si la mejor solución de la generación anterior no sobrevive, sustituye al peor de un torneo de perdedores de la nueva población con kWorst=3.
 
-- Operador de cruce con una probabilidad del 70% se deberán implementar dos operadores el cruce de orden OX2 y el cruce PMX.
+- Operador de elegir_cruce con una probabilidad del 70% se deberán implementar dos operadores el cruce de orden OX2 y el elegir_cruce PMX.
 
 - Operador de mutación con una probabilidad del 10% por individuo será el operador de intercambio 2-opt que hemos empleado en la práctica 1, de forma, que si el individuo debe mutarse se seleccionan aleatoriamente dos posiciones distintas y se intercambian.
 

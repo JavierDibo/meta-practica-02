@@ -22,6 +22,10 @@ log=false
 #datos=pr144.tsp
 datos=d15112.tsp
 
+# Operador de cruce a utilizar
+# ox2: 0    moc: 1
+cruce=0
+
 numero_individuos=100
 max_num_evaluaciones=50000
 max_num_generaciones=0
@@ -38,10 +42,9 @@ probabilidad_greedy=0.2
 # PR144 --> 58,537
 # D15112 --> 1,573,084 --> 1.57308e+6
 
-numero_individuos=50,100
-numero_kbest=2,3
-numero_elites=1,2
-semilla=77646884,47764688,84776468,88477646,68847764
-
-
+# Datos totales a recoger (SOLO PARA GENERACIONAL)
+# numero_individuos=50,100
+# numero_elites=1,2
+# numero_kbest=2,3
+# semilla=77646884,47764688,84776468,88477646,68847764
 
